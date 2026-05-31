@@ -1,0 +1,1125 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aroma Studium — Strategia Digitale & Traffic Building</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500;1,600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --black:#131313;--ink:#1c1c1c;--gold:#b08d4f;--gold-light:#cbab74;
+  --cream:#f7f4ee;--cream-2:#ece5d9;--paper:#fdfbf7;
+  --line:rgba(28,28,28,0.12);--line-soft:rgba(28,28,28,0.07);
+  --serif:'Cormorant Garamond',Georgia,serif;--sans:'Jost',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);font-weight:300;color:var(--ink);background:var(--paper);line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:9999;opacity:0.03;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+.wrap{max-width:1100px;margin:0 auto;padding:0 44px}
+section{padding:118px 0;border-bottom:1px solid var(--line-soft);position:relative}
+h1,h2,h3{font-weight:400;letter-spacing:0.01em}
+
+.rv{opacity:0;transform:translateY(28px);transition:opacity 1s cubic-bezier(.16,1,.3,1),transform 1s cubic-bezier(.16,1,.3,1)}
+.rv.in{opacity:1;transform:none}
+.rv-d1{transition-delay:.08s}.rv-d2{transition-delay:.16s}.rv-d3{transition-delay:.24s}
+
+.wordmark{font-family:var(--sans);font-weight:400;letter-spacing:0.42em;font-size:15px;text-transform:uppercase;display:inline-flex;align-items:center}
+.wordmark .dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--ink);margin:0 1px;transform:translateY(-1px)}
+.wordmark-sub{font-family:var(--serif);font-style:italic;font-weight:400;letter-spacing:0.08em;font-size:13px;color:var(--gold);display:block;margin-top:6px;text-transform:none}
+
+/* SIDE NAV */
+.sidenav{position:fixed;right:30px;top:50%;transform:translateY(-50%);z-index:100;display:flex;flex-direction:column;gap:15px}
+.sidenav a{width:9px;height:9px;border-radius:50%;border:1px solid rgba(28,28,28,0.3);transition:all .3s ease;position:relative}
+.sidenav a:hover,.sidenav a.active{background:var(--gold);border-color:var(--gold);transform:scale(1.3)}
+.sidenav a::after{content:attr(data-label);position:absolute;right:20px;top:50%;transform:translateY(-50%);font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink);white-space:nowrap;opacity:0;transition:opacity .25s ease;pointer-events:none}
+.sidenav a:hover::after{opacity:1}
+.sidenav.on-dark a{border-color:rgba(247,244,238,0.4)}
+.sidenav.on-dark a::after{color:var(--cream)}
+@media(max-width:980px){.sidenav{display:none}}
+
+/* PERCHE callout */
+.perche{display:flex;gap:16px;align-items:flex-start;margin-top:40px;padding:22px 26px;background:rgba(176,141,79,0.06);border-left:2px solid var(--gold);border-radius:0 4px 4px 0;max-width:60ch}
+.perche .pq{font-family:var(--serif);font-style:italic;font-size:13px;letter-spacing:0.04em;color:var(--gold);text-transform:uppercase;flex-shrink:0;padding-top:2px;font-weight:600}
+.perche p{font-size:15px;color:#43423f;font-weight:300;line-height:1.55}
+.perche.on-dark{background:rgba(203,171,116,0.08)}
+.perche.on-dark p{color:rgba(247,244,238,0.82)}
+
+/* COVER */
+.cover{min-height:100vh;display:flex;flex-direction:column;justify-content:space-between;background:var(--black);color:var(--cream);padding:46px 0;border:none;overflow:hidden}
+.cover::before{content:"";position:absolute;width:760px;height:760px;border-radius:50%;background:radial-gradient(circle,rgba(176,141,79,0.16),transparent 65%);top:-220px;right:-180px;animation:float 14s ease-in-out infinite}
+@keyframes float{0%,100%{transform:translate(0,0)}50%{transform:translate(-30px,40px)}}
+.cover .wrap{width:100%;position:relative;z-index:2}
+.cover-top{display:flex;justify-content:space-between;align-items:flex-start}
+.cover .wordmark{color:var(--cream)}.cover .wordmark .dot{background:var(--gold)}
+.cover-badge{font-size:11px;letter-spacing:0.25em;text-transform:uppercase;color:var(--gold-light);border:1px solid rgba(203,171,116,0.4);padding:8px 16px;border-radius:2px}
+.cover-center{flex:1;display:flex;flex-direction:column;justify-content:center;padding:60px 0}
+.emblem{width:64px;height:94px;border:1.5px solid var(--gold);border-radius:40px;display:flex;align-items:center;justify-content:center;margin-bottom:42px;position:relative;animation:embIn 1.4s cubic-bezier(.16,1,.3,1) both}
+.emblem::before{content:"";position:absolute;top:14px;width:5px;height:5px;border-radius:50%;background:var(--gold)}
+.emblem span{font-family:var(--serif);font-style:italic;font-size:42px;color:var(--gold);font-weight:500;margin-top:10px}
+@keyframes embIn{from{opacity:0;transform:translateY(20px) scale(.9)}to{opacity:1;transform:none}}
+.cover h1{font-family:var(--serif);font-size:78px;line-height:1.04;font-weight:400;max-width:15ch}
+.cover h1 .l{display:inline-block;opacity:0;transform:translateY(40px);animation:lineUp 1s cubic-bezier(.16,1,.3,1) both}
+.cover h1 .l:nth-child(2){animation-delay:.15s}
+.cover h1 em{font-style:italic;color:var(--gold-light)}
+@keyframes lineUp{to{opacity:1;transform:none}}
+.cover-lead{font-size:18px;color:rgba(247,244,238,0.7);max-width:52ch;margin-top:34px;animation:fadeIn 1.2s ease .5s both}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+.cover-bottom{display:flex;justify-content:space-between;align-items:flex-end;font-size:12px;letter-spacing:0.18em;text-transform:uppercase;color:rgba(247,244,238,0.5)}
+.cover-bottom .by strong{color:var(--gold-light);font-weight:400}
+.scrollcue{position:absolute;bottom:30px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(247,244,238,0.4)}
+.scrollcue .ln{width:1px;height:36px;background:linear-gradient(var(--gold),transparent);animation:cue 2s ease-in-out infinite}
+@keyframes cue{0%,100%{opacity:.3;transform:scaleY(.6)}50%{opacity:1;transform:scaleY(1)}}
+
+.kicker{font-size:11px;font-weight:400;letter-spacing:0.3em;text-transform:uppercase;color:var(--gold);margin-bottom:26px;display:flex;align-items:center;gap:14px}
+.kicker::before{content:"";width:32px;height:1px;background:var(--gold)}
+.sec-title{font-family:var(--serif);font-size:50px;font-weight:400;line-height:1.08;margin-bottom:28px;max-width:20ch}
+.sec-title em{font-style:italic;color:var(--gold)}
+.lead{font-size:19px;font-weight:300;max-width:60ch;color:#3a3a38}
+.lead.serif{font-family:var(--serif);font-size:26px;line-height:1.45}
+
+/* CONTEXT */
+.context-grid{display:grid;grid-template-columns:1fr 1fr;gap:70px;margin-top:60px;align-items:start}
+.ctx-block h3{font-family:var(--serif);font-style:italic;font-size:25px;margin-bottom:12px;font-weight:500}
+.ctx-block p{font-size:15.5px;color:#43423f;font-weight:300}
+.gap-callout{background:var(--black);color:var(--cream);padding:56px 60px;border-radius:4px;margin-top:70px;position:relative;overflow:hidden}
+.gap-callout::before{content:"";position:absolute;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(176,141,79,0.14),transparent 70%);bottom:-200px;right:-100px}
+.gap-callout .gc-label{font-size:11px;letter-spacing:0.3em;text-transform:uppercase;color:var(--gold-light);margin-bottom:22px;position:relative}
+.gap-callout .gc-text{font-family:var(--serif);font-size:34px;line-height:1.38;max-width:34ch;position:relative}
+.gap-callout .gc-text strong{color:var(--gold-light);font-weight:500;font-style:italic}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);margin-top:64px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.stat{padding:36px 24px;border-right:1px solid var(--line)}
+.stat:last-child{border-right:none}
+.stat .num{font-family:var(--serif);font-size:56px;font-weight:400;color:var(--gold);line-height:1}
+.stat .lbl{font-size:12px;letter-spacing:0.12em;text-transform:uppercase;color:#6a6863;margin-top:12px}
+
+/* JOURNEY */
+.journey-section{background:var(--cream)}
+.journey{margin-top:64px}
+.journey-track{display:flex;justify-content:space-between;position:relative;margin-bottom:52px}
+.journey-track::before{content:"";position:absolute;top:31px;left:5%;right:5%;height:2px;background:var(--cream-2)}
+.journey-track .progress-line{position:absolute;top:31px;left:5%;height:2px;background:var(--gold);width:0;transition:width .6s cubic-bezier(.16,1,.3,1);z-index:1}
+.jnode{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;cursor:pointer;width:18%;text-align:center}
+.jnode .circle{width:64px;height:64px;border-radius:50%;background:var(--paper);border:2px solid var(--cream-2);display:flex;align-items:center;justify-content:center;transition:all .35s cubic-bezier(.16,1,.3,1);margin-bottom:18px}
+.jnode .circle svg{width:26px;height:26px;stroke:#9a978f;fill:none;stroke-width:1.5;transition:stroke .35s ease}
+.jnode.active .circle,.jnode.done .circle{border-color:var(--gold);background:var(--gold)}
+.jnode.active .circle{transform:scale(1.12);box-shadow:0 10px 30px rgba(176,141,79,0.3)}
+.jnode.active .circle svg,.jnode.done .circle svg{stroke:#fff}
+.jnode .step-n{font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);margin-bottom:6px}
+.jnode .step-t{font-size:14px;color:var(--ink);line-height:1.3}
+.jnode.active .step-t{font-weight:500}
+.journey-detail{background:var(--paper);border:1px solid var(--line);border-radius:4px;padding:48px 54px;min-height:190px;display:grid;grid-template-columns:1fr auto;gap:44px;align-items:center}
+.jd-text h3{font-family:var(--serif);font-style:italic;font-size:30px;color:var(--gold);font-weight:500;margin-bottom:14px}
+.jd-text p{font-size:16.5px;color:#3a3a38;font-weight:300;max-width:52ch;line-height:1.6}
+.jd-tag{align-self:start;background:var(--ink);color:var(--cream);font-size:11px;letter-spacing:0.16em;text-transform:uppercase;padding:10px 18px;border-radius:40px;white-space:nowrap}
+.jd-tag span{color:var(--gold-light)}
+.journey-hint{text-align:center;font-size:12px;color:#9a978f;margin-top:22px;letter-spacing:0.04em}
+
+/* STRATEGY */
+.concentrate{margin-top:64px;background:var(--paper);border:1px solid var(--line);border-radius:4px;padding:46px 50px}
+.conc-head{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px;margin-bottom:34px}
+.conc-head h3{font-family:var(--serif);font-style:italic;font-size:25px;font-weight:500}
+.conc-switch{display:inline-flex;background:var(--cream-2);border-radius:40px;padding:4px;gap:4px}
+.conc-switch button{font-family:var(--sans);font-size:13px;padding:9px 20px;border-radius:40px;border:none;background:transparent;color:#6a6863;cursor:pointer;transition:all .3s ease}
+.conc-switch button.active{background:var(--ink);color:var(--cream)}
+.conc-stage{display:grid;grid-template-columns:auto 1fr;gap:48px;align-items:center}
+.conc-viz{width:200px;height:240px;position:relative}
+.conc-viz .italy{width:100%;height:100%;opacity:0.5}
+.conc-dot{position:absolute;border-radius:50%;background:var(--gold);transition:all .7s cubic-bezier(.16,1,.3,1)}
+.conc-desc h4{font-size:17px;font-weight:500;margin-bottom:12px}
+.conc-desc h4 .x{color:#c0392b}.conc-desc h4 .v{color:#27795b}
+.conc-desc p{font-size:15.5px;color:#43423f;font-weight:300;max-width:46ch}
+.phases{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-top:48px}
+.phase{background:var(--paper);border:1px solid var(--line);border-radius:4px;padding:36px 30px;transition:all .4s cubic-bezier(.16,1,.3,1)}
+.phase:hover{border-color:var(--gold);transform:translateY(-6px);box-shadow:0 20px 50px rgba(28,28,28,0.07)}
+.phase .ph-num{font-family:var(--serif);font-style:italic;font-size:20px;color:var(--gold);margin-bottom:14px}
+.phase h3{font-weight:500;font-size:17px;margin-bottom:12px}
+.phase p{font-size:14px;color:#54534f;font-weight:300}
+.phase .ph-tag{margin-top:20px;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold)}
+
+/* PERSONAS */
+.persona-section{background:var(--paper)}
+.personas{margin-top:60px;display:flex;flex-direction:column;gap:18px}
+.persona{border:1px solid var(--line);border-radius:4px;background:var(--paper);transition:all .4s cubic-bezier(.16,1,.3,1);overflow:hidden}
+.persona:hover{border-color:var(--gold)}
+.persona.open{border-color:var(--gold);box-shadow:0 20px 50px rgba(28,28,28,0.07)}
+.persona-bar{display:flex;justify-content:space-between;align-items:center;padding:32px 42px;cursor:pointer;gap:20px}
+.persona-bar-l{display:flex;align-items:baseline;gap:22px;flex-wrap:wrap}
+.persona-name{font-family:var(--serif);font-style:italic;font-size:31px;color:var(--gold);font-weight:500}
+.persona-demo-short{font-size:13.5px;color:#6a6863;font-weight:300}
+.persona-bar-r{display:flex;align-items:center;gap:18px}
+.persona-tag{font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:#8a887f;white-space:nowrap}
+.persona-toggle{width:30px;height:30px;border-radius:50%;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;transition:all .35s ease;flex-shrink:0;position:relative}
+.persona.open .persona-toggle{background:var(--gold);border-color:var(--gold);transform:rotate(45deg)}
+.persona-toggle::before,.persona-toggle::after{content:"";position:absolute;background:var(--ink);transition:background .35s ease}
+.persona-toggle::before{width:11px;height:1.5px}.persona-toggle::after{width:1.5px;height:11px}
+.persona.open .persona-toggle::before,.persona.open .persona-toggle::after{background:#fff}
+.persona-body{max-height:0;overflow:hidden;transition:max-height .5s cubic-bezier(.16,1,.3,1)}
+.persona-inner{padding:0 42px 42px}
+.persona-demo{font-size:14px;color:#54534f;margin-bottom:30px;font-weight:300;border-top:1px solid var(--line);padding-top:26px}
+.persona-demo span{color:var(--gold)}
+.persona-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:36px}
+.pg-col h4{font-size:11px;font-weight:500;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);margin-bottom:16px}
+.pg-col ul{list-style:none}
+.pg-col li{font-size:14px;color:#43423f;font-weight:300;padding:6px 0;padding-left:16px;position:relative;line-height:1.5}
+.pg-col li::before{content:"";position:absolute;left:0;top:13px;width:4px;height:4px;border-radius:50%;background:var(--gold)}
+.persona-msg{margin-top:32px;padding-top:26px;border-top:1px solid var(--line);font-family:var(--serif);font-style:italic;font-size:22px;color:var(--ink);line-height:1.5}
+.persona-msg::before{content:"\201C";color:var(--gold);font-size:32px;vertical-align:-10px;margin-right:4px}
+.persona-channels{margin-top:20px;display:flex;gap:10px;flex-wrap:wrap}
+.chan{font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);border:1px solid rgba(176,141,79,0.4);padding:6px 14px;border-radius:2px}
+
+/* ===== MAP (custom SVG) ===== */
+.map-section{background:var(--black);color:var(--cream)}
+.map-section .kicker{color:var(--gold-light)}
+.map-section .sec-title{color:var(--cream)}
+.map-section .sec-title em{color:var(--gold-light)}
+.map-section .lead{color:rgba(247,244,238,0.65)}
+.map-controls{display:flex;flex-wrap:wrap;gap:10px;margin-top:44px;align-items:center}
+.map-controls .ctrl-label{font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:rgba(247,244,238,0.5);margin-right:4px}
+.filter-pill{font-family:var(--sans);font-weight:400;font-size:12px;letter-spacing:0.04em;color:rgba(247,244,238,0.75);background:rgba(255,255,255,0.04);border:1px solid rgba(247,244,238,0.18);padding:8px 16px;border-radius:40px;cursor:pointer;transition:all .25s ease}
+.filter-pill:hover{border-color:var(--gold-light);color:var(--cream)}
+.filter-pill.active{background:var(--cream);color:var(--ink);border-color:var(--cream)}
+.filter-pill.priority{border-color:rgba(203,171,116,0.5);color:var(--gold-light)}
+.filter-pill.priority.active{background:var(--gold);color:#fff;border-color:var(--gold)}
+.toggle-catchment{margin-left:auto;display:flex;align-items:center;gap:9px;font-size:12px;color:rgba(247,244,238,0.7);cursor:pointer;user-select:none}
+.toggle-catchment .tg{width:38px;height:20px;border-radius:20px;background:rgba(255,255,255,0.1);border:1px solid rgba(247,244,238,0.2);position:relative;transition:all .25s ease}
+.toggle-catchment .tg::after{content:"";position:absolute;top:2px;left:2px;width:14px;height:14px;border-radius:50%;background:#fff;transition:all .25s ease}
+.toggle-catchment.on .tg{background:var(--gold)}.toggle-catchment.on .tg::after{left:19px}
+.catch-caption{margin-top:14px;font-size:13px;color:var(--gold-light);font-style:italic;font-family:var(--serif);max-height:0;overflow:hidden;transition:max-height .4s ease,opacity .4s ease;opacity:0}
+.catch-caption.show{max-height:60px;opacity:1;margin-bottom:4px}
+.map-layout{display:grid;grid-template-columns:1.45fr 1fr;gap:50px;margin-top:34px;align-items:center}
+.map-holder{position:relative}
+#italymap{width:100%;height:auto;display:block;overflow:visible}
+#italymap path.region{stroke:rgba(203,171,116,0.35);stroke-width:0.6;transition:fill .3s ease,stroke .3s ease;cursor:pointer}
+#italymap path.region:hover,#italymap path.region.hl{stroke:var(--gold-light);stroke-width:1.2}
+#italymap path.region.dim{opacity:0.25}
+#italymap circle.city{transition:all .3s ease;cursor:pointer}
+#italymap circle.city.dim{opacity:0.18}
+#italymap circle.catch{opacity:0;transition:opacity .5s ease;pointer-events:none}
+#italymap.show-catch circle.catch{opacity:1}
+#italymap text.catch-lbl{opacity:0;transition:opacity .5s ease;font-family:var(--sans);font-size:9px;letter-spacing:1px;text-transform:uppercase;fill:var(--gold-light)}
+#italymap.show-catch text.catch-lbl{opacity:1}
+.map-tip{position:absolute;pointer-events:none;background:var(--cream);color:var(--ink);border-radius:4px;padding:10px 14px;font-size:12px;opacity:0;transform:translateY(4px);transition:opacity .2s ease,transform .2s ease;z-index:20;white-space:nowrap;box-shadow:0 8px 24px rgba(0,0,0,0.3)}
+.map-tip.show{opacity:1;transform:none}
+.map-tip .t-city{font-weight:500;font-size:13px}
+.map-tip .t-sub{color:#8a887f;font-size:11px;margin-top:2px}
+.map-tip .t-c{color:var(--gold);font-weight:500;margin-top:4px;font-size:12px}
+.region-table h3{font-family:var(--serif);font-style:italic;font-size:22px;margin-bottom:20px;font-weight:500;color:var(--cream)}
+.reg-row{display:grid;grid-template-columns:120px 1fr 26px;align-items:center;gap:12px;margin-bottom:7px;font-size:12.5px;cursor:pointer;transition:all .18s ease;border-radius:3px;padding:4px 8px;margin-left:-8px}
+.reg-row:hover{background:rgba(255,255,255,0.05)}
+.reg-row.active .reg-name{color:var(--gold-light);font-weight:500}
+.reg-name{color:rgba(247,244,238,0.8)}
+.reg-bar-wrap{height:5px;background:rgba(255,255,255,0.08);border-radius:3px;overflow:hidden}
+.reg-bar{height:100%;width:0;background:linear-gradient(90deg,var(--gold-light),var(--gold));border-radius:3px;transition:width 1.1s cubic-bezier(.16,1,.3,1)}
+.reg-count{font-family:var(--serif);font-size:15px;color:var(--gold-light);text-align:right;font-weight:500}
+.map-legend{display:flex;gap:22px;flex-wrap:wrap;align-items:center;margin-top:30px;font-size:12.5px;color:rgba(247,244,238,0.6)}
+.map-legend .lg{display:flex;align-items:center;gap:8px}
+.map-legend .dot{display:inline-block;border-radius:50%;background:var(--gold)}
+.map-legend .sw{display:inline-block;width:20px;height:11px;border-radius:2px;border:1px solid rgba(203,171,116,0.4)}
+
+/* ===== CREATIVE ===== */
+.claims{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:54px}
+.claim-card{border:1px solid var(--line);border-radius:4px;padding:40px 32px 34px;background:var(--paper);transition:all .4s cubic-bezier(.16,1,.3,1);cursor:pointer;position:relative;display:flex;flex-direction:column}
+.claim-card:hover{border-color:var(--gold);transform:translateY(-6px);box-shadow:0 20px 50px rgba(28,28,28,0.07)}
+.claim-card.selected{border-color:var(--gold);border-width:1.5px;background:rgba(176,141,79,0.05)}
+.claim-card.selected::after{content:"Scelto";position:absolute;top:-11px;right:28px;background:var(--gold);color:#fff;font-size:10px;letter-spacing:0.14em;text-transform:uppercase;padding:5px 13px;border-radius:2px}
+.claim-card .cc-opt{font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);margin-bottom:22px}
+.claim-card .cc-claim{font-family:var(--serif);font-size:31px;line-height:1.18;font-weight:500;color:var(--ink);margin-bottom:16px}
+.claim-card .cc-sub{font-size:14px;color:#54534f;font-weight:300;line-height:1.5;margin-bottom:24px;flex:1}
+.claim-card .cc-meta{border-top:1px solid var(--line);padding-top:18px;display:flex;flex-direction:column;gap:10px}
+.claim-card .cc-row{display:flex;gap:12px;align-items:baseline}
+.claim-card .cc-k{color:#9a978f;letter-spacing:0.08em;text-transform:uppercase;font-size:10px;min-width:54px;flex-shrink:0}
+.claim-card .cc-v{color:#43423f;font-size:13px}
+.claim-note{text-align:center;font-size:13px;color:#9a978f;margin-top:32px}
+
+/* ===== ORCHESTRATION ===== */
+.orch-section{background:var(--black);color:var(--cream)}
+.orch-section .kicker{color:var(--gold-light)}
+.orch-section .sec-title{color:var(--cream)}.orch-section .sec-title em{color:var(--gold-light)}
+.orch-section .lead{color:rgba(247,244,238,0.65)}
+.orch-diagram{width:100%;max-width:640px;height:auto;margin:50px auto 0;display:block}
+.orch-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:56px}
+.ocard{border:1px solid rgba(203,171,116,0.22);border-radius:4px;padding:34px 30px;background:rgba(255,255,255,0.02);transition:all .35s ease}
+.ocard:hover{border-color:rgba(203,171,116,0.55);background:rgba(255,255,255,0.04);transform:translateY(-4px)}
+.ocard .oc-icon{font-size:13px;color:var(--gold-light);margin-bottom:12px;letter-spacing:0.1em}
+.ocard h4{font-weight:500;font-size:17px;margin-bottom:4px;color:var(--cream)}
+.ocard .oc-role{font-family:var(--serif);font-style:italic;font-size:16px;color:var(--gold-light);margin-bottom:16px}
+.ocard p{font-size:13.5px;color:rgba(247,244,238,0.75);font-weight:300;line-height:1.6}
+.orch-bridge{margin:48px auto 0;text-align:center;font-family:var(--serif);font-style:italic;font-size:23px;color:rgba(247,244,238,0.82);max-width:46ch;line-height:1.5}
+.orch-bridge strong{color:var(--gold-light);font-weight:500}
+
+/* ===== BUDGET ===== */
+.budget-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:56px}
+.bcard{border:1px solid var(--line);border-radius:4px;padding:40px 32px;background:var(--paper);transition:all .4s cubic-bezier(.16,1,.3,1);position:relative}
+.bcard.featured{border-color:var(--gold);border-width:1.5px}
+.bcard.featured::before{content:"Consigliato per partire";position:absolute;top:-11px;left:32px;background:var(--gold);color:#fff;font-size:10px;letter-spacing:0.16em;text-transform:uppercase;padding:5px 14px;border-radius:2px}
+.bcard:hover{transform:translateY(-6px);box-shadow:0 20px 50px rgba(28,28,28,0.07)}
+.bc-tier{font-size:12px;letter-spacing:0.18em;text-transform:uppercase;color:#6a6863;margin-bottom:14px}
+.bc-total{font-family:var(--serif);font-size:46px;font-weight:500;color:var(--ink);line-height:1}
+.bc-total span{font-size:15px;color:#6a6863}
+.bc-note{font-size:12px;color:#8a887f;margin-top:5px;margin-bottom:22px}
+/* stacked composition bar */
+.bc-stack{display:flex;height:10px;border-radius:5px;overflow:hidden;margin-bottom:8px}
+.bc-stack i{display:block;height:100%}
+.bc-stack .s-adv{background:var(--gold)}
+.bc-stack .s-ugc{background:var(--gold-light)}
+.bc-stack .s-inf{background:#7a6536}
+.bc-legend{display:flex;flex-direction:column;gap:9px;margin-top:18px}
+.bc-li{display:flex;align-items:center;gap:10px;font-size:13px}
+.bc-li .swatch{width:11px;height:11px;border-radius:2px;flex-shrink:0}
+.bc-li .k{color:#54534f;flex:1}
+.bc-li .v{color:var(--ink);font-weight:400}
+.bc-li .sub{color:#9a978f;font-size:11px}
+.bc-scope{margin-top:18px;padding-top:16px;border-top:1px dashed var(--line);font-size:12.5px;color:#6a6863;font-weight:300;line-height:1.5}
+.bc-reach{margin-top:12px;font-size:10.5px;letter-spacing:0.08em;text-transform:uppercase;color:var(--gold)}
+.budget-explain{margin-top:54px;background:var(--paper);border:1px solid var(--line);border-radius:4px;padding:40px 46px;display:grid;grid-template-columns:auto 1fr;gap:44px;align-items:center}
+.be-formula{display:flex;align-items:center;gap:14px;flex-wrap:wrap;font-family:var(--serif)}
+.be-chip{text-align:center}
+.be-chip .bc-sw{width:38px;height:38px;border-radius:8px;margin:0 auto 8px}
+.be-chip .lab{font-family:var(--sans);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:#6a6863}
+.be-op{font-size:28px;color:var(--gold);font-weight:300}
+.be-text h4{font-family:var(--serif);font-style:italic;font-size:23px;margin-bottom:10px;font-weight:500}
+.be-text p{font-size:15px;color:#43423f;font-weight:300;max-width:50ch}
+.budget-disclaimer{font-size:12.5px;color:#8a887f;margin-top:40px;font-weight:300;line-height:1.6;max-width:82ch}
+
+/* ===== MEASUREMENT ===== */
+.measure-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:50px;margin-top:56px}
+.measure-col h3{font-family:var(--serif);font-style:italic;font-size:26px;margin-bottom:18px;font-weight:500}
+.measure-col ul{list-style:none}
+.measure-col li{font-size:15px;color:#43423f;font-weight:300;padding:12px 0;padding-left:26px;position:relative;border-bottom:1px solid var(--line)}
+.measure-col li::before{content:"\2192";position:absolute;left:0;color:var(--gold)}
+
+/* ===== FOOTER ===== */
+.foot{background:var(--black);color:var(--cream);padding:98px 0 78px;border:none;overflow:hidden;position:relative}
+.foot::before{content:"";position:absolute;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(176,141,79,0.12),transparent 65%);top:-250px;left:-150px}
+.foot-grid{display:flex;justify-content:space-between;align-items:flex-start;gap:40px;flex-wrap:wrap;position:relative}
+.foot h2{font-family:var(--serif);font-size:44px;font-weight:400;max-width:18ch;line-height:1.15}
+.foot h2 em{font-style:italic;color:var(--gold-light)}
+.foot .wordmark{color:var(--cream);margin-bottom:18px}.foot .wordmark .dot{background:var(--gold)}
+.foot-by{font-size:12px;letter-spacing:0.18em;text-transform:uppercase;color:rgba(247,244,238,0.5);margin-top:62px}
+.foot-by strong{color:var(--gold-light);font-weight:400}
+
+@media(max-width:860px){
+  .wrap{padding:0 24px}
+  section{padding:74px 0}
+  .cover h1{font-size:44px}.sec-title{font-size:33px}
+  .context-grid,.stats,.phases,.persona-grid,.budget-cards,.measure-grid,.map-layout,.journey-detail,.conc-stage,.claims,.orch-cards,.budget-explain{grid-template-columns:1fr}
+  .stat{border-right:none;border-bottom:1px solid var(--line)}
+  .gap-callout .gc-text{font-size:25px}
+  .journey-track{flex-direction:column;gap:16px;align-items:flex-start}
+  .journey-track::before,.journey-track .progress-line{display:none}
+  .jnode{flex-direction:row;width:100%;gap:14px;text-align:left}
+  .jnode .circle{margin-bottom:0;width:48px;height:48px}
+  .orch-bridge{font-size:19px}.claim-card .cc-claim{font-size:27px}
+  .be-formula{justify-content:center}
+}
+
+/* ===== PERFUME CURSOR ===== */
+@media(hover:hover){body{cursor:none}body a,body button,body .reg-row,body .jnode,body .persona-bar,body .claim-card,body .filter-pill,body .conc-switch button,body .toggle-catchment,body .pf-card,body .bcard{cursor:none}}
+#pcur{position:fixed;top:0;left:0;width:28px;height:34px;pointer-events:none;z-index:10000;transform:translate(-50%,-50%);transition:width .2s ease,height .2s ease,opacity .35s ease;opacity:.9}
+#pcur svg{width:100%;height:100%;display:block;filter:drop-shadow(0 2px 5px rgba(0,0,0,.25))}
+@media(hover:none){#pcur{display:none!important}}
+
+/* ===== BUDGET hover-grow + total reach ===== */
+.bcard .bc-total,.bcard .bc-tier{transition:all .35s cubic-bezier(.16,1,.3,1)}
+.bcard:hover{transform:translateY(-6px) scale(1.025);border-color:var(--gold);box-shadow:0 24px 56px rgba(28,28,28,0.1);z-index:2}
+.bcard:hover .bc-total{font-size:54px;color:var(--gold)}
+.bcard:hover .bc-tier{letter-spacing:0.24em;color:var(--gold)}
+.bc-reach.tot{color:var(--ink);margin-top:5px;font-size:11px;letter-spacing:0;text-transform:none}
+.bc-reach.tot b{color:var(--gold);font-size:13px;font-weight:500}
+.reach-explain{margin-top:34px;background:var(--paper);border:1px solid var(--line);border-radius:4px;padding:40px 46px}
+.reach-explain h4{font-family:var(--serif);font-style:italic;font-size:23px;margin-bottom:6px;font-weight:500}
+.reach-explain .re-sub{font-size:14px;color:#6a6863;font-weight:300;margin-bottom:28px;max-width:60ch}
+.re-bars{display:flex;flex-direction:column;gap:13px;max-width:600px}
+.re-bar{display:grid;grid-template-columns:180px 1fr 80px;align-items:center;gap:14px}
+.re-bar .lbl{font-size:13px;color:#54534f}
+.re-bar .track{height:14px;background:var(--cream-2);border-radius:7px;overflow:hidden}
+.re-bar .fill{height:100%;border-radius:7px;width:0;transition:width 1.1s cubic-bezier(.16,1,.3,1)}
+.re-bar .val{font-family:var(--serif);font-size:18px;color:var(--ink);text-align:right;font-weight:500}
+.re-bar.total{border-top:1px dashed var(--line);padding-top:13px;margin-top:3px}
+.re-bar.total .val{color:var(--gold);font-size:22px}
+
+/* ===== WORK / PORTFOLIO ===== */
+.work-section{background:var(--paper)}
+.pf-sub{font-family:var(--serif);font-style:italic;font-size:30px;color:var(--gold);font-weight:500;margin-top:-14px;margin-bottom:22px}
+.pf-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(255px,1fr));gap:20px;margin-top:50px}
+.pf-card{aspect-ratio:4/3;border-radius:6px;overflow:hidden;position:relative;display:flex;flex-direction:column;justify-content:flex-end;padding:26px;color:#fff;transition:transform .45s cubic-bezier(.16,1,.3,1),box-shadow .45s}
+.pf-card:hover{transform:translateY(-6px);box-shadow:0 24px 56px rgba(28,28,28,0.18)}
+.pf-tag{position:absolute;top:16px;left:16px;font-size:9px;letter-spacing:0.14em;text-transform:uppercase;background:rgba(0,0,0,0.5);backdrop-filter:blur(6px);padding:6px 12px;border-radius:99px;color:#fff;z-index:3}
+.pf-type{position:absolute;top:20px;right:18px;font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.7);z-index:3}
+.pf-card .cap{position:relative;z-index:2}
+.pf-card .cap .big{font-family:var(--serif);font-size:27px;line-height:1.08;font-weight:600}
+.pf-card .cap .small{font-size:13px;margin-top:7px;opacity:0.88;font-weight:300;line-height:1.4}
+.pf-vino{background:radial-gradient(circle at 72% 28%,#7d1f2b,#3a0c12)}
+.pf-pulpito{background:linear-gradient(165deg,#bcd2de,#7c9cae)}
+.pf-natale{background:radial-gradient(circle at 50% 35%,#6e1622,#320910)}
+.pf-meatin{background:linear-gradient(135deg,#ece7df,#d2cabb);color:#1c1c1c}
+.pf-meatin .pf-type{color:rgba(0,0,0,0.5)}
+.pf-alilauro{background:linear-gradient(165deg,#3f7fa8,#83b2cd)}
+
+/* ===== CASE STUDY ===== */
+.case-section{background:var(--black);color:var(--cream)}
+.case-section .kicker{color:var(--gold-light)}
+.case-section .sec-title{color:var(--cream)}.case-section .sec-title em{color:var(--gold-light)}
+.case-intro{display:flex;gap:16px;align-items:baseline;flex-wrap:wrap}
+.case-brand{font-size:12px;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold)}
+.case-bento{display:grid;grid-template-columns:repeat(3,1fr);grid-auto-flow:dense;gap:18px;margin-top:50px}
+.cb{border:1px solid rgba(203,171,116,0.22);border-radius:10px;padding:34px 32px;background:rgba(255,255,255,0.02);transition:all .35s ease;display:flex;flex-direction:column;justify-content:space-between;min-height:150px}
+.cb:hover{border-color:rgba(203,171,116,0.55);background:rgba(255,255,255,0.045);transform:translateY(-4px)}
+.cb .lbl{font-size:12px;letter-spacing:0.12em;text-transform:uppercase;color:rgba(247,244,238,0.6);margin-bottom:24px}
+.cb .num2{font-family:var(--serif);font-size:60px;font-weight:500;color:var(--gold-light);line-height:1}
+.cb.big{grid-row:span 2}
+.cb.big .num2{font-size:82px}
+
+/* ===== TEAM ===== */
+.team-section{background:var(--paper)}
+.team-stats{display:flex;gap:48px;flex-wrap:wrap;margin-top:42px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:28px 0}
+.team-stat .n{font-family:var(--serif);font-size:34px;color:var(--gold);font-weight:500;line-height:1}
+.team-stat .l{font-size:12px;color:#6a6863;margin-top:6px}
+.team-unit{margin-top:46px}
+.unit-h{display:flex;align-items:baseline;gap:14px;margin-bottom:24px}
+.unit-h .city{font-family:var(--serif);font-style:italic;font-size:24px;color:var(--ink);font-weight:500}
+.unit-h .role{font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold)}
+.team-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(128px,1fr));gap:22px}
+.tm .ph{width:100%;aspect-ratio:1;border-radius:8px;object-fit:cover;background:var(--cream-2);filter:grayscale(0.35);transition:filter .35s ease}
+.tm:hover .ph{filter:grayscale(0)}
+.tm .nm{font-size:14px;font-weight:500;margin-top:12px}
+.tm .rl{font-size:11px;color:#8a887f;margin-top:2px}
+
+/* ===== AMERICAN UNCLE ===== */
+.au-section{background:var(--black);color:var(--cream)}
+.au-section .kicker{color:var(--gold-light)}
+.au-section .sec-title{color:var(--cream)}.au-section .sec-title em{color:var(--gold-light)}
+.au-section .lead{color:rgba(247,244,238,0.7)}
+.au-media{display:grid;grid-template-columns:2fr 1fr;gap:18px;margin-top:54px}
+.au-media .m-main{border-radius:10px;overflow:hidden;aspect-ratio:16/10;background:#222}
+.au-media .m-side{display:flex;flex-direction:column;gap:18px}
+.au-media .m-side .mi{border-radius:10px;overflow:hidden;flex:1;background:#222;min-height:120px}
+.au-media img,.au-media video{width:100%;height:100%;object-fit:cover;display:block}
+.au-nums{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:42px}
+.aun{border:1px solid rgba(203,171,116,0.22);border-radius:10px;padding:28px 24px;background:rgba(255,255,255,0.02)}
+.aun .n{font-family:var(--serif);font-size:38px;color:var(--gold-light);font-weight:500;line-height:1}
+.aun .l{font-size:12px;color:rgba(247,244,238,0.65);margin-top:10px;line-height:1.4}
+.au-brands{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:40px}
+.aub{border:1px solid rgba(203,171,116,0.22);border-radius:10px;padding:30px 32px;background:rgba(255,255,255,0.02)}
+.aub .bt{font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
+.aub h4{font-family:var(--serif);font-style:italic;font-size:24px;color:var(--cream);margin-bottom:4px;font-weight:500}
+.aub .u{font-size:13px;color:var(--gold-light);margin-bottom:14px}
+.aub p{font-size:14px;color:rgba(247,244,238,0.7);font-weight:300;line-height:1.55}
+.au-quote{font-family:var(--serif);font-style:italic;font-size:26px;line-height:1.5;color:var(--cream);max-width:48ch;margin:50px auto 0;text-align:center;position:relative}
+.au-quote::before{content:"\201C";color:var(--gold);font-size:34px;vertical-align:-12px;margin-right:4px}
+
+/* ===== METHOD ===== */
+.method-section{background:var(--paper)}
+.method-stats{display:grid;grid-template-columns:repeat(3,1fr);margin-top:48px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.ms{padding:34px 24px;border-right:1px solid var(--line)}
+.ms:last-child{border-right:none}
+.ms .n{font-family:var(--serif);font-size:46px;color:var(--gold);font-weight:500;line-height:1}
+.ms .l{font-size:12px;color:#6a6863;margin-top:10px}
+.method-cols{display:grid;grid-template-columns:1fr 1fr;gap:50px;margin-top:50px}
+.mc h4{font-family:var(--serif);font-style:italic;font-size:24px;margin-bottom:12px;font-weight:500}
+.mc p{font-size:15px;color:#43423f;font-weight:300}
+
+/* ===== PERFUME PORTFOLIO PLACEHOLDER ===== */
+.pp-section{background:var(--black);color:var(--cream)}
+.pp-section .kicker{color:var(--gold-light)}
+.pp-section .sec-title{color:var(--cream)}.pp-section .sec-title em{color:var(--gold-light)}
+.pp-section .lead{color:rgba(247,244,238,0.65)}
+.pp-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:18px;margin-top:48px}
+.ppc{aspect-ratio:3/4;border:1px dashed rgba(203,171,116,0.35);border-radius:10px;display:flex;align-items:center;justify-content:center;color:rgba(203,171,116,0.5);font-family:var(--serif);font-style:italic;font-size:17px;background:rgba(255,255,255,0.015);transition:all .35s ease}
+.ppc:hover{border-color:rgba(203,171,116,0.7);color:var(--gold-light);transform:translateY(-4px)}
+.pp-soon{display:inline-block;margin-top:24px;font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold);border:1px solid rgba(203,171,116,0.4);padding:8px 18px;border-radius:99px}
+
+@media(max-width:860px){
+  .case-bento,.au-nums,.au-brands,.method-stats,.method-cols,.au-media{grid-template-columns:1fr}
+  .cb.big{grid-row:auto}
+  .re-bar{grid-template-columns:110px 1fr 64px;gap:10px}
+  .re-bar .lbl{font-size:11px}
+  .au-media .m-main{aspect-ratio:16/11}
+}
+
+/* ===== PERFUME PORTFOLIO (masonry reale) ===== */
+.ppf-masonry{column-count:3;column-gap:18px;margin-top:48px}
+@media(max-width:900px){.ppf-masonry{column-count:2}}
+@media(max-width:560px){.ppf-masonry{column-count:1}}
+.ppf-item{break-inside:avoid;margin-bottom:18px;border-radius:10px;overflow:hidden;position:relative;display:block;background:#1c1c1c;border:1px solid rgba(203,171,116,0.18)}
+.ppf-item img,.ppf-item video{width:100%;display:block;transition:transform .5s cubic-bezier(.16,1,.3,1)}
+.ppf-item:hover img,.ppf-item:hover video{transform:scale(1.04)}
+.ppf-meta{position:absolute;left:0;right:0;bottom:0;padding:16px 16px 14px;background:linear-gradient(transparent,rgba(0,0,0,0.7));display:flex;justify-content:space-between;align-items:flex-end;gap:10px;opacity:0;transition:opacity .35s ease}
+.ppf-item:hover .ppf-meta{opacity:1}
+.ppf-meta .pm-cap{color:#fff;font-family:var(--serif);font-style:italic;font-size:17px;line-height:1.1}
+.ppf-meta .pm-tag{font-size:9px;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold-light);white-space:nowrap}
+.ppf-badge{position:absolute;top:13px;left:13px;font-size:9px;letter-spacing:0.12em;text-transform:uppercase;background:rgba(0,0,0,0.5);backdrop-filter:blur(6px);padding:5px 11px;border-radius:99px;color:#fff;z-index:2}
+.ppf-play{position:absolute;top:13px;right:13px;width:26px;height:26px;border-radius:50%;background:rgba(203,171,116,0.92);display:flex;align-items:center;justify-content:center;z-index:2}
+.ppf-play::after{content:"";border-left:8px solid #131313;border-top:5px solid transparent;border-bottom:5px solid transparent;margin-left:2px}
+/* video caso studio */
+.case-video{border-radius:12px;overflow:hidden;margin-top:50px;aspect-ratio:16/9;background:#222;border:1px solid rgba(203,171,116,0.2)}
+.case-video video{width:100%;height:100%;object-fit:cover;display:block}
+
+/* AU media strip + pf-card immagini reali */
+.au-strip{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px}
+.au-strip .mi{border-radius:10px;overflow:hidden;aspect-ratio:16/9;background:#222}
+.au-strip img,.au-strip video{width:100%;height:100%;object-fit:cover;display:block}
+.pf-card .pf-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;transition:transform .55s cubic-bezier(.16,1,.3,1)}
+.pf-card:hover .pf-img{transform:scale(1.05)}
+.pf-card.has-img::after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 50%,rgba(0,0,0,0.4));z-index:1}
+</style>
+</head>
+<body>
+<div id="pcur" aria-hidden="true"><svg viewBox="0 0 24 30" xmlns="http://www.w3.org/2000/svg"><rect x="9" y="2" width="6" height="3" rx="1" fill="#b08d4f"/><rect x="10" y="5" width="4" height="3" fill="#b08d4f"/><path d="M7 9.5C7 8.7 7.7 8 8.5 8h7c.8 0 1.5.7 1.5 1.5V25c0 1.7-1.3 3-3 3h-4c-1.7 0-3-1.3-3-3z" fill="#cbab74" stroke="#b08d4f" stroke-width="0.8"/><circle cx="12" cy="17.5" r="3" fill="#fff" fill-opacity="0.35"/></svg></div>
+
+<nav class="sidenav" id="sidenav">
+  <a href="#cover" data-label="Apertura" class="active"></a>
+  <a href="#contesto" data-label="Il contesto"></a>
+  <a href="#viaggio" data-label="Il viaggio del cliente"></a>
+  <a href="#strategia" data-label="La strategia"></a>
+  <a href="#mappa" data-label="La rete"></a>
+  <a href="#personas" data-label="A chi parliamo"></a>
+  <a href="#creativa" data-label="La campagna creativa"></a>
+  <a href="#orchestrazione" data-label="L'orchestrazione"></a>
+  <a href="#budget" data-label="Investimento"></a>
+  <a href="#misura" data-label="Misurazione"></a>
+  <a href="#lavoro" data-label="Il lavoro"></a>
+  <a href="#caso" data-label="Caso studio"></a>
+  <a href="#chisiamo" data-label="Chi siamo"></a>
+</nav>
+
+<section class="cover" id="cover">
+  <div class="wrap">
+    <div class="cover-top">
+      <div class="wordmark">AR<span class="dot"></span>MA STUDIUM<span class="wordmark-sub">artistic fragrances</span></div>
+      <div class="cover-badge">Documento strategico riservato</div>
+    </div>
+    <div class="cover-center">
+      <div class="emblem"><span>A</span></div>
+      <h1><span class="l">Strategia Digitale</span><br><span class="l">&amp; <em>Traffic Building</em></span></h1>
+      <p class="cover-lead">Trasformare una rete di distribuzione consolidata in vendite reali, costruendo il ponte tra il brand e il consumatore finale che oggi manca.</p>
+    </div>
+    <div class="cover-bottom">
+      <div>The Chef Collection &middot; Mercato Italia 2026</div>
+      <div class="by">a cura di <strong>Ribrain Studio</strong></div>
+    </div>
+  </div>
+  <div class="scrollcue"><span>Scorri</span><span class="ln"></span></div>
+</section>
+
+<section id="contesto">
+  <div class="wrap">
+    <div class="kicker rv">Il contesto</div>
+    <h2 class="sec-title rv rv-d1">Il prodotto funziona. <em>Ora serve farlo desiderare.</em></h2>
+    <p class="lead serif rv rv-d2">La sfida non è più entrare nei negozi. È far entrare i clienti nei negozi.</p>
+
+    <div class="stats rv">
+      <div class="stat"><div class="num" data-count="128">0</div><div class="lbl">Profumerie in Italia</div></div>
+      <div class="stat"><div class="num" data-count="18">0</div><div class="lbl">Regioni coperte</div></div>
+      <div class="stat"><div class="num" data-count="186" data-prefix="&euro;">0</div><div class="lbl">Prezzo / 100ml extrait</div></div>
+      <div class="stat"><div class="num" data-count="5">0</div><div class="lbl">Fragranze</div></div>
+    </div>
+
+    <div class="context-grid">
+      <div class="ctx-block rv rv-d1"><h3>Cosa c'è già</h3><p>Distribuzione capillare, prezzo strategico, packaging-oggetto e un concept unico: il ponte tra olfatto e gusto, naso e chef.</p></div>
+      <div class="ctx-block rv rv-d2"><h3>Cosa manca</h3><p>Il brand è ancora poco conosciuto. Oggi nel 99% dei casi è il negoziante a vendere. E il pubblico giovane, che scopre la nicchia sui social, non viene raggiunto.</p></div>
+    </div>
+
+    <div class="gap-callout rv">
+      <div class="gc-label">Il vero spazio di crescita</div>
+      <div class="gc-text">Esiste un pubblico <strong>20-35 anni</strong> che compra nicchia per distinguersi e arriva in negozio già deciso grazie ai social. Oggi non lo raggiungete. È questo il pubblico che andiamo a costruire.</div>
+    </div>
+  </div>
+</section>
+
+<section class="journey-section" id="viaggio">
+  <div class="wrap">
+    <div class="kicker rv">Come funziona, in pratica</div>
+    <h2 class="sec-title rv rv-d1">Il viaggio di <em>una cliente.</em></h2>
+    <p class="lead rv rv-d2">Niente tecnicismi. Ecco cosa succede, tappa dopo tappa, quando attiviamo le campagne. Clicca ogni passaggio.</p>
+    <div class="journey rv rv-d2">
+      <div class="journey-track" id="jtrack">
+        <div class="progress-line" id="jprogress"></div>
+        <div class="jnode active" data-step="0"><div class="circle"><svg viewBox="0 0 24 24"><rect x="6" y="2" width="12" height="20" rx="2"/><line x1="10" y1="18" x2="14" y2="18"/></svg></div><div class="step-n">Tappa 01</div><div class="step-t">Non vi conosce</div></div>
+        <div class="jnode" data-step="1"><div class="circle"><svg viewBox="0 0 24 24"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg></div><div class="step-n">Tappa 02</div><div class="step-t">Vi scopre</div></div>
+        <div class="jnode" data-step="2"><div class="circle"><svg viewBox="0 0 24 24"><path d="M12 21s-7-5.5-7-11a7 7 0 0114 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></div><div class="step-n">Tappa 03</div><div class="step-t">Si incuriosisce</div></div>
+        <div class="jnode" data-step="3"><div class="circle"><svg viewBox="0 0 24 24"><path d="M3 9l1-5h16l1 5"/><path d="M4 9v11h16V9"/><path d="M9 20v-6h6v6"/></svg></div><div class="step-n">Tappa 04</div><div class="step-t">Entra in negozio</div></div>
+        <div class="jnode" data-step="4"><div class="circle"><svg viewBox="0 0 24 24"><path d="M6 2l-3 6v12a2 2 0 002 2h14a2 2 0 002-2V8l-3-6z"/><path d="M3 8h18"/><path d="M16 11a4 4 0 01-8 0"/></svg></div><div class="step-n">Tappa 05</div><div class="step-t">Acquista e torna</div></div>
+      </div>
+      <div class="journey-detail">
+        <div class="jd-text"><h3 id="jd-title">Maria, 32 anni</h3><p id="jd-desc">Ama il design e la buona cucina, segue chef e ristoranti sui social. Compra profumi di nicchia per sentirsi diversa. Non ha mai sentito parlare di Aroma Studium: per lei, il brand non esiste ancora.</p></div>
+        <div class="jd-tag" id="jd-tag">Punto di partenza</div>
+      </div>
+      <div class="journey-hint">Clicca le tappe &middot; ogni tappa corrisponde a un'attività di marketing precisa</div>
+    </div>
+  </div>
+</section>
+
+<section id="strategia">
+  <div class="wrap">
+    <div class="kicker rv">L'approccio</div>
+    <h2 class="sec-title rv rv-d1">Concentrare, non disperdere.</h2>
+    <p class="lead rv rv-d2">128 negozi su 18 regioni. Spalmare il budget ovunque significa non farsi notare da nessuna parte.</p>
+
+    <div class="concentrate rv rv-d2">
+      <div class="conc-head">
+        <h3>Lo stesso budget, due modi di spenderlo</h3>
+        <div class="conc-switch"><button data-mode="spread">Spalmato</button><button class="active" data-mode="focus">Concentrato</button></div>
+      </div>
+      <div class="conc-stage">
+        <div class="conc-viz" id="concViz"></div>
+        <div class="conc-desc" id="concDesc"></div>
+      </div>
+    </div>
+
+    <div class="perche rv"><span class="pq">Perché</span><p>Meglio essere forti e memorabili in 3 città che invisibili in 100. La frequenza, cioè quante volte una persona vede il brand, è ciò che trasforma uno sconosciuto in un cliente.</p></div>
+
+    <div class="phases">
+      <div class="phase rv"><div class="ph-num">Fase 01</div><h3>Pilota sui cluster</h3><p>2-3 aree dense, campagne geolocalizzate, creatività dedicate, landing store-locator. 2-3 mesi.</p><div class="ph-tag">Test &amp; Learn</div></div>
+      <div class="phase rv rv-d1"><div class="ph-num">Fase 02</div><h3>Ottimizzazione</h3><p>Si leggono i dati, si tengono pubblici e contenuti vincenti, primo confronto sul sell-out.</p><div class="ph-tag">Dati alla mano</div></div>
+      <div class="phase rv rv-d2"><div class="ph-num">Fase 03</div><h3>Scala</h3><p>Estensione ai cluster successivi e apertura al target giovane con TikTok e creator.</p><div class="ph-tag">Crescita strutturata</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="map-section" id="mappa">
+  <div class="wrap">
+    <div class="kicker rv">La rete fisica</div>
+    <h2 class="sec-title rv rv-d1">128 profumerie, <em>una mappa da attivare.</em></h2>
+    <p class="lead rv rv-d2">Più una regione è dorata, più profumerie ospita. Da qui nasce la scelta dei cluster su cui concentrare il pilota.</p>
+
+    <div class="map-controls rv rv-d2">
+      <span class="ctrl-label">Filtra</span>
+      <button class="filter-pill active" data-region="all">Tutta Italia</button>
+      <button class="filter-pill priority" data-region="priority">Cluster del pilota</button>
+      <button class="filter-pill" data-region="Lombardia">Lombardia</button>
+      <button class="filter-pill" data-region="Lazio">Lazio</button>
+      <button class="filter-pill" data-region="Puglia">Puglia</button>
+      <button class="filter-pill" data-region="Piemonte">Piemonte</button>
+      <div class="toggle-catchment" id="catchToggle"><span class="tg"></span><span>Mostra raggio annunci</span></div>
+    </div>
+    <div class="catch-caption" id="catchCaption">Il cerchio è la zona, attorno ai negozi, dove mostreremo gli annunci: invece di coprire tutta Italia, concentriamo il budget qui.</div>
+
+    <div class="map-layout">
+      <div class="map-holder rv rv-d2">
+        <div id="mapMount"></div>
+        <div class="map-tip" id="mapTip"></div>
+      </div>
+      <div class="region-table rv rv-d1">
+        <h3>Profumerie per regione</h3>
+        <div class="reg-row" data-region="Lombardia"><span class="reg-name">Lombardia</span><div class="reg-bar-wrap"><div class="reg-bar" data-w="100"></div></div><span class="reg-count">28</span></div>
+<div class="reg-row" data-region="Puglia"><span class="reg-name">Puglia</span><div class="reg-bar-wrap"><div class="reg-bar" data-w="71"></div></div><span class="reg-count">20</span></div>
+<div class="reg-row" data-region="Lazio"><span class="reg-name">Lazio</span><div class="reg-bar-wrap"><div class="reg-bar" data-w="43"></div></div><span class="reg-count">12</span></div>
+<div class="reg-row" data-region="Piemonte"><span class="reg-name">Piemonte</span><div class="reg-bar-wrap"><div class="reg-bar" data-w="39"></div></div><span class="reg-count">11</span></div>
+<div class="reg-row" data-region="Emilia Romagna"><span class="reg-name">Emilia Romagna</span><div class="reg-bar-wrap"><div class="reg-bar" data-w="32"></div></div><span class="reg-count">9</span></div>
+<div class="reg-row" data-region="Abruzzo"><span class="reg-name">Abruzzo</span><div class="reg-bar-wrap"><div class="reg-bar" data-w="29"></div></div><span class="reg-count">8</span></div>
+<div class="reg-row" data-region="Toscana"><span class="reg-name">Toscana</span><div class="reg-bar-wrap"><div class="reg-bar" data-w="29"></div></div><span class="reg-count">8</span></div>
+<div class="reg-row" data-region="Campania"><span class="reg-name">Campania</span><div class="reg-bar-wrap"><div class="reg-bar" data-w="21"></div></div><span class="reg-count">6</span></div>
+<div class="reg-row" data-region="Calabria"><span class="reg-name">Calabria</span><div class="reg-bar-wrap"><div class="reg-bar" data-w="18"></div></div><span class="reg-count">5</span></div>
+<div class="reg-row" data-region="Veneto"><span class="reg-name">Veneto</span><div class="reg-bar-wrap"><div class="reg-bar" data-w="18"></div></div><span class="reg-count">5</span></div>
+<div class="reg-row" data-region="Liguria"><span class="reg-name">Liguria</span><div class="reg-bar-wrap"><div class="reg-bar" data-w="11"></div></div><span class="reg-count">3</span></div>
+<div class="reg-row" data-region="Marche"><span class="reg-name">Marche</span><div class="reg-bar-wrap"><div class="reg-bar" data-w="11"></div></div><span class="reg-count">3</span></div>
+<div class="reg-row" data-region="Friuli Venezia Giulia"><span class="reg-name">Friuli Venezia Giulia</span><div class="reg-bar-wrap"><div class="reg-bar" data-w="7"></div></div><span class="reg-count">2</span></div>
+<div class="reg-row" data-region="Sicilia"><span class="reg-name">Sicilia</span><div class="reg-bar-wrap"><div class="reg-bar" data-w="7"></div></div><span class="reg-count">2</span></div>
+<div class="reg-row" data-region="Trentino Alto Adige"><span class="reg-name">Trentino Alto Adige</span><div class="reg-bar-wrap"><div class="reg-bar" data-w="7"></div></div><span class="reg-count">2</span></div>
+<div class="reg-row" data-region="Umbria"><span class="reg-name">Umbria</span><div class="reg-bar-wrap"><div class="reg-bar" data-w="7"></div></div><span class="reg-count">2</span></div>
+<div class="reg-row" data-region="Basilicata"><span class="reg-name">Basilicata</span><div class="reg-bar-wrap"><div class="reg-bar" data-w="4"></div></div><span class="reg-count">1</span></div>
+<div class="reg-row" data-region="Molise"><span class="reg-name">Molise</span><div class="reg-bar-wrap"><div class="reg-bar" data-w="4"></div></div><span class="reg-count">1</span></div>
+
+      </div>
+    </div>
+    <div class="map-legend">
+      <span class="lg"><span class="sw" style="background:rgba(176,141,79,0.6)"></span>Regione ad alta densità</span>
+      <span class="lg"><span class="sw" style="background:rgba(176,141,79,0.15)"></span>Bassa densità</span>
+      <span class="lg"><span class="dot" style="width:9px;height:9px"></span>città con 1 negozio</span>
+      <span class="lg"><span class="dot" style="width:18px;height:18px"></span>città con più negozi</span>
+    </div>
+  </div>
+</section>
+
+<section class="persona-section" id="personas">
+  <div class="wrap">
+    <div class="kicker rv">A chi parliamo</div>
+    <h2 class="sec-title rv rv-d1">Tre volti, <em>tre strategie.</em></h2>
+    <p class="lead rv rv-d2">Ogni persona ha trigger, paure e leve diverse. Clicca per esplorare.</p>
+    <div class="personas rv rv-d2">
+      <div class="persona open">
+        <div class="persona-bar"><div class="persona-bar-l"><span class="persona-name">La Conoscitrice</span><span class="persona-demo-short">Donna 45-65 &middot; cliente attuale</span></div><div class="persona-bar-r"><span class="persona-tag">Da fidelizzare</span><span class="persona-toggle"></span></div></div>
+        <div class="persona-body"><div class="persona-inner">
+          <div class="persona-demo">Donna <span>45-65 anni</span>, ceto medio-alto. Appassionata di profumi ma non esperta, si affida al consiglio del negoziante.</div>
+          <div class="persona-grid">
+            <div class="pg-col"><h4>Trigger</h4><ul><li>Il racconto del profumiere</li><li>La prova sulla pelle</li><li>Il packaging come oggetto</li><li>La storia degli chef</li></ul></div>
+            <div class="pg-col"><h4>Paure</h4><ul><li>Sbagliare un acquisto costoso</li><li>Un profumo troppo giovane</li><li>Non sentirsi all'altezza</li></ul></div>
+            <div class="pg-col"><h4>Leve</h4><ul><li>Rassicurazione e qualità</li><li>Esclusività accessibile</li><li>Il rito e lo storytelling</li></ul></div>
+          </div>
+          <div class="persona-channels"><span class="chan">Facebook</span><span class="chan">Instagram feed</span><span class="chan">In-store</span></div>
+          <div class="persona-msg">Un'esperienza sensoriale unica, da scoprire in profumeria.</div>
+        </div></div>
+      </div>
+      <div class="persona">
+        <div class="persona-bar"><div class="persona-bar-l"><span class="persona-name">La Distintiva</span><span class="persona-demo-short">20-35 &middot; il target da conquistare</span></div><div class="persona-bar-r"><span class="persona-tag">Priorità</span><span class="persona-toggle"></span></div></div>
+        <div class="persona-body"><div class="persona-inner">
+          <div class="persona-demo">Donna 70% e uomo <span>20-35 anni</span>, urban e iper-connessa. Scopre i brand sui social, arriva in negozio già decisa, compra per distinguersi.</div>
+          <div class="persona-grid">
+            <div class="pg-col"><h4>Trigger</h4><ul><li>Estetica scroll-stopping</li><li>Packaging instagrammabile</li><li>Senso di scoperta</li><li>Il concept naso + chef</li></ul></div>
+            <div class="pg-col"><h4>Paure</h4><ul><li>Profumare come tutti</li><li>Comprare mainstream</li><li>Spendere per l'irriconoscibile</li></ul></div>
+            <div class="pg-col"><h4>Leve</h4><ul><li>Distinzione e status</li><li>Riprova sociale, UGC</li><li>Pochi lo conoscono</li></ul></div>
+          </div>
+          <div class="persona-channels"><span class="chan">Instagram reels</span><span class="chan">TikTok</span><span class="chan">Creator</span></div>
+          <div class="persona-msg">La quarta dimensione olfattiva. Il profumo che nessuno conosce ancora.</div>
+        </div></div>
+      </div>
+      <div class="persona">
+        <div class="persona-bar"><div class="persona-bar-l"><span class="persona-name">L'Esteta Gourmand</span><span class="persona-demo-short">28-45 &middot; pubblico ponte</span></div><div class="persona-bar-r"><span class="persona-tag">Alto valore</span><span class="persona-toggle"></span></div></div>
+        <div class="persona-body"><div class="persona-inner">
+          <div class="persona-demo">Uomo e donna <span>28-45 anni</span>, sensibilità estetica. Ama design, food culture e lifestyle, cerca raffinatezza non cliché.</div>
+          <div class="persona-grid">
+            <div class="pg-col"><h4>Trigger</h4><ul><li>Il ponte gusto-olfatto</li><li>La cucina d'autore</li><li>Le materie prime nobili</li><li>Il design da collezione</li></ul></div>
+            <div class="pg-col"><h4>Paure</h4><ul><li>Il gourmand banale</li><li>Mancanza di autenticità</li><li>Estetica senza sostanza</li></ul></div>
+            <div class="pg-col"><h4>Leve</h4><ul><li>Raffinatezza e artigianalità</li><li>Cultura del gusto</li><li>Il concept come racconto</li></ul></div>
+          </div>
+          <div class="persona-channels"><span class="chan">Instagram</span><span class="chan">Editoriale</span><span class="chan">Partnership food</span></div>
+          <div class="persona-msg">Dove il gusto diventa profumo. Creato da nasi e chef.</div>
+        </div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="creativa">
+  <div class="wrap">
+    <div class="kicker rv">La campagna creativa</div>
+    <h2 class="sec-title rv rv-d1">Tutto parte da <em>una sola idea.</em></h2>
+    <p class="lead rv rv-d2">Un claim che dica in poche parole perché Aroma Studium non somiglia a nessun altro profumo. Da quella frase nasce ogni contenuto. Tre direzioni possibili.</p>
+    <div class="claims">
+      <div class="claim-card rv">
+        <div class="cc-opt">01 &middot; La meraviglia</div>
+        <div class="cc-claim">"Assaggia con il naso."</div>
+        <div class="cc-sub">Olfatto e gusto diventano un solo senso. Un claim che ferma lo scroll perché sembra un paradosso.</div>
+        <div class="cc-meta"><div class="cc-row"><span class="cc-k">Tono</span><span class="cc-v">Provocatorio, curioso</span></div><div class="cc-row"><span class="cc-k">Parla a</span><span class="cc-v">La Distintiva, L'Esteta</span></div></div>
+      </div>
+      <div class="claim-card rv rv-d1">
+        <div class="cc-opt">02 &middot; L'origine</div>
+        <div class="cc-claim">"Nasce in cucina. Vive sulla pelle."</div>
+        <div class="cc-sub">Fragranze create da nasi e chef stellati. Un piatto invisibile, da indossare. Racconta credibilità e desiderio.</div>
+        <div class="cc-meta"><div class="cc-row"><span class="cc-k">Tono</span><span class="cc-v">Narrativo, elegante</span></div><div class="cc-row"><span class="cc-k">Parla a</span><span class="cc-v">La Conoscitrice, L'Esteta</span></div></div>
+      </div>
+      <div class="claim-card rv rv-d2">
+        <div class="cc-opt">03 &middot; La distinzione</div>
+        <div class="cc-claim">"Non per tutti i nasi."</div>
+        <div class="cc-sub">Per chi sceglie, non segue. Fa leva sull'esclusività e sul piacere di conoscere qualcosa prima degli altri.</div>
+        <div class="cc-meta"><div class="cc-row"><span class="cc-k">Tono</span><span class="cc-v">Diretto, identitario</span></div><div class="cc-row"><span class="cc-k">Parla a</span><span class="cc-v">La Distintiva</span></div></div>
+      </div>
+    </div>
+    <p class="claim-note rv">Sceglieremo insieme la direzione &middot; clicca quella che ti convince di più</p>
+  </div>
+</section>
+
+<section class="orch-section" id="orchestrazione">
+  <div class="wrap">
+    <div class="kicker rv">Come si propaga</div>
+    <h2 class="sec-title rv rv-d1">Da un'idea, <em>una macchina.</em></h2>
+    <p class="lead rv rv-d2">Tre motori lavorano insieme, ognuno con un compito, tutti verso la stessa meta: la porta di una profumeria. Guarda l'energia scorrere.</p>
+
+    <svg class="orch-diagram rv rv-d2" viewBox="0 0 680 630" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Schema: il claim si propaga su adv, UGC e influencer, converge sulla landing e arriva alla profumeria">
+      <defs><filter id="oglow" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="2.4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
+      <g fill="none" stroke="rgba(203,171,116,0.28)" stroke-width="1.5">
+        <path id="op1" d="M340,100 C340,154 120,158 120,214"/><path id="op2" d="M340,100 L340,214"/><path id="op3" d="M340,100 C340,154 560,158 560,214"/>
+        <path id="op4" d="M120,304 C120,358 340,360 340,410"/><path id="op5" d="M340,304 L340,410"/><path id="op6" d="M560,304 C560,358 340,360 340,410"/><path id="op7" d="M340,490 L340,526"/>
+      </g>
+      <g fill="#cbab74">
+        <circle r="3.4" filter="url(#oglow)"><animateMotion dur="2.8s" repeatCount="indefinite" begin="0s"><mpath href="#op1"/></animateMotion></circle>
+        <circle r="3.4" filter="url(#oglow)"><animateMotion dur="2.8s" repeatCount="indefinite" begin="0.6s"><mpath href="#op2"/></animateMotion></circle>
+        <circle r="3.4" filter="url(#oglow)"><animateMotion dur="2.8s" repeatCount="indefinite" begin="1.2s"><mpath href="#op3"/></animateMotion></circle>
+        <circle r="3.4" filter="url(#oglow)"><animateMotion dur="2.6s" repeatCount="indefinite" begin="1.6s"><mpath href="#op4"/></animateMotion></circle>
+        <circle r="3.4" filter="url(#oglow)"><animateMotion dur="2.6s" repeatCount="indefinite" begin="2.0s"><mpath href="#op5"/></animateMotion></circle>
+        <circle r="3.4" filter="url(#oglow)"><animateMotion dur="2.6s" repeatCount="indefinite" begin="2.4s"><mpath href="#op6"/></animateMotion></circle>
+        <circle r="3.9" filter="url(#oglow)"><animateMotion dur="1.8s" repeatCount="indefinite" begin="3.0s"><mpath href="#op7"/></animateMotion></circle>
+      </g>
+      <g><rect x="235" y="28" width="210" height="72" rx="9" fill="rgba(176,141,79,0.16)" stroke="#cbab74" stroke-width="1.5"/><text x="340" y="58" text-anchor="middle" font-family="Jost,sans-serif" font-size="10.5" letter-spacing="2.5" fill="#cbab74">IL CLAIM</text><text x="340" y="81" text-anchor="middle" font-family="Cormorant Garamond,serif" font-style="italic" font-size="20" fill="#f7f4ee">La grande idea</text></g>
+      <g><rect x="30" y="214" width="180" height="90" rx="9" fill="rgba(255,255,255,0.03)" stroke="rgba(203,171,116,0.5)" stroke-width="1.2"/><text x="120" y="252" text-anchor="middle" font-family="Jost,sans-serif" font-size="13" font-weight="500" fill="#f7f4ee">ADV Meta + TikTok</text><text x="120" y="277" text-anchor="middle" font-family="Cormorant Garamond,serif" font-style="italic" font-size="16" fill="#cbab74">il motore</text></g>
+      <g><rect x="250" y="214" width="180" height="90" rx="9" fill="rgba(255,255,255,0.03)" stroke="rgba(203,171,116,0.5)" stroke-width="1.2"/><text x="340" y="252" text-anchor="middle" font-family="Jost,sans-serif" font-size="13" font-weight="500" fill="#f7f4ee">UGC Creator</text><text x="340" y="277" text-anchor="middle" font-family="Cormorant Garamond,serif" font-style="italic" font-size="16" fill="#cbab74">la voce autentica</text></g>
+      <g><rect x="470" y="214" width="180" height="90" rx="9" fill="rgba(255,255,255,0.03)" stroke="rgba(203,171,116,0.5)" stroke-width="1.2"/><text x="560" y="252" text-anchor="middle" font-family="Jost,sans-serif" font-size="12.5" font-weight="500" fill="#f7f4ee">Micro-Influencer</text><text x="560" y="277" text-anchor="middle" font-family="Cormorant Garamond,serif" font-style="italic" font-size="16" fill="#cbab74">la fiducia</text></g>
+      <g><rect x="225" y="410" width="230" height="80" rx="9" fill="rgba(176,141,79,0.1)" stroke="#cbab74" stroke-width="1.4"/><text x="340" y="445" text-anchor="middle" font-family="Jost,sans-serif" font-size="12.5" font-weight="500" fill="#f7f4ee">Landing &middot; Store-locator</text><text x="340" y="468" text-anchor="middle" font-family="Cormorant Garamond,serif" font-style="italic" font-size="16" fill="#cbab74">il ponte</text></g>
+      <g><rect x="262" y="526" width="156" height="66" rx="9" fill="#cbab74" stroke="#cbab74"/><text x="340" y="557" text-anchor="middle" font-family="Jost,sans-serif" font-size="12.5" font-weight="500" fill="#131313">PROFUMERIA</text><text x="340" y="578" text-anchor="middle" font-family="Cormorant Garamond,serif" font-style="italic" font-size="15" fill="#4a3c1f">il traguardo</text></g>
+    </svg>
+
+    <div class="orch-cards">
+      <div class="ocard rv"><div class="oc-icon">&#9673;</div><h4>ADV Meta + TikTok</h4><div class="oc-role">il motore</div><p>Porta il claim davanti alle persone giuste, solo nei cluster scelti, e le re-ingaggia. Decide chi vede cosa, dove e quante volte.</p></div>
+      <div class="ocard rv rv-d1"><div class="oc-icon">&#9673;</div><h4>UGC Creator</h4><div class="oc-role">la voce autentica</div><p>Creator reali girano video che mostrano e spiegano le fragranze come un amico. Gli stessi video diventano le creatività delle campagne.</p></div>
+      <div class="ocard rv rv-d2"><div class="oc-icon">&#9673;</div><h4>Micro-Influencer</h4><div class="oc-role">la fiducia</div><p>Voci di nicchia raccontano una fragranza ciascuno, amplificano il claim e invitano: trova la profumeria e vai a provarlo.</p></div>
+    </div>
+    <p class="orch-bridge rv">Tre motori, un'unica direzione: <strong>la porta di una profumeria.</strong></p>
+  </div>
+</section>
+
+<section id="budget">
+  <div class="wrap">
+    <div class="kicker rv">Investimento</div>
+    <h2 class="sec-title rv rv-d1">Tre livelli per <em>iniziare.</em></h2>
+    <p class="lead rv rv-d2">Pubblicità, contenuti e influencer in un unico piano mensile, tarato su un brand di nicchia alla prima attività strutturata. Modulare: si parte, si misura, si cresce.</p>
+
+    <div class="budget-cards">
+      <div class="bcard rv">
+        <div class="bc-tier">Primo Passo</div>
+        <div class="bc-total">~2.400&euro;<span>/mese</span></div>
+        <div class="bc-note">indicativo, esclusa fee Ribrain</div>
+        <div class="bc-stack"><i class="s-adv" style="width:62%"></i><i class="s-ugc" style="width:25%"></i><i class="s-inf" style="width:13%"></i></div>
+        <div class="bc-legend">
+          <div class="bc-li"><span class="swatch" style="background:var(--gold)"></span><span class="k">ADV Meta + test TikTok</span><span class="v">1.500&euro;</span></div>
+          <div class="bc-li"><span class="swatch" style="background:var(--gold-light)"></span><span class="k">Contenuti UGC <span class="sub">3-4 video</span></span><span class="v">~600&euro;</span></div>
+          <div class="bc-li"><span class="swatch" style="background:#7a6536"></span><span class="k">Micro-influencer <span class="sub">1-2</span></span><span class="v">~300&euro;</span></div>
+        </div>
+        <div class="bc-scope">1 claim, 1-2 fragranze, 1-2 cluster.</div>
+        <div class="bc-reach">Reach media ~38.000 &middot; ~1.600 click</div>
+        <div class="bc-reach tot">+ influencer e contenuti = <b>~58.000 persone</b></div>
+      </div>
+      <div class="bcard rv rv-d1">
+        <div class="bc-tier">Crescita</div>
+        <div class="bc-total">~5.000&euro;<span>/mese</span></div>
+        <div class="bc-note">indicativo, esclusa fee Ribrain</div>
+        <div class="bc-stack"><i class="s-adv" style="width:60%"></i><i class="s-ugc" style="width:24%"></i><i class="s-inf" style="width:16%"></i></div>
+        <div class="bc-legend">
+          <div class="bc-li"><span class="swatch" style="background:var(--gold)"></span><span class="k">ADV Meta + TikTok</span><span class="v">3.000&euro;</span></div>
+          <div class="bc-li"><span class="swatch" style="background:var(--gold-light)"></span><span class="k">Contenuti UGC <span class="sub">6-8 video</span></span><span class="v">~1.200&euro;</span></div>
+          <div class="bc-li"><span class="swatch" style="background:#7a6536"></span><span class="k">Micro-influencer <span class="sub">3-4</span></span><span class="v">~800&euro;</span></div>
+        </div>
+        <div class="bc-scope">Claim completo, 3 fragranze, 2-3 cluster.</div>
+        <div class="bc-reach">Reach media ~78.000 &middot; ~3.250 click</div>
+        <div class="bc-reach tot">+ influencer e contenuti = <b>~122.000 persone</b></div>
+      </div>
+      <div class="bcard rv rv-d2">
+        <div class="bc-tier">Accelerazione</div>
+        <div class="bc-total">~8.500&euro;<span>/mese</span></div>
+        <div class="bc-note">indicativo, esclusa fee Ribrain</div>
+        <div class="bc-stack"><i class="s-adv" style="width:59%"></i><i class="s-ugc" style="width:21%"></i><i class="s-inf" style="width:20%"></i></div>
+        <div class="bc-legend">
+          <div class="bc-li"><span class="swatch" style="background:var(--gold)"></span><span class="k">ADV Meta + TikTok</span><span class="v">5.000&euro;</span></div>
+          <div class="bc-li"><span class="swatch" style="background:var(--gold-light)"></span><span class="k">Contenuti UGC <span class="sub">10-12 video</span></span><span class="v">~1.800&euro;</span></div>
+          <div class="bc-li"><span class="swatch" style="background:#7a6536"></span><span class="k">Micro-influencer <span class="sub">5-6 + 1 mid</span></span><span class="v">~1.700&euro;</span></div>
+        </div>
+        <div class="bc-scope">Tutte le fragranze, 4-5 cluster.</div>
+        <div class="bc-reach">Reach media ~130.000 &middot; ~5.450 click</div>
+        <div class="bc-reach tot">+ influencer e contenuti = <b>~225.000 persone</b></div>
+      </div>
+    </div>
+
+    <div class="budget-explain rv">
+      <div class="be-formula">
+        <div class="be-chip"><div class="bc-sw" style="background:var(--gold)"></div><div class="lab">Pubblicità</div></div>
+        <span class="be-op">+</span>
+        <div class="be-chip"><div class="bc-sw" style="background:var(--gold-light)"></div><div class="lab">Contenuti UGC</div></div>
+        <span class="be-op">+</span>
+        <div class="be-chip"><div class="bc-sw" style="background:#7a6536"></div><div class="lab">Influencer</div></div>
+        <span class="be-op">=</span>
+        <div class="be-chip"><div class="bc-sw" style="background:var(--ink)"></div><div class="lab">Totale mese</div></div>
+      </div>
+      <div class="be-text">
+        <h4>Da dove esce il numero?</h4>
+        <p>Ogni livello somma tre voci distinte: lo spazio pubblicitario pagato a Meta e TikTok, i video prodotti dai creator, e i compensi dei micro-influencer. Esempio Primo Passo: 1.500 di adv + 600 di contenuti + 300 di influencer = circa 2.400&euro;.</p>
+      </div>
+    </div>
+
+    <div class="reach-explain rv">
+      <h4>Quante persone raggiungiamo davvero?</h4>
+      <div class="re-sub">La portata non è solo la pubblicità: si somma quella di influencer e contenuti. Esempio sul livello Crescita.</div>
+      <div class="re-bars" id="reBars">
+        <div class="re-bar"><span class="lbl">Pubblicità Meta+TikTok</span><div class="track"><div class="fill" data-w="64" style="background:var(--gold)"></div></div><span class="val">78.000</span></div>
+        <div class="re-bar"><span class="lbl">Micro-influencer</span><div class="track"><div class="fill" data-w="26" style="background:var(--gold-light)"></div></div><span class="val">32.000</span></div>
+        <div class="re-bar"><span class="lbl">Contenuti UGC &amp; organico</span><div class="track"><div class="fill" data-w="10" style="background:#7a6536"></div></div><span class="val">12.000</span></div>
+        <div class="re-bar total"><span class="lbl">Portata totale stimata</span><div class="track"><div class="fill" data-w="100" style="background:linear-gradient(90deg,var(--gold-light),var(--gold))"></div></div><span class="val">~122.000</span></div>
+      </div>
+    </div>
+
+    <div class="perche rv"><span class="pq">Perché</span><p>Lavorando in barter, cioè dando prodotto in cambio di contenuti, le voci UGC e influencer possono costare molto meno: per un brand giovane è la leva più intelligente per partire leggeri.</p></div>
+
+    <p class="budget-disclaimer rv">Cifre indicative e modulari, al netto della fee di gestione Ribrain. I costi di contenuti e influencer variano in base ai profili e al barter. I dati di reach derivano dalla sola quota media su benchmark di settore 2025-2026 e non costituiscono garanzia di vendite.</p>
+  </div>
+</section>
+
+<section id="misura">
+  <div class="wrap">
+    <div class="kicker rv">Misurazione</div>
+    <h2 class="sec-title rv rv-d1">Onestà sui numeri.</h2>
+    <p class="lead rv rv-d2">Attribuire una vendita fisica a una campagna digitale non è tracciabile in modo pulito. Lavoriamo su proxy affidabili, senza promettere ciò che non si può misurare.</p>
+    <div class="measure-grid">
+      <div class="measure-col rv"><h3>Cosa misuriamo davvero</h3><ul><li>Reach e frequenza nei cluster attivati</li><li>Visite alla landing store-locator</li><li>Click su "indicazioni" verso i negozi</li><li>Crescita e qualità del pubblico social</li><li>Costo per click e per risultato</li></ul></div>
+      <div class="measure-col rv rv-d1"><h3>Il segnale di business</h3><ul><li>Sell-out cluster attivati vs cluster di controllo</li><li>Riscontro dai negozi: più richieste del brand</li><li>Variazione dei riordini nelle aree presidiate</li><li>Andamento nel tempo, non sul singolo spot</li></ul></div>
+    </div>
+    <div class="perche rv"><span class="pq">Perché</span><p>Un'agenzia onesta non promette "vendite garantite da Meta": promette di portare le persone giuste fino alla porta, e di misurare ogni passo di quel percorso.</p></div>
+  </div>
+</section>
+
+<!-- COME LAVORIAMO + PORTFOLIO -->
+<section class="work-section" id="lavoro">
+  <div class="wrap">
+    <div class="kicker rv">Il lavoro</div>
+    <h2 class="sec-title rv rv-d1">Una selezione.</h2>
+    <div class="pf-sub rv rv-d1">Formato, voce, identità visiva.</div>
+    <p class="lead rv rv-d2">Ogni brand ha un modo di essere nello spazio digitale. Foto editoriali, reel, grafiche, caption: non template, non batch.</p>
+    <div class="pf-grid">
+      <div class="pf-card has-img rv"><img class="pf-img" src="https://raw.githubusercontent.com/michele-riccio/bzarhotel/main/portfolio/feed-pulpito-dizionario-alilauro.png" alt="Alilauro pulpito" loading="lazy"><span class="pf-tag">Alilauro</span><span class="pf-type">Feed</span></div>
+      <div class="pf-card has-img rv rv-d1"><img class="pf-img" src="https://raw.githubusercontent.com/michele-riccio/bzarhotel/main/portfolio/Feste-Natalizie-2018_Vitigno.png" alt="Vitigno Italia Natale" loading="lazy"><span class="pf-tag">Vitigno Italia</span><span class="pf-type">Stagionale</span></div>
+      <div class="pf-card has-img rv rv-d2"><img class="pf-img" src="https://raw.githubusercontent.com/michele-riccio/bzarhotel/main/portfolio/PS_Piatto_1-22_Meatin%20(1).jpg" alt="Meatin food styling" loading="lazy"><span class="pf-tag">Meatin</span><span class="pf-type">Foto</span></div>
+      <div class="pf-card has-img rv"><img class="pf-img" src="https://raw.githubusercontent.com/michele-riccio/bzarhotel/main/portfolio/1-itabus-alilauro.png" alt="Alilauro x Itabus" loading="lazy"><span class="pf-tag">Alilauro</span><span class="pf-type">Partnership</span></div>
+      <div class="pf-card has-img rv rv-d1"><img class="pf-img" src="https://raw.githubusercontent.com/michele-riccio/bzarhotel/main/portfolio/1_Stories_VinoeDesign_Vitigno.png" alt="Vitigno vino e design" loading="lazy"><span class="pf-tag">Vitigno Italia</span><span class="pf-type">Feed</span></div>
+      <div class="pf-card has-img rv rv-d2"><img class="pf-img" src="https://raw.githubusercontent.com/michele-riccio/bzarhotel/main/portfolio/2_Positano_postDiariDalSud_Imperatore.png" alt="Imperatore Diari dal Sud" loading="lazy"><span class="pf-tag">Imperatore Travel</span><span class="pf-type">Feed</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- CASO STUDIO BERNA -->
+<section class="case-section" id="caso">
+  <div class="wrap">
+    <div class="kicker rv">Caso studio</div>
+    <div class="case-intro rv rv-d1"><h2 class="sec-title" style="margin-bottom:8px">Pop-up Store <em>Latte Berna.</em></h2></div>
+    <p class="lead rv rv-d2"><span class="case-brand">Gruppo Parmalat</span> &nbsp; Un'attivazione che ha unito esperienza fisica e amplificazione digitale: un pop-up store trasformato in evento, con il racconto social a moltiplicarne la portata.</p>
+    <div class="case-video rv rv-d2"><video src="https://raw.githubusercontent.com/michele-riccio/aroma/main/portfolio/cs-berna.mp4" autoplay muted loop playsinline preload="metadata"></video></div>
+    <div class="case-bento">
+      <div class="cb rv"><div class="lbl">Interazioni</div><div class="num2" data-count="1.5" data-dec="1" data-suf=" mln">0</div></div>
+      <div class="cb big rv rv-d1"><div class="lbl">Impression</div><div class="num2" data-count="20" data-suf=" mln">0</div></div>
+      <div class="cb rv rv-d2"><div class="lbl">Degustazioni</div><div class="num2" data-count="9" data-suf="k">0</div></div>
+      <div class="cb rv"><div class="lbl">Utenti raggiunti</div><div class="num2" data-count="3" data-suf=" mln">0</div></div>
+      <div class="cb rv rv-d2"><div class="lbl">Visite al Pop-Up</div><div class="num2" data-count="12" data-suf="k">0</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CHI SIAMO RIBRAIN -->
+<section class="team-section" id="chisiamo">
+  <div class="wrap">
+    <div class="kicker rv">Chi siamo</div>
+    <h2 class="sec-title rv rv-d1">Ribrain Studio.</h2>
+    <p class="lead rv rv-d2">Due unità, un solo team. La strategia nasce a Napoli, la produzione foto e video a Roma. Lo stesso gruppo, stabile per tutta la durata del progetto: nessun handover, nessun freelance volante.</p>
+    <div class="team-stats rv">
+      <div class="team-stat"><div class="n">13</div><div class="l">persone dedicate</div></div>
+      <div class="team-stat"><div class="n">2</div><div class="l">unità: Napoli + Roma</div></div>
+      <div class="team-stat"><div class="n">24</div><div class="l">mesi di stabilità del team</div></div>
+    </div>
+
+    <div class="team-unit rv">
+      <div class="unit-h"><span class="city">Napoli</span><span class="role">Strategia &amp; Always-on</span></div>
+      <div class="team-grid">
+        <div class="tm"><img class="ph" src="https://raw.githubusercontent.com/michele-riccio/bzarhotel/main/team/michele%20-%20ceo.png" alt="Michele" loading="lazy"><div class="nm">Michele</div><div class="rl">CEO</div></div>
+        <div class="tm"><img class="ph" src="https://raw.githubusercontent.com/michele-riccio/bzarhotel/main/team/pasquale%20-%20ceo.png" alt="Pasquale" loading="lazy"><div class="nm">Pasquale</div><div class="rl">CEO</div></div>
+        <div class="tm"><img class="ph" src="https://raw.githubusercontent.com/michele-riccio/bzarhotel/main/team/angelo%20-%20project%20manager.png" alt="Angelo" loading="lazy"><div class="nm">Angelo</div><div class="rl">Project Manager</div></div>
+        <div class="tm"><img class="ph" src="https://raw.githubusercontent.com/michele-riccio/bzarhotel/main/team/lina%20-%20project%20manager.png" alt="Lina" loading="lazy"><div class="nm">Lina</div><div class="rl">Project Manager</div></div>
+        <div class="tm"><img class="ph" src="https://raw.githubusercontent.com/michele-riccio/bzarhotel/main/team/domi%20-%20copy.png" alt="Domi" loading="lazy"><div class="nm">Domi</div><div class="rl">Copy</div></div>
+        <div class="tm"><img class="ph" src="https://raw.githubusercontent.com/michele-riccio/bzarhotel/main/team/francy%20-%20art.png" alt="Francy" loading="lazy"><div class="nm">Francy</div><div class="rl">Art Director</div></div>
+        <div class="tm"><img class="ph" src="https://raw.githubusercontent.com/michele-riccio/bzarhotel/main/team/Anna%20-%20social%20media%20.png" alt="Anna" loading="lazy"><div class="nm">Anna</div><div class="rl">Social Media</div></div>
+        <div class="tm"><img class="ph" src="https://raw.githubusercontent.com/michele-riccio/bzarhotel/main/team/salvio%20-%20adv%20specialist.png" alt="Salvio" loading="lazy"><div class="nm">Salvio</div><div class="rl">TikTok Lift</div></div>
+        <div class="tm"><img class="ph" src="https://raw.githubusercontent.com/michele-riccio/bzarhotel/main/team/onofrio%20-%20dev.png" alt="Onofrio" loading="lazy"><div class="nm">Onofrio</div><div class="rl">Dev</div></div>
+      </div>
+    </div>
+
+    <div class="team-unit rv">
+      <div class="unit-h"><span class="city">Roma</span><span class="role">Snacky Agency &middot; Produzione</span></div>
+      <div class="team-grid">
+        <div class="tm"><img class="ph" src="https://raw.githubusercontent.com/michele-riccio/bzarhotel/main/team/fede%20-%20designer.png" alt="Fede" loading="lazy"><div class="nm">Fede</div><div class="rl">Designer</div></div>
+        <div class="tm"><img class="ph" src="https://raw.githubusercontent.com/michele-riccio/bzarhotel/main/team/stefano%20-%20motion%20designer.png" alt="Stefano" loading="lazy"><div class="nm">Stefano</div><div class="rl">Motion Designer</div></div>
+        <div class="tm"><img class="ph" src="https://raw.githubusercontent.com/michele-riccio/bzarhotel/main/team/cristiano%20-%20videomaker.png" alt="Cristiano" loading="lazy"><div class="nm">Cristiano</div><div class="rl">Videomaker</div></div>
+        <div class="tm"><img class="ph" src="https://raw.githubusercontent.com/michele-riccio/bzarhotel/main/team/vittorio%20-%20fotografo.png" alt="Vittorio" loading="lazy"><div class="nm">Vittorio</div><div class="rl">Fotografo</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AMERICAN UNCLE -->
+<section class="au-section" id="americanuncle">
+  <div class="wrap">
+    <div class="kicker rv">Lo facciamo anche su noi stessi</div>
+    <h2 class="sec-title rv rv-d1">American Uncle.</h2>
+    <p class="lead rv rv-d2">Un gruppo consumer-food che abbiamo costruito da zero: sede fisica, team proprietario, due brand su due mercati. Ogni cosa che vi suggeriamo di fare, l'abbiamo già decisa su noi stessi, con i nostri soldi, prima di sederci a questo tavolo.</p>
+
+    <div class="au-media rv rv-d2">
+      <div class="m-main"><video src="https://americanuncle.it/cdn/shop/videos/c/vp/b0e6842543c64b9c8257857ad1a02fca/b0e6842543c64b9c8257857ad1a02fca.HD-1080p-3.3Mbps-82080850.mp4?v=0" autoplay muted loop playsinline preload="metadata"></video></div>
+      <div class="m-side">
+        <div class="mi"><img src="https://americanuncle.it/cdn/shop/files/Gif_Team_Chi_Siamo.gif?v=1717423001&width=1080" alt="Il team American Uncle al lavoro" loading="lazy" onerror="this.style.opacity=0"></div>
+        <div class="mi"><img src="https://raw.githubusercontent.com/michele-riccio/bzarhotel/main/AU/au1.jpg" alt="American Uncle" loading="lazy" onerror="this.style.opacity=0"></div>
+      </div>
+    </div>
+    <div class="au-strip rv">
+      <div class="mi"><img src="https://americanuncle.it/cdn/shop/files/Foto_Franchising_2.jpg?v=1776417005" alt="Franchising American Uncle" loading="lazy" onerror="this.style.opacity=0"></div>
+      <div class="mi"><video src="https://americanuncle.it/cdn/shop/videos/c/vp/e0c5e441f4cd4f00b149f2d8e51852a4/e0c5e441f4cd4f00b149f2d8e51852a4.HD-1080p-3.3Mbps-82080851.mp4?v=0" autoplay muted loop playsinline preload="metadata"></video></div>
+    </div>
+
+    <div class="au-nums rv">
+      <div class="aun"><div class="n">+350K</div><div class="l">Clienti attivi sull'e-commerce</div></div>
+      <div class="aun"><div class="n">+500K</div><div class="l">Ordini spediti con logistica propria</div></div>
+      <div class="aun"><div class="n">+300K</div><div class="l">Iscritti newsletter in organico</div></div>
+      <div class="aun"><div class="n">+1M</div><div class="l">Follower senza un solo annuncio acquistato</div></div>
+    </div>
+
+    <div class="au-brands rv">
+      <div class="aub"><div class="bt">B2C &middot; Consumer</div><h4>American Uncle</h4><div class="u">americanuncle.it</div><p>E-commerce di snack e caramelle americane per i consumatori finali. Leader di categoria in Italia per assortimento e volume di ordini.</p></div>
+      <div class="aub"><div class="bt">B2B &middot; Wholesale</div><h4>Uncle Food</h4><div class="u">unclefood.com</div><p>Braccio wholesale del gruppo: distribuzione a oltre 10.000 attività tra bar, ristoranti, hotel e retail. Franchising attivo dal 2026.</p></div>
+    </div>
+
+    <p class="au-quote rv">Quando vi diciamo che un piano social è un investimento, sappiamo cosa significa. Su American Uncle abbiamo investito mattone su mattone, con la nostra pazienza e i nostri soldi.</p>
+  </div>
+</section>
+
+<!-- METODO -->
+<section class="method-section" id="metodo">
+  <div class="wrap">
+    <div class="kicker rv">Il metodo</div>
+    <h2 class="sec-title rv rv-d1">Trasparente, <em>replicabile.</em></h2>
+    <p class="lead rv rv-d2">Chi fa cosa, con quale ritmo, sotto quale governance. Un metodo operativo chiaro, che cresce col brand senza doverlo rispiegare ogni volta.</p>
+    <div class="method-stats rv">
+      <div class="ms"><div class="n">13</div><div class="l">persone dedicate</div></div>
+      <div class="ms"><div class="n">4</div><div class="l">settimane &middot; un ciclo</div></div>
+      <div class="ms"><div class="n">12</div><div class="l">cicli all'anno</div></div>
+    </div>
+    <div class="method-cols">
+      <div class="mc rv"><h4>Napoli &middot; Strategia &amp; Always-on</h4><p>Pensa la voce, scrive il calendario, presidia i canali, costruisce i contenuti e legge i numeri. Lo stesso team per tutta la durata del contratto.</p></div>
+      <div class="mc rv rv-d1"><h4>Roma &middot; Produzione</h4><p>Foto e video sul campo, con vicinanza fisica alle attività. Nessun handover esterno, nessun freelance volante: continuità e qualità costante.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- PORTFOLIO PROFUMO (struttura) -->
+<section class="pp-section" id="portfolioprofumo">
+  <div class="wrap">
+    <div class="kicker rv">Portfolio &middot; Aroma Studium</div>
+    <h2 class="sec-title rv rv-d1">Il profumo, <em>gi&agrave; nelle nostre mani.</em></h2>
+    <p class="lead rv rv-d2">Una selezione del lavoro realizzato nella profumeria artistica: campagne adv, feed, newsletter e foto editoriali. La prova che conosciamo gi&agrave; il vostro mondo.</p>
+    <div class="ppf-masonry rv">
+      <div class="ppf-item"><span class="ppf-badge">Acampora &middot; ADV</span><img src="https://raw.githubusercontent.com/michele-riccio/aroma/main/portfolio/ads-maggio-acamporafragranze-raffinate.png" alt="Acampora fragranze raffinate" loading="lazy"><div class="ppf-meta"><span class="pm-cap">Fragranze raffinate</span><span class="pm-tag">Campagna ADV</span></div></div>
+      <div class="ppf-item"><span class="ppf-badge">Acampora &middot; Facebook</span><img src="https://raw.githubusercontent.com/michele-riccio/aroma/main/portfolio/2-fb-azzurro-di-capri-acampora.png" alt="Azzurro di Capri" loading="lazy"><div class="ppf-meta"><span class="pm-cap">Azzurro di Capri</span><span class="pm-tag">Social</span></div></div>
+      <div class="ppf-item"><span class="ppf-badge">Acampora &middot; Editorial</span><img src="https://raw.githubusercontent.com/michele-riccio/aroma/main/portfolio/Acampora%20note%20olfattive-2232%202.jpg" alt="Note olfattive Acampora" loading="lazy"><div class="ppf-meta"><span class="pm-cap">Note olfattive</span><span class="pm-tag">Foto editoriale</span></div></div>
+      <div class="ppf-item"><span class="ppf-badge">Acampora &middot; Feed</span><img src="https://raw.githubusercontent.com/michele-riccio/aroma/main/portfolio/feed-primaT-prodotto-acampora.png" alt="Lancio prodotto Acampora" loading="lazy"><div class="ppf-meta"><span class="pm-cap">Lancio prodotto</span><span class="pm-tag">Feed</span></div></div>
+      <div class="ppf-item"><span class="ppf-badge">Mania &middot; Video</span><span class="ppf-play"></span><video src="https://raw.githubusercontent.com/michele-riccio/aroma/main/portfolio/mania%203ok.mp4" autoplay muted loop playsinline preload="metadata"></video><div class="ppf-meta"><span class="pm-cap">Black Friday Mania</span><span class="pm-tag">Reel</span></div></div>
+      <div class="ppf-item"><span class="ppf-badge">Acampora &middot; Newsletter</span><img src="https://raw.githubusercontent.com/michele-riccio/aroma/main/portfolio/1-nl-promo-giugno-acampora.png" alt="Promo giugno Acampora" loading="lazy"><div class="ppf-meta"><span class="pm-cap">Promo giugno</span><span class="pm-tag">Email</span></div></div>
+      <div class="ppf-item"><span class="ppf-badge">Acampora &middot; IG ADV</span><img src="https://raw.githubusercontent.com/michele-riccio/aroma/main/portfolio/ig-ads-maggio-acamporaArtboard-1-copy-3.png" alt="Campagna maggio Acampora" loading="lazy"><div class="ppf-meta"><span class="pm-cap">Campagna maggio</span><span class="pm-tag">Instagram ADV</span></div></div>
+      <div class="ppf-item"><span class="ppf-badge">Mania &middot; Feed</span><img src="https://raw.githubusercontent.com/michele-riccio/aroma/main/portfolio/FEED-black-Friday-mania.png" alt="Black Friday Mania" loading="lazy"><div class="ppf-meta"><span class="pm-cap">Black Friday Mania</span><span class="pm-tag">Feed</span></div></div>
+      <div class="ppf-item"><span class="ppf-badge">Mania &middot; Photo</span><img src="https://raw.githubusercontent.com/michele-riccio/aroma/main/portfolio/mania%202.jpg" alt="Mania" loading="lazy"><div class="ppf-meta"><span class="pm-cap">Mania</span><span class="pm-tag">Foto</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<section class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div><div class="wordmark">AR<span class="dot"></span>MA STUDIUM<span class="wordmark-sub">artistic fragrances</span></div><div class="foot-by">Strategia a cura di <strong>Ribrain Studio</strong> &middot; 2026</div></div>
+      <h2>Il prodotto è pronto. <em>Costruiamogli il pubblico.</em></h2>
+    </div>
+  </div>
+</section>
+
+<script>
+const MAP_DATA = {"W": 462, "H": 600, "regions": [{"name": "Piemonte", "count": 11, "op": 0.316, "d": "M27.9,98.8L27.2,97.3L27.8,95.5L28.8,94.2L29.6,92.8L28.5,91.7L27.1,90.8L27.1,89.2L27.4,87.6L28.3,89.0L30.3,88.8L32.1,88.2L33.7,87.1L35.3,86.8L36.9,87.0L38.3,85.8L39.6,84.8L41.0,83.7L42.6,84.0L44.2,83.4L45.4,84.4L47.4,84.8L49.0,85.1L50.7,84.9L52.1,84.0L53.6,83.0L55.2,82.9L56.5,81.8L57.8,80.7L56.8,79.3L57.2,77.6L57.4,75.8L55.8,74.9L54.9,73.3L55.3,71.6L55.4,69.8L55.0,68.3L55.4,66.7L55.5,64.8L56.6,63.1L58.3,63.0L60.0,62.4L60.8,61.0L60.9,59.4L61.6,57.9L63.4,57.6L64.7,56.2L65.6,54.8L65.7,53.1L65.1,51.6L63.7,50.3L64.4,48.6L66.0,48.1L67.6,47.7L68.3,46.3L69.7,45.5L71.2,44.2L70.9,42.6L72.3,41.5L73.6,40.4L75.2,40.0L77.2,40.4L77.3,42.1L77.3,43.7L77.3,45.8L76.4,47.7L76.8,49.3L77.4,50.8L78.8,51.7L80.1,52.9L81.2,54.1L82.4,55.2L82.8,56.8L84.5,57.3L86.0,57.8L86.6,59.5L87.0,61.1L86.1,62.9L84.3,64.6L83.0,66.0L81.4,67.7L81.7,69.6L82.2,71.2L81.1,72.5L80.7,74.1L81.7,75.4L82.8,76.6L84.3,77.2L83.8,78.7L85.4,79.3L85.6,81.0L85.7,82.7L86.1,84.3L86.8,86.3L87.5,88.0L89.0,88.6L89.8,90.1L90.7,91.9L90.2,93.4L88.5,93.4L86.8,93.9L88.0,95.0L87.0,96.3L86.3,97.9L84.7,98.1L83.5,95.9L81.9,95.3L80.0,95.5L79.6,97.1L79.1,98.9L80.2,100.1L79.5,101.5L79.7,103.2L81.4,102.5L80.3,103.7L81.6,105.2L82.7,106.6L83.2,108.3L83.9,109.7L84.4,111.4L86.1,111.5L87.9,111.8L89.5,111.8L90.7,110.5L92.4,110.2L93.6,111.3L93.9,113.0L95.6,113.4L96.3,114.9L96.9,116.6L98.1,118.0L99.7,119.4L99.5,121.0L101.0,122.1L102.6,122.4L103.6,123.8L105.1,125.2L104.8,126.9L104.6,128.5L104.6,130.3L104.6,132.0L103.7,133.4L102.2,134.0L101.0,132.8L99.4,131.7L98.4,130.4L96.9,129.7L95.5,129.0L94.1,130.0L92.9,131.2L93.7,132.6L94.1,134.2L92.7,135.0L90.9,134.7L90.0,136.0L89.6,137.8L88.6,136.5L87.5,135.2L86.7,133.7L84.9,133.7L83.2,133.5L82.3,135.0L81.9,136.5L80.5,137.6L78.6,137.3L76.9,137.3L75.1,137.3L74.6,138.9L73.0,138.5L71.6,137.8L70.0,137.1L68.4,137.1L68.2,138.7L67.7,140.4L67.8,142.2L66.3,143.1L65.3,144.4L65.0,146.2L63.9,147.5L62.3,147.7L63.3,149.0L63.0,150.7L62.8,152.5L63.6,153.8L62.8,155.2L61.1,155.0L59.5,155.6L60.5,157.2L58.7,157.2L57.1,157.3L55.1,156.8L53.2,156.6L51.7,155.7L50.2,156.4L49.9,158.1L49.9,159.7L48.7,157.6L47.6,156.2L48.2,154.3L46.5,153.9L45.3,155.2L43.6,155.4L42.0,155.8L40.4,156.1L38.8,156.2L37.0,156.6L35.7,155.6L33.9,155.5L32.2,154.9L30.7,153.9L29.4,152.8L27.7,152.4L26.2,151.5L24.5,151.4L22.8,150.5L22.7,148.9L21.3,148.0L20.6,146.5L19.5,144.9L19.0,142.9L20.0,141.6L19.5,139.8L18.3,138.7L17.5,137.1L18.1,135.5L19.6,134.9L20.4,133.2L21.2,131.7L20.9,130.1L22.2,128.6L24.0,128.2L25.5,128.8L25.3,127.1L23.7,125.8L23.6,124.0L23.5,122.2L22.9,120.7L21.3,120.2L19.6,120.6L18.0,120.3L16.5,119.4L15.2,118.3L13.6,117.5L13.8,115.9L14.1,114.3L13.6,112.6L12.2,111.8L10.4,111.2L10.3,109.4L9.2,107.9L10.7,106.6L12.0,105.6L13.6,105.7L15.2,105.2L17.0,106.0L18.9,106.0L19.8,104.5L21.1,103.5L22.5,102.3L24.2,101.8L26.0,102.0L26.8,100.7L27.8,99.1Z"}, {"name": "Valle d'Aosta", "count": 0, "op": 0.04, "d": "M50.2,66.7L52.0,66.5L53.6,66.6L55.0,68.3L55.4,69.8L55.3,71.6L54.9,73.2L55.8,74.9L57.2,75.8L57.2,77.6L56.8,79.2L57.7,80.6L56.5,81.8L55.2,82.9L53.6,83.0L52.1,84.0L50.7,84.9L49.0,85.1L47.4,84.8L45.5,84.7L44.4,83.6L42.7,84.0L41.1,83.7L39.6,84.8L38.3,85.8L37.1,86.9L35.5,86.8L33.9,87.0L32.5,87.9L31.1,89.3L29.0,88.6L28.0,87.2L27.1,88.6L25.3,89.1L23.9,88.0L22.8,86.5L22.5,84.7L22.2,82.9L22.8,81.3L21.7,80.1L19.7,80.3L18.1,78.9L16.6,77.8L15.9,76.3L15.6,74.5L15.9,72.5L17.0,70.8L18.6,70.5L20.3,70.6L21.8,69.6L23.1,68.6L23.9,66.9L25.3,67.8L26.4,69.1L28.1,69.2L29.7,69.9L30.9,68.7L32.5,68.4L33.5,67.1L35.1,67.4L36.8,67.9L38.5,67.3L39.9,66.1L41.5,64.9L43.1,64.9L44.1,63.5L45.5,64.4L47.2,64.1L48.5,65.2L49.5,66.6Z"}, {"name": "Lombardia", "count": 28, "op": 0.62, "d": "M81.6,75.3L80.6,73.5L81.6,72.2L82.1,70.7L81.4,68.8L81.9,67.1L84.3,64.6L85.7,63.3L86.9,62.2L86.7,60.5L86.3,58.9L87.0,57.4L88.6,57.9L90.3,58.1L91.7,59.1L90.9,60.5L89.7,62.3L90.9,63.5L92.3,64.9L93.2,66.3L94.4,67.6L94.8,69.3L93.9,71.4L95.8,71.0L97.2,71.8L98.5,70.8L99.2,69.3L100.5,68.0L99.0,66.9L97.8,65.9L96.8,64.5L98.0,63.3L97.6,61.6L98.7,60.0L100.1,59.2L100.1,57.4L101.4,56.2L102.6,55.0L104.4,54.0L104.8,52.4L106.0,51.2L106.6,49.7L107.6,48.2L108.3,46.7L107.8,45.1L107.5,43.5L107.0,41.8L107.3,40.2L107.6,38.4L109.1,37.7L110.8,37.6L111.6,39.0L113.3,38.1L114.4,39.4L114.1,41.1L114.6,43.0L115.1,44.5L116.2,46.0L117.2,47.4L118.9,48.2L120.7,48.6L122.3,47.8L123.9,47.6L124.1,46.0L125.8,46.1L127.5,45.4L129.1,44.7L130.9,43.9L132.6,44.0L134.1,45.3L134.2,47.2L134.7,48.9L136.1,49.5L136.1,51.3L137.9,51.5L139.6,51.5L140.8,50.2L140.2,48.4L138.8,47.3L138.4,45.4L139.2,44.0L140.4,42.8L139.5,41.5L137.4,41.9L136.1,40.8L136.1,39.2L136.1,37.4L136.1,35.8L137.4,34.8L138.0,32.7L139.7,32.4L141.2,31.8L142.8,31.4L143.5,33.1L144.9,34.4L146.1,35.5L147.9,35.2L149.6,35.5L151.2,36.4L151.9,37.9L154.1,38.3L155.8,39.3L157.5,40.5L157.4,42.3L157.0,43.8L155.3,44.2L153.7,45.1L154.9,46.3L155.8,47.7L155.8,49.3L156.0,50.9L155.1,52.3L155.0,54.0L154.8,55.6L154.5,57.8L153.3,59.2L152.1,60.3L151.7,62.0L151.2,63.8L152.6,64.8L152.8,66.4L152.6,68.5L153.0,70.1L153.3,71.7L154.1,73.1L155.7,73.5L157.1,72.6L158.7,71.8L160.1,71.0L161.7,70.8L163.4,71.0L165.0,71.0L164.7,72.6L163.8,74.0L162.7,75.8L161.7,77.4L160.6,79.1L157.8,82.4L157.8,84.2L158.0,86.1L158.1,87.8L158.3,89.7L158.6,91.5L160.3,91.8L160.7,93.6L160.1,95.1L160.9,96.7L161.4,98.3L163.5,97.1L164.7,98.1L165.6,99.5L167.1,100.4L168.8,101.1L170.0,102.5L171.4,103.4L171.4,105.1L173.2,105.2L172.6,106.7L174.2,107.9L175.8,107.6L177.5,106.9L179.1,107.2L178.3,108.9L179.5,110.0L181.2,110.1L181.7,111.6L183.2,112.3L184.9,113.6L186.5,114.3L185.0,115.0L183.2,114.9L181.7,115.9L180.1,115.6L178.2,115.9L176.3,115.6L174.9,114.9L173.2,115.2L171.5,115.1L170.2,116.1L168.5,116.6L166.9,117.0L164.8,116.0L163.2,115.7L161.9,114.2L160.3,114.7L158.6,115.2L157.7,116.6L156.0,117.2L154.3,117.2L152.7,116.5L151.2,115.8L150.1,114.5L148.6,113.9L146.9,113.9L145.7,112.9L144.1,112.3L142.2,111.1L140.6,110.7L139.1,111.4L137.5,111.2L136.2,110.0L135.5,108.5L134.5,106.9L132.9,106.8L131.6,107.8L131.6,106.2L130.0,106.5L130.6,108.0L129.0,108.1L128.2,109.7L126.9,108.7L125.7,107.5L125.0,109.0L123.7,109.9L122.4,108.9L120.7,108.5L121.0,106.7L119.6,107.6L118.1,106.9L117.6,108.4L116.1,107.8L114.1,108.1L112.5,108.6L111.5,109.9L111.0,111.6L110.1,112.9L109.7,114.5L108.9,115.9L107.9,117.3L108.6,119.0L110.0,119.8L110.5,121.6L109.5,122.8L108.2,124.1L108.9,125.6L108.7,127.5L107.3,128.6L106.2,127.4L105.1,128.6L104.8,126.9L105.1,125.2L103.7,124.3L103.3,122.7L101.6,122.4L100.1,122.1L99.2,120.6L99.4,118.7L97.9,117.8L96.8,116.3L96.3,114.6L95.3,113.4L93.8,112.9L93.6,111.0L92.1,110.3L90.5,110.7L89.1,111.7L87.1,111.7L85.5,111.5L83.6,110.8L84.0,109.1L82.8,107.7L82.1,106.3L80.8,104.9L81.0,103.0L79.7,102.0L80.7,100.7L80.0,99.2L78.6,98.3L79.7,97.0L80.5,95.1L82.4,95.3L84.4,96.6L84.8,98.2L86.6,97.8L87.0,96.2L88.2,95.1L86.8,94.3L88.4,94.0L90.0,93.8L91.3,92.8L90.7,91.2L89.5,89.9L88.6,88.5L87.1,87.7L86.5,85.8L86.0,84.2L85.7,82.5L84.7,81.2L85.0,79.6L84.0,78.2L83.2,76.7L81.8,75.7Z"}, {"name": "Trentino Alto Adige", "count": 2, "op": 0.156, "d": "M209.2,35.4L207.4,35.7L206.0,36.5L204.4,36.8L202.3,37.5L201.8,39.0L204.0,39.3L204.6,40.8L203.1,41.5L202.6,43.0L202.6,44.6L201.0,44.6L201.4,46.3L202.5,47.4L202.7,49.4L204.2,49.0L205.5,50.3L205.9,52.1L207.3,52.9L206.1,54.1L205.5,55.8L204.2,57.0L202.3,57.5L200.7,57.8L198.3,57.8L196.9,58.6L197.7,60.2L196.3,61.0L196.7,62.7L197.0,64.3L195.2,64.8L193.6,64.3L193.0,62.6L191.3,62.3L189.7,62.5L188.4,63.7L186.4,63.9L185.7,65.5L184.7,66.7L182.9,66.6L181.1,66.9L181.0,68.5L180.4,70.1L179.4,71.4L178.7,73.1L178.2,74.7L177.2,77.0L176.3,78.3L174.3,77.7L172.6,77.6L171.0,78.4L169.5,79.1L168.0,77.5L166.4,77.0L166.5,75.1L166.8,73.5L166.7,71.8L165.1,71.0L163.4,71.0L161.8,70.8L160.1,71.0L158.7,71.8L157.2,72.6L155.7,73.5L154.1,73.1L153.6,71.6L153.0,70.1L152.8,67.9L152.6,66.2L152.5,64.4L151.2,63.4L151.8,61.9L152.2,60.1L153.6,58.9L154.8,57.0L155.0,55.3L154.7,53.6L155.5,51.9L156.0,50.2L155.2,48.8L155.3,46.9L154.0,45.9L155.3,44.2L156.9,44.0L157.7,42.6L157.3,41.0L156.7,39.5L155.2,38.8L153.4,38.2L151.4,37.5L151.7,35.9L152.2,34.3L152.4,32.7L151.6,31.3L149.6,31.2L149.0,29.7L149.2,28.0L149.3,26.4L150.5,25.4L150.3,23.7L151.4,22.2L151.8,20.6L153.6,20.6L155.3,20.9L157.5,19.8L159.2,19.2L160.5,20.5L161.9,21.3L161.8,22.9L163.4,23.3L164.8,24.2L166.6,24.3L168.2,24.4L170.6,24.4L172.3,24.7L173.0,22.7L174.5,22.0L174.2,20.3L174.9,18.9L175.2,17.3L176.7,16.6L177.6,15.0L179.2,14.9L180.7,14.3L182.7,13.8L184.4,13.5L186.4,14.7L188.0,14.2L189.0,12.9L190.6,12.8L192.0,13.5L194.2,12.5L195.9,13.2L198.0,13.3L199.3,14.5L200.6,13.4L202.6,13.4L204.2,12.2L205.6,11.4L207.5,11.0L209.2,10.6L210.7,9.9L212.2,9.2L213.8,9.0L215.4,8.5L217.0,8.8L216.8,10.5L215.5,11.7L213.4,12.3L213.8,14.0L214.6,15.5L214.2,17.2L215.8,17.7L216.7,19.3L218.6,18.6L219.4,20.1L219.7,21.7L219.3,23.3L220.8,23.9L222.1,25.0L222.7,26.9L224.1,27.9L226.3,28.6L225.0,29.5L223.8,30.8L222.5,32.0L220.6,31.5L218.8,31.9L217.1,32.3L215.5,31.9L213.9,31.1L212.6,30.0L211.2,29.2L211.5,30.8L210.4,32.6L210.0,34.1Z"}, {"name": "Veneto", "count": 5, "op": 0.209, "d": "M158.0,86.1L157.9,84.4L157.7,82.8L159.7,80.1L160.8,78.7L162.2,76.7L163.5,74.6L164.4,73.1L165.5,71.5L167.2,72.0L167.1,73.8L166.5,75.4L165.7,76.9L167.4,77.1L168.5,78.7L170.1,78.6L171.5,77.5L173.5,77.1L175.0,78.1L176.6,78.1L178.0,76.3L178.2,74.6L178.6,72.7L179.5,71.4L180.6,69.0L181.2,67.4L182.8,67.0L184.4,67.4L184.8,65.7L185.4,64.1L187.2,63.9L188.8,63.2L190.5,62.3L192.4,62.5L193.3,64.3L195.0,64.4L196.6,64.7L196.9,63.0L196.3,61.1L197.7,60.2L196.9,58.6L198.3,57.8L199.9,58.0L201.6,57.8L203.1,57.3L204.7,56.9L205.8,55.5L206.9,54.3L206.3,52.8L205.7,51.0L204.4,49.9L202.8,49.4L202.6,47.8L201.4,46.3L200.3,45.0L201.8,44.5L202.6,43.0L203.1,41.5L204.6,40.8L204.1,39.3L202.4,39.1L202.3,37.5L204.1,36.8L205.6,36.3L207.4,35.7L209.2,35.5L210.0,34.1L210.7,32.1L211.3,30.5L212.9,30.4L214.5,31.2L215.9,32.0L217.6,32.2L219.2,32.1L221.0,31.5L223.0,31.8L224.0,30.5L225.3,29.4L226.9,29.1L228.9,29.9L230.5,30.2L232.1,29.9L233.8,30.1L235.4,30.6L234.9,32.3L233.8,33.6L232.4,34.3L231.7,35.9L232.2,37.5L233.1,38.9L231.3,39.6L229.5,39.4L228.0,40.6L227.1,42.0L226.1,43.4L225.4,44.9L224.2,46.0L222.7,46.4L221.8,47.9L220.8,49.1L221.2,50.8L222.5,51.7L224.3,52.5L225.4,53.8L227.0,55.1L227.0,56.7L226.2,58.1L224.6,59.1L223.8,60.7L224.2,62.2L224.5,64.1L225.6,65.5L226.7,66.6L228.1,67.7L228.6,69.3L229.5,70.7L230.5,72.1L232.0,71.4L232.9,72.7L234.5,72.6L235.8,71.0L237.3,70.4L238.4,71.6L239.8,70.6L241.2,71.4L242.9,71.4L244.3,70.5L245.2,72.0L245.3,73.8L245.9,75.4L247.0,76.6L247.5,78.2L248.2,79.7L249.5,80.6L247.9,81.3L246.0,81.5L244.2,81.8L242.6,82.1L241.0,83.4L239.3,84.3L237.9,85.1L236.1,86.3L234.5,86.9L232.9,87.6L231.0,88.5L229.3,89.3L226.8,90.3L225.3,91.1L223.7,91.4L222.3,92.7L221.4,94.3L220.9,96.0L220.1,98.5L219.8,100.2L219.8,101.8L220.3,103.6L221.0,105.0L220.9,106.6L221.2,108.4L222.5,109.6L223.9,111.0L225.2,112.1L226.7,113.2L228.4,113.7L228.5,115.3L227.3,117.4L226.7,118.9L226.0,120.6L224.1,121.8L223.4,123.3L222.2,122.2L221.5,120.7L220.0,120.0L219.3,118.5L219.5,116.8L218.3,115.7L217.0,116.7L215.4,116.3L213.5,116.0L212.4,114.5L210.8,114.3L209.2,114.0L207.4,113.5L205.8,114.1L204.1,114.1L202.5,114.2L200.9,114.4L199.4,114.9L198.8,116.5L197.2,116.9L195.7,117.6L193.9,118.4L193.1,117.0L191.4,116.0L189.7,116.0L187.7,116.3L187.3,114.8L185.8,114.1L184.3,113.4L183.1,112.3L181.6,111.5L180.1,110.4L178.3,109.8L178.1,108.1L177.1,106.6L175.8,107.6L173.4,107.4L173.1,105.6L171.3,105.3L171.3,103.6L170.0,102.5L168.8,101.1L167.4,100.4L165.8,100.0L165.0,98.6L163.5,97.1L162.2,98.1L161.0,97.0L159.9,95.8L160.9,94.5L161.1,92.9L159.2,91.5L157.7,90.9L158.2,89.3L158.1,87.4Z"}, {"name": "Friuli Venezia Giulia", "count": 2, "op": 0.156, "d": "M265.1,43.8L263.6,44.7L262.5,46.1L261.3,47.2L259.8,48.0L260.5,49.6L261.4,51.0L262.4,52.3L264.3,51.8L266.0,52.3L266.9,53.6L268.6,53.6L270.5,53.9L270.1,55.5L268.5,57.1L267.3,58.2L265.7,59.3L264.3,60.0L264.3,62.1L264.5,63.9L266.0,64.7L267.3,63.8L268.9,63.7L269.4,65.4L268.9,67.0L267.9,68.4L267.4,70.0L268.0,71.9L269.2,73.0L270.8,73.1L272.2,74.2L273.6,75.1L275.2,75.6L276.3,76.9L276.9,78.6L278.2,80.0L279.9,81.1L278.5,82.3L277.5,83.5L275.2,83.7L273.7,83.0L275.5,82.5L274.7,81.1L274.1,79.5L273.2,78.1L271.7,76.8L270.6,75.7L269.4,74.5L267.5,73.9L266.0,72.9L265.2,74.7L266.3,76.3L264.9,77.1L263.3,77.5L262.0,78.8L260.4,79.1L258.8,78.9L257.2,78.1L255.6,77.5L253.6,77.2L252.1,77.8L250.9,78.9L249.8,80.1L248.2,79.9L247.8,78.3L247.0,76.6L245.9,75.4L245.3,73.8L245.0,72.2L244.5,70.6L243.2,72.0L241.2,71.4L239.8,70.5L238.8,71.9L238.0,70.4L236.6,71.3L235.0,72.0L233.8,73.3L232.4,72.0L231.0,71.2L229.3,71.4L228.6,69.8L227.5,68.0L226.7,66.6L225.1,65.6L224.6,63.5L224.1,61.9L223.9,60.0L225.0,58.7L226.7,57.7L227.2,56.1L226.2,54.7L225.2,53.2L223.6,52.4L222.3,51.4L220.9,50.2L221.5,48.4L222.2,46.7L224.0,46.4L225.1,45.0L225.6,43.4L227.0,42.5L227.5,40.9L228.8,40.0L230.5,39.3L232.2,39.2L232.2,37.6L231.7,36.0L232.4,34.3L233.8,33.6L235.0,32.5L236.4,31.0L238.2,30.8L239.8,31.6L241.2,32.5L242.9,32.5L244.7,32.8L246.4,32.9L248.0,33.1L249.7,33.2L251.6,33.5L253.1,34.3L254.5,35.0L256.6,35.0L258.4,34.8L259.9,34.0L261.7,35.1L263.5,35.1L265.0,35.5L266.7,35.4L269.0,35.8L271.0,36.8L272.5,37.6L271.8,39.4L271.5,41.0L269.5,40.8L267.9,41.1L267.1,42.7L265.8,43.6Z"}, {"name": "Liguria", "count": 3, "op": 0.174, "d": "M43.4,168.0L44.1,166.0L45.5,164.9L46.8,164.0L47.5,161.9L48.7,160.7L49.9,159.7L51.0,158.6L49.6,157.5L50.5,156.1L52.2,156.1L53.8,156.7L55.6,157.1L57.2,157.3L59.0,157.1L60.6,157.2L59.4,156.1L60.6,155.0L62.1,155.6L63.1,154.3L63.3,152.6L62.9,151.1L63.2,149.5L62.3,147.7L63.9,147.5L65.0,146.2L65.3,144.4L66.3,143.1L67.8,142.3L67.8,140.4L68.2,138.7L68.4,137.1L70.0,137.0L71.6,137.8L73.0,138.5L74.6,138.9L75.0,137.3L76.7,137.9L78.3,137.2L79.9,137.1L81.5,136.5L82.8,135.5L83.0,133.7L84.8,133.7L86.5,133.7L87.5,135.0L88.0,136.5L88.5,138.1L89.6,136.9L90.8,135.7L92.1,134.7L93.8,134.9L93.9,133.3L93.6,131.7L94.0,130.1L95.3,129.1L96.8,129.7L98.3,130.4L98.8,132.0L100.6,132.1L101.3,133.7L102.9,134.1L104.3,133.2L105.6,131.9L107.3,133.0L109.4,133.3L111.0,133.7L112.5,133.0L113.5,134.4L115.2,134.7L116.0,136.3L115.6,137.9L114.5,139.5L113.7,140.9L114.8,142.1L117.1,141.3L118.7,141.1L120.3,141.6L121.8,142.7L122.2,144.4L123.9,145.0L124.8,146.4L125.9,147.7L127.5,148.4L128.9,149.2L129.1,150.9L129.2,152.8L130.9,152.2L130.6,154.1L132.3,154.3L133.6,155.4L134.2,157.3L136.1,157.0L136.8,158.4L135.4,159.8L133.8,160.4L132.1,160.0L131.0,158.8L129.4,158.2L127.8,157.6L128.4,159.5L126.3,159.1L124.8,158.2L123.8,156.8L122.3,155.8L120.7,155.9L119.8,154.6L118.3,153.6L117.2,152.4L115.8,151.6L114.1,150.8L112.8,149.8L111.6,148.6L110.3,147.6L108.7,146.8L107.2,146.0L105.8,145.3L105.2,147.1L103.4,147.0L103.0,145.4L100.9,144.2L99.2,143.8L97.5,143.5L95.4,143.2L94.2,142.1L92.4,142.5L90.8,142.1L89.1,141.5L87.2,141.7L85.7,142.4L84.2,143.3L82.9,144.3L81.4,144.9L79.6,146.2L78.2,147.1L77.0,148.2L77.0,149.8L75.9,151.1L75.5,152.6L74.3,153.7L72.8,154.4L71.3,154.9L69.8,156.3L68.9,157.6L68.4,159.3L67.8,161.0L66.7,162.2L66.0,163.6L65.6,165.2L64.4,166.5L63.0,167.5L61.6,168.3L59.9,169.4L58.5,170.2L56.9,170.6L55.3,170.9L53.9,171.9L52.0,171.7L50.5,172.8L48.8,172.8L47.6,173.8L45.7,173.4L44.1,173.1L42.6,173.5L41.9,171.5L41.3,169.9L42.9,168.1Z"}, {"name": "Emilia Romagna", "count": 9, "op": 0.281, "d": "M109.6,126.0L108.2,125.1L108.9,123.6L110.4,122.2L110.1,120.6L109.3,119.2L108.0,118.2L107.9,116.4L109.2,115.4L109.7,113.8L110.8,112.6L111.2,110.7L112.3,109.2L113.5,108.2L115.3,107.7L116.6,108.7L117.2,107.1L118.8,107.6L120.1,106.5L120.8,108.0L122.3,108.9L123.7,109.9L125.0,109.0L124.9,107.3L126.2,108.3L127.6,109.3L128.5,108.0L129.8,109.0L130.0,107.4L131.0,106.0L131.1,107.7L132.8,106.8L134.5,106.9L135.5,108.3L136.1,109.9L137.5,111.1L139.1,111.4L140.6,110.7L142.2,111.1L143.6,111.8L144.9,112.9L146.4,113.7L147.7,114.6L149.1,113.6L150.2,114.8L151.5,115.9L153.1,116.7L154.9,117.3L156.6,117.1L157.9,116.1L158.8,114.7L160.4,114.6L161.3,113.2L162.1,114.6L163.4,115.8L165.7,116.4L167.7,116.7L169.4,116.7L170.6,115.7L172.4,115.2L174.2,114.7L175.9,115.1L177.2,116.1L179.0,115.8L180.7,115.2L182.4,114.9L184.0,115.0L186.3,115.1L187.4,116.3L189.0,116.0L190.6,116.0L192.1,116.6L193.4,117.6L195.0,118.2L196.4,117.1L197.9,116.6L199.0,115.3L200.5,114.6L202.2,114.0L203.9,114.1L205.6,114.1L207.2,113.5L208.8,113.8L210.5,114.0L212.1,114.3L213.3,115.7L214.9,115.7L216.4,116.5L218.2,115.7L219.7,116.4L219.3,118.0L219.6,119.8L221.2,120.2L221.8,121.8L223.1,123.0L221.5,123.5L223.1,123.3L221.8,122.3L220.5,120.9L218.6,121.6L218.6,123.3L217.9,124.9L217.7,127.3L217.8,128.9L218.3,130.6L219.2,133.1L219.1,135.5L219.1,137.1L219.4,139.2L220.1,141.7L220.6,143.5L220.9,145.1L221.4,146.7L221.7,148.3L222.3,150.0L223.0,151.5L224.1,153.0L225.2,154.3L226.5,155.8L227.6,157.2L229.0,158.5L230.7,159.7L231.8,161.0L233.1,162.3L234.3,163.4L235.7,164.2L236.3,165.7L235.8,167.3L235.7,168.9L234.6,170.1L233.7,171.5L232.1,171.7L231.0,170.2L230.6,168.7L229.2,169.4L227.7,168.8L227.0,167.2L227.9,165.7L227.7,163.9L225.9,164.0L224.2,165.1L223.9,166.7L225.3,167.6L225.3,169.2L223.6,169.1L223.5,171.3L222.2,172.3L220.4,172.4L219.4,174.0L218.0,174.9L216.4,175.3L214.8,174.6L213.3,175.3L211.6,175.7L210.1,174.8L208.3,174.6L206.9,173.8L205.5,172.8L203.9,172.0L202.2,171.9L201.0,170.7L199.5,169.8L198.2,168.9L198.2,166.7L197.1,165.2L196.1,164.0L196.1,162.2L197.3,161.1L197.9,159.4L198.9,158.2L199.5,156.7L197.8,156.7L195.8,157.6L194.4,156.8L194.5,155.2L192.9,154.7L191.2,154.8L189.6,154.0L188.2,152.8L187.4,151.0L186.1,152.1L184.3,152.5L183.3,153.9L182.0,155.0L180.3,154.8L178.7,155.4L180.1,156.4L181.3,157.5L179.7,157.7L178.0,157.4L176.4,157.3L175.0,158.1L173.4,158.2L171.6,157.2L169.8,158.3L168.6,159.5L167.5,158.1L165.9,157.8L164.3,156.8L162.8,155.7L161.4,154.9L159.6,154.9L158.0,155.0L157.6,156.6L156.0,156.3L154.6,155.3L153.3,153.4L152.7,151.9L151.1,151.3L149.6,150.5L148.2,149.3L146.5,149.0L144.8,148.8L143.2,148.7L141.9,147.2L140.6,146.3L139.4,145.1L137.8,145.1L136.5,144.2L135.0,143.4L134.2,142.0L133.5,140.4L131.8,139.2L130.1,139.3L128.0,139.4L126.9,140.6L125.9,142.0L124.8,143.3L122.8,144.3L121.9,142.9L120.6,141.8L118.9,141.4L117.3,141.5L115.6,141.6L113.9,141.8L114.3,140.2L114.7,138.7L115.8,137.3L115.4,135.6L113.6,134.4L112.8,133.0L111.4,133.9L109.7,133.7L108.6,132.6L106.7,132.8L104.8,132.0L104.6,130.4L104.6,128.6L105.8,127.6L107.0,128.8L108.6,128.4L109.0,126.8Z"}, {"name": "Toscana", "count": 8, "op": 0.263, "d": "M130.6,154.6L131.7,153.0L129.9,152.8L129.2,151.3L129.0,149.6L127.5,148.4L125.9,147.7L124.8,146.4L123.9,145.1L124.8,143.7L125.9,142.0L126.9,140.6L128.0,139.4L129.6,139.3L131.2,139.3L133.3,139.5L134.5,140.9L134.0,142.6L135.2,143.6L136.7,144.4L138.0,145.4L139.6,145.1L140.7,146.3L142.1,147.7L143.7,149.3L145.4,148.5L147.1,149.3L149.3,150.2L150.4,151.4L152.0,151.6L153.2,153.4L153.9,154.9L155.8,156.2L157.6,156.7L158.0,155.1L159.6,154.9L161.3,154.9L162.8,155.5L164.2,156.6L165.7,157.3L167.4,158.1L168.0,159.6L169.4,158.7L170.4,157.4L171.3,156.1L172.0,157.6L173.5,158.2L175.2,157.9L176.7,157.4L178.5,157.4L180.3,157.7L179.1,155.8L180.4,154.8L182.6,154.4L183.6,153.1L185.1,152.6L186.5,151.5L188.2,151.6L188.9,153.5L190.3,154.6L192.0,154.8L194.0,154.9L193.7,156.5L195.2,157.2L196.7,156.6L198.4,156.7L198.9,158.2L197.6,160.0L196.9,161.7L195.6,163.0L196.5,164.4L197.0,166.0L198.1,167.6L198.5,169.1L200.3,170.2L201.5,171.3L202.8,172.3L204.5,172.3L206.0,173.0L207.5,174.2L209.5,174.7L211.0,175.2L212.7,175.0L214.4,174.8L215.8,176.0L217.2,174.7L219.0,174.5L220.9,175.2L222.1,176.7L221.1,178.6L220.4,177.1L219.3,178.7L217.3,179.9L215.6,180.6L216.6,182.2L215.6,183.5L214.6,185.3L213.1,186.2L212.1,187.5L213.6,188.6L212.5,189.8L211.3,190.9L209.8,191.6L211.2,192.5L211.4,194.2L213.1,194.5L213.8,196.1L213.6,198.0L215.2,198.6L215.9,197.0L216.5,198.5L214.9,199.2L213.4,199.9L211.9,200.9L210.5,200.0L210.0,201.6L209.6,203.3L207.8,203.9L206.2,204.9L205.6,206.4L206.1,208.0L206.3,209.6L207.9,209.7L207.6,211.4L207.2,213.0L206.8,214.6L206.4,216.2L207.1,217.9L206.0,219.3L204.7,220.4L203.1,220.7L201.8,221.6L200.1,221.6L199.4,223.1L200.5,224.7L202.0,225.3L201.3,227.0L200.7,228.5L201.6,229.9L200.0,230.8L199.0,232.0L197.5,232.6L196.3,233.8L194.7,234.2L193.1,234.2L192.7,235.9L193.3,237.4L194.5,238.5L194.5,240.4L192.2,240.7L190.6,240.9L189.2,241.9L188.4,243.3L186.5,243.1L184.6,242.6L182.8,242.2L181.3,241.6L179.6,242.0L179.0,243.5L177.5,244.3L176.2,243.3L174.9,242.2L175.2,240.6L176.7,240.9L178.1,240.1L178.6,238.5L178.6,236.9L177.9,235.2L176.3,234.8L175.5,233.4L174.6,231.9L173.5,230.5L172.0,229.8L171.3,227.8L170.3,226.3L169.0,225.3L166.8,224.4L165.2,224.0L163.5,223.8L162.0,222.7L163.0,221.4L163.1,219.8L163.6,218.2L162.7,216.8L160.8,215.6L159.3,215.1L157.4,214.9L155.8,215.0L154.5,215.9L152.8,216.1L152.4,214.5L152.7,212.9L153.8,211.7L154.1,210.0L154.3,208.4L154.4,206.5L154.4,204.9L154.3,203.2L154.1,201.6L153.7,200.0L153.1,198.3L152.0,197.1L151.3,195.6L150.7,194.1L150.0,192.6L148.9,191.2L148.0,189.8L146.6,188.9L146.2,187.2L145.4,185.6L146.1,184.1L145.2,182.6L145.0,181.0L144.5,179.1L144.8,177.5L144.7,175.8L144.3,173.7L144.0,172.2L143.4,170.3L143.0,168.6L142.2,167.2L141.1,165.6L140.0,164.3L138.7,162.9L137.4,161.8L135.8,160.9L136.0,159.2L137.0,157.9L135.3,156.8L134.1,158.1L133.8,156.5L133.5,154.8L132.0,154.4ZM144.2,225.4L142.6,226.2L140.9,225.9L138.9,225.5L138.2,223.5L139.6,222.2L141.2,222.1L142.9,223.2L144.3,222.5L146.1,221.6L147.2,222.8L148.5,221.3L149.4,219.3L150.8,220.2L150.3,221.8L150.5,223.5L149.3,224.5L150.5,225.9L149.2,226.9L147.8,225.3L146.3,224.5L145.2,225.7Z"}, {"name": "Umbria", "count": 2, "op": 0.156, "d": "M251.8,229.9L249.9,230.5L248.5,231.3L246.9,230.7L245.8,231.9L244.1,231.7L242.5,232.0L241.9,233.6L240.2,235.0L238.8,235.8L237.5,236.8L235.9,237.2L236.2,238.9L234.7,239.8L233.3,240.5L232.3,239.2L231.4,240.8L231.2,242.4L229.9,243.5L228.4,244.3L227.8,242.9L226.2,242.6L225.2,241.3L224.0,240.0L224.5,238.4L222.7,238.3L221.0,238.0L219.5,237.1L218.9,235.6L217.7,234.1L217.6,232.3L217.2,230.7L216.0,229.4L214.4,229.1L213.1,230.1L211.4,229.8L209.9,230.4L208.6,229.3L206.9,228.6L206.1,227.1L207.5,225.9L207.5,224.3L206.0,223.6L205.4,222.0L204.7,220.5L205.9,219.3L207.2,218.1L206.4,216.5L207.0,214.9L207.2,213.1L207.7,211.5L208.0,209.8L206.3,209.9L206.1,208.3L205.7,206.7L206.0,205.1L207.6,204.2L209.4,203.5L210.0,201.9L210.3,200.1L211.8,200.8L213.2,199.9L214.7,199.4L216.2,198.7L215.9,197.0L215.3,198.5L213.7,198.0L213.7,196.4L213.3,194.8L211.7,194.4L211.6,192.8L209.9,192.7L210.6,191.2L212.3,190.4L213.8,189.3L212.7,187.9L212.5,186.2L214.4,186.3L214.7,184.6L215.7,183.4L218.1,183.2L219.8,183.4L221.0,182.4L222.6,183.5L221.5,185.0L221.6,186.6L223.1,187.2L224.2,186.0L225.7,186.8L227.3,186.7L228.5,188.3L229.7,189.7L231.1,190.7L233.3,190.8L234.9,191.4L235.7,189.8L237.4,189.8L237.2,191.4L236.5,193.2L237.2,194.6L238.2,195.9L238.5,197.5L238.7,199.1L239.5,200.9L240.8,202.1L240.8,204.0L239.8,205.2L241.1,206.5L241.8,208.0L241.8,209.7L242.3,211.3L242.3,213.2L242.7,215.0L244.0,216.1L244.7,217.6L245.4,219.2L245.7,217.5L247.3,217.3L248.9,217.7L250.4,219.0L251.6,220.9L253.7,220.6L255.4,221.5L255.2,223.2L253.1,224.7L252.8,226.3L252.4,227.9L252.0,229.6Z"}, {"name": "Marche", "count": 3, "op": 0.174, "d": "M227.3,186.7L225.7,186.8L224.3,185.9L223.4,187.3L222.3,186.0L220.3,185.5L221.9,184.5L222.1,182.6L220.5,182.6L218.7,183.0L217.1,183.0L216.3,181.4L217.2,180.0L218.5,178.7L219.9,178.0L220.0,176.3L220.6,178.0L222.4,177.4L221.4,176.0L220.1,174.9L219.4,173.4L220.9,172.7L222.8,172.0L223.3,169.9L224.8,169.1L226.5,167.9L227.9,168.7L229.6,169.3L231.1,169.9L231.7,171.4L233.5,171.5L234.6,170.1L236.0,169.2L235.9,167.6L236.2,165.8L236.8,164.3L238.7,164.7L240.3,165.6L241.7,166.5L243.1,167.3L244.3,168.5L245.9,169.8L247.3,170.8L248.5,171.8L249.7,172.9L250.9,174.1L252.3,175.2L253.7,176.5L255.4,177.9L256.9,179.0L258.5,180.0L260.1,180.7L261.5,181.7L263.3,182.3L264.8,181.7L266.3,182.5L267.0,183.9L268.5,184.7L269.0,186.9L269.5,188.6L270.2,190.1L271.0,192.3L271.7,194.1L272.2,195.7L273.0,197.1L273.8,198.7L274.4,200.2L275.1,202.2L275.7,204.0L276.4,205.7L277.0,207.2L277.4,209.3L277.8,211.1L278.3,212.9L278.6,214.5L279.3,216.3L279.9,217.8L277.6,218.4L276.1,218.9L274.6,219.7L273.0,219.8L271.9,221.4L270.5,222.3L268.9,221.8L267.2,222.6L265.8,221.8L265.0,223.3L264.6,225.2L263.2,226.0L262.1,227.3L260.7,228.1L259.1,227.9L257.9,226.7L256.6,225.7L255.2,226.5L253.6,226.1L253.9,224.1L255.3,222.8L255.2,221.0L254.7,219.4L252.8,220.9L251.2,220.3L250.1,218.2L248.6,217.5L246.8,217.5L245.6,218.7L244.8,217.2L243.9,215.6L242.0,214.5L241.9,212.6L242.4,210.9L241.9,209.2L241.6,207.3L240.1,206.6L240.4,205.0L240.9,203.3L239.8,201.8L239.4,200.2L238.3,198.8L238.4,196.4L237.4,195.1L236.6,193.8L237.7,192.0L237.2,190.4L235.6,190.0L234.3,191.3L232.6,191.0L230.9,190.6L229.3,189.3L228.2,187.9Z"}, {"name": "Lazio", "count": 12, "op": 0.334, "d": "M201.7,222.3L202.9,221.0L204.5,220.9L205.5,222.2L206.1,223.7L207.8,224.4L207.2,226.2L206.0,227.4L207.2,228.7L208.8,229.4L210.2,230.2L212.1,229.8L213.8,229.7L215.4,229.1L217.0,230.3L217.3,231.9L217.5,233.6L218.8,234.6L218.8,236.2L219.9,237.4L221.5,238.4L223.1,237.9L224.0,239.2L224.3,240.8L225.9,241.1L225.2,242.7L226.8,242.7L227.9,244.1L229.5,243.5L230.9,242.6L231.4,241.0L231.5,239.4L232.8,240.4L234.5,240.0L236.0,239.2L235.1,237.6L236.9,237.0L238.3,235.9L239.8,235.4L241.5,234.5L241.5,232.7L243.3,232.5L244.7,231.7L246.4,231.6L248.0,231.5L249.5,230.8L250.7,229.6L252.3,229.4L252.7,227.5L253.2,225.9L255.2,226.5L256.7,226.0L258.1,227.0L258.9,228.5L259.6,230.1L261.1,230.7L260.4,232.2L259.3,233.7L257.6,233.9L255.6,233.5L253.8,233.5L252.3,234.2L251.7,235.9L252.4,237.6L251.7,239.4L250.2,240.4L251.6,241.7L252.9,242.7L252.0,244.2L252.7,245.7L254.1,246.6L254.4,248.2L255.9,249.9L257.0,251.1L258.5,251.7L259.7,253.2L258.5,254.3L257.3,255.4L255.7,255.7L254.1,255.4L252.7,254.6L251.0,254.1L249.1,253.7L249.1,255.4L247.2,256.6L246.6,258.6L247.0,260.2L248.0,261.8L249.6,262.2L251.4,262.0L253.1,263.1L254.6,263.7L256.0,264.6L257.9,265.3L259.0,266.5L260.0,267.8L259.5,269.4L259.7,271.2L261.4,270.8L262.9,271.7L264.6,272.5L265.6,274.1L267.1,274.8L268.5,273.9L269.7,272.5L271.3,272.5L272.9,272.7L273.7,274.4L275.1,275.3L276.7,275.6L278.6,276.1L280.1,276.9L281.0,278.3L282.3,279.4L282.9,281.3L283.4,282.9L283.9,284.5L283.7,286.1L282.4,287.4L282.3,289.0L281.0,290.0L279.7,291.0L277.9,291.6L278.7,293.2L278.3,295.1L279.0,296.7L277.7,298.0L277.0,299.5L275.3,300.3L273.8,301.0L272.5,300.0L270.8,300.1L269.3,299.5L267.8,300.1L267.1,301.7L265.5,301.5L263.9,300.6L262.4,299.9L261.0,299.0L259.4,298.3L257.9,297.8L256.3,297.6L254.7,298.3L252.8,298.5L251.2,299.3L249.8,300.4L248.4,301.4L247.1,300.5L246.8,298.9L246.0,297.2L245.1,295.7L244.0,294.4L242.8,293.3L241.3,292.3L239.7,291.8L238.0,291.6L236.4,291.4L234.9,290.3L233.4,289.7L231.8,290.3L231.0,288.6L230.1,287.1L228.9,285.3L227.5,283.6L226.2,281.9L224.9,280.5L223.5,279.2L222.2,278.0L220.5,276.9L218.4,275.8L217.1,274.6L216.7,272.2L216.1,270.7L215.4,269.1L214.6,267.7L213.6,266.4L212.1,265.7L210.7,264.8L209.7,263.5L208.0,262.7L206.6,261.4L205.3,260.5L203.2,261.0L202.0,259.8L201.3,258.3L200.1,256.6L199.2,255.2L198.7,253.6L197.8,251.9L197.0,250.5L196.1,249.0L195.0,247.8L193.5,246.7L192.2,245.7L190.7,244.8L189.2,244.1L188.5,242.6L189.4,241.2L191.2,240.7L193.1,240.7L194.4,239.9L194.5,238.2L193.1,237.2L193.3,235.5L194.6,234.4L196.3,233.8L197.4,232.6L199.0,232.0L200.0,230.8L201.6,230.1L200.7,228.6L201.3,227.0L202.0,225.3L200.5,224.7L199.3,223.3L200.1,221.9L201.4,222.8Z"}, {"name": "Abruzzo", "count": 8, "op": 0.263, "d": "M280.8,278.1L280.0,276.7L277.8,276.0L276.3,275.1L274.7,275.1L273.5,273.6L271.9,273.1L270.6,272.1L269.4,273.3L267.9,274.1L266.3,274.5L265.1,273.4L263.3,272.2L261.9,271.1L260.3,271.7L259.4,269.8L259.9,268.0L259.5,266.4L258.0,265.5L256.5,265.0L255.1,264.0L253.6,263.2L252.1,262.6L250.7,261.7L248.9,262.1L247.7,261.1L246.8,259.4L246.9,257.5L248.1,256.4L249.4,254.6L251.0,254.1L252.3,255.0L253.9,255.3L255.3,256.1L257.2,255.7L258.3,254.2L259.8,253.6L258.5,252.6L257.8,251.1L256.1,250.5L254.9,249.1L254.3,247.5L253.4,246.1L252.0,245.0L252.8,243.6L251.9,242.1L250.8,240.8L251.7,239.4L252.4,237.6L251.7,235.9L252.3,234.4L253.8,233.5L255.4,233.5L256.9,234.1L258.5,233.9L260.2,233.5L260.6,231.9L260.1,230.1L258.8,229.0L260.3,228.3L261.8,227.3L262.7,225.9L264.6,225.3L265.0,223.3L265.7,221.8L267.1,222.6L268.7,222.1L270.5,222.3L271.9,221.5L272.7,219.9L274.5,219.7L276.0,219.0L277.6,218.4L279.2,218.0L280.3,219.7L280.8,221.9L281.4,223.5L282.0,225.0L282.7,226.8L283.5,228.3L284.3,229.7L285.1,231.3L286.0,232.8L286.9,234.2L288.4,236.0L289.6,237.5L290.7,238.7L291.9,239.8L293.8,241.5L295.2,242.5L296.9,243.7L298.3,244.7L298.8,246.2L300.2,247.7L301.5,248.8L302.4,250.3L303.8,251.3L305.3,252.2L306.9,253.0L309.0,253.9L309.7,255.8L309.8,257.5L311.1,258.6L311.3,260.4L310.9,262.0L309.6,263.1L308.5,264.5L307.8,265.9L307.1,267.4L305.8,268.4L305.3,269.9L304.3,271.3L303.1,272.4L301.9,273.7L300.4,274.4L299.9,272.8L299.6,270.8L298.2,269.3L296.7,268.7L295.1,267.8L293.6,267.2L292.2,268.4L291.1,269.9L289.3,270.4L289.1,272.0L289.4,273.6L290.2,275.0L288.2,275.3L287.4,276.7L285.6,275.7L285.0,277.4L283.7,278.4L281.7,277.7Z"}, {"name": "Molise", "count": 1, "op": 0.138, "d": "M298.6,290.8L296.4,290.1L294.7,289.5L293.5,288.4L292.0,287.7L290.1,287.6L288.7,288.4L287.7,287.2L286.7,288.5L285.9,290.2L287.0,291.5L287.3,293.1L285.3,292.6L284.0,291.7L283.4,290.2L282.4,288.8L282.6,287.2L284.0,286.4L284.0,284.8L283.0,283.6L283.2,281.7L282.6,280.1L281.5,278.6L283.1,278.0L285.0,277.5L285.5,275.9L287.0,276.9L287.5,275.2L289.1,274.6L289.3,272.7L288.5,271.2L289.8,270.2L291.4,269.1L292.5,267.9L294.2,267.6L295.6,268.8L297.1,269.3L298.9,270.0L299.8,271.6L300.2,273.3L301.7,273.9L302.8,272.7L304.0,271.6L305.0,270.2L305.7,268.7L306.9,267.6L307.8,266.2L308.5,264.5L309.6,263.1L310.9,262.0L312.1,261.0L311.8,259.4L313.5,260.0L315.0,260.8L316.5,261.5L318.4,262.0L320.0,262.3L321.2,263.5L322.4,264.6L323.7,265.7L325.3,266.2L325.2,268.0L324.8,269.6L324.1,271.0L324.5,272.6L323.8,274.0L324.3,275.8L325.5,277.0L324.3,278.2L323.0,279.3L321.9,280.5L320.5,281.4L319.0,280.5L317.8,281.5L318.3,283.3L317.9,285.0L319.0,286.6L320.1,287.8L319.0,289.2L317.5,289.9L315.9,290.3L314.5,291.2L313.1,290.2L311.6,291.1L309.7,292.5L308.0,292.2L306.6,293.1L305.4,294.3L304.4,293.0L302.8,293.4L301.2,293.0L300.5,291.5L298.9,291.1Z"}, {"name": "Campania", "count": 6, "op": 0.227, "d": "M287.7,287.2L288.7,288.4L290.1,287.6L291.9,287.6L293.4,288.2L294.5,289.3L296.1,290.0L297.7,290.5L299.3,291.2L300.9,291.7L301.7,293.3L303.5,293.5L305.2,294.1L306.6,293.2L308.0,292.2L309.6,292.5L311.2,291.8L311.8,290.3L313.7,290.8L315.2,291.2L316.5,290.1L318.2,289.7L319.6,288.8L321.2,289.1L322.2,290.4L323.8,290.8L323.5,292.5L322.5,293.8L322.8,295.7L324.3,296.5L325.4,297.9L327.0,298.2L328.4,299.2L330.1,299.7L329.3,301.1L330.0,302.6L328.5,303.4L328.0,305.0L329.6,306.4L330.7,307.6L332.4,307.6L333.8,308.2L335.1,307.2L336.7,308.5L338.4,309.0L339.9,309.6L341.1,310.9L341.5,312.5L341.2,314.1L340.2,315.9L339.3,317.2L337.7,317.9L335.7,318.4L333.4,318.3L334.2,320.2L332.6,320.7L333.8,321.9L334.4,323.4L334.3,325.2L335.1,326.6L336.2,327.8L337.7,328.8L337.8,330.4L337.0,331.9L338.4,333.0L339.7,333.9L340.2,335.5L340.6,337.0L341.1,338.6L342.2,340.1L343.5,341.1L344.8,342.7L346.6,343.6L346.4,345.2L347.2,346.6L348.6,347.5L349.9,348.5L349.8,350.1L349.0,351.5L347.6,352.3L346.8,353.7L346.5,355.3L346.1,357.1L345.1,358.3L344.8,359.9L343.6,358.8L341.8,358.5L340.0,358.7L338.6,359.6L337.3,360.7L336.2,362.1L334.5,362.4L332.7,361.9L331.4,360.9L330.6,359.4L329.6,358.0L328.4,356.9L326.8,356.0L325.7,354.5L324.4,353.6L322.8,354.1L321.3,353.5L320.4,352.1L319.0,351.3L317.4,350.8L317.7,349.1L318.2,347.3L318.1,345.6L319.5,344.7L320.2,343.2L319.5,341.1L318.8,339.7L318.0,338.2L317.3,336.6L316.7,335.1L315.8,333.4L314.9,332.1L313.6,330.4L312.4,329.2L310.9,328.6L309.4,329.6L308.3,330.8L306.9,330.1L305.3,330.8L303.8,331.7L302.2,331.6L300.5,331.4L298.7,331.9L297.3,332.8L295.7,333.6L295.5,331.9L297.1,331.0L298.1,329.8L299.2,328.6L300.5,327.7L300.5,326.0L299.2,324.7L297.6,324.3L296.4,323.2L295.4,321.9L293.9,320.6L291.7,320.9L290.7,322.1L289.2,322.8L288.0,321.5L286.4,320.9L286.2,322.8L284.6,322.9L284.8,321.2L284.7,319.4L284.2,317.5L283.5,315.7L282.2,313.6L281.0,312.2L280.0,310.7L279.5,309.1L278.9,307.6L277.8,305.8L276.9,304.4L275.8,303.0L274.7,301.8L275.2,300.3L276.8,299.9L277.5,298.0L279.1,297.0L278.5,295.5L278.3,293.8L277.9,292.0L279.3,291.2L281.0,290.0L282.6,289.6L283.2,291.3L284.5,292.7L286.1,292.5L286.2,290.5L286.6,288.9L287.4,287.4Z"}, {"name": "Puglia", "count": 20, "op": 0.477, "d": "M323.9,293.0L323.9,291.0L322.2,290.4L321.2,289.1L320.1,287.8L319.0,286.6L317.9,285.3L318.2,283.4L317.8,281.7L318.6,280.3L320.1,281.2L321.7,280.7L323.0,279.3L324.3,278.2L325.9,277.2L324.6,276.3L324.2,274.7L324.5,273.1L324.3,271.5L324.6,269.8L325.4,268.4L325.2,266.8L326.9,266.5L328.6,266.6L330.4,266.5L332.2,266.7L333.7,267.4L335.8,267.5L337.5,267.3L339.7,267.0L341.6,266.6L343.4,266.2L345.0,266.5L346.9,266.8L349.1,266.6L350.9,266.4L353.5,266.1L355.9,265.6L357.5,265.3L359.2,265.2L360.8,265.8L362.1,266.9L363.4,268.0L363.9,269.6L364.8,271.2L364.6,272.9L363.6,274.2L362.6,275.5L361.0,276.4L359.8,277.6L358.6,278.7L357.0,279.4L355.3,280.4L353.8,281.6L353.4,283.2L353.6,285.0L354.3,287.2L355.2,288.7L356.6,290.2L358.1,291.1L359.9,292.0L361.5,292.8L363.0,293.7L364.6,294.5L366.1,295.4L367.5,296.2L369.4,296.9L371.3,297.7L373.0,298.5L374.4,299.6L376.0,300.1L377.5,301.0L379.0,302.1L380.6,302.8L382.3,303.0L384.2,303.9L386.2,304.5L388.1,305.6L389.7,305.5L391.4,306.9L393.1,307.6L394.8,308.2L396.6,308.6L398.0,309.4L399.8,310.6L401.3,311.3L402.4,312.5L403.9,313.3L405.2,314.3L406.5,315.6L407.3,316.9L408.8,317.7L410.0,318.9L411.3,319.9L412.9,321.3L414.8,322.2L416.5,322.9L418.1,323.4L419.6,324.0L421.4,324.9L423.1,326.3L424.5,327.2L426.6,328.1L428.3,328.4L429.9,329.2L431.4,330.1L432.5,331.6L433.2,333.1L433.5,334.8L434.6,336.1L436.3,337.6L438.0,338.4L439.6,339.4L441.0,340.6L441.9,341.9L443.1,343.0L444.2,344.4L445.5,345.8L446.5,347.2L447.7,348.2L448.3,349.8L449.0,351.2L449.0,352.9L449.8,354.3L450.9,355.6L450.9,357.3L449.7,358.5L449.4,360.1L447.9,361.2L447.2,362.7L446.7,364.4L446.4,366.1L446.5,367.9L446.2,369.6L446.2,371.2L445.4,372.6L443.9,372.2L442.5,371.2L441.0,370.6L439.3,370.5L437.9,369.6L436.2,368.1L434.7,367.2L433.6,366.0L432.8,364.6L431.6,362.8L432.5,361.5L431.6,359.9L432.1,358.1L431.6,356.3L430.4,355.0L429.1,353.4L428.8,351.9L427.9,350.1L426.7,348.3L424.9,348.0L423.2,347.7L421.6,347.4L419.8,347.2L417.9,347.3L416.2,347.5L414.5,347.6L413.0,347.0L411.5,346.4L409.6,345.8L408.1,345.0L406.1,344.1L404.7,343.2L403.2,342.4L404.0,340.4L403.3,338.8L401.4,338.4L400.0,337.7L398.7,336.4L397.1,336.6L395.5,337.1L394.1,337.9L392.6,339.0L391.3,340.2L390.2,341.5L388.6,341.8L387.4,340.6L386.4,339.3L384.7,339.0L384.7,337.4L384.2,335.7L383.7,334.1L384.4,332.4L383.7,330.9L384.2,329.2L383.3,327.3L382.6,325.7L381.1,324.9L379.3,324.5L377.6,324.6L377.4,326.2L376.3,324.8L374.7,326.2L373.4,327.2L371.7,325.9L370.3,325.0L369.2,323.4L367.9,322.5L366.8,321.1L365.9,319.2L365.4,317.5L364.1,316.3L362.5,316.6L360.8,316.5L359.2,315.7L357.6,315.0L356.3,313.9L358.1,313.3L358.4,311.6L358.2,309.9L356.8,308.8L355.8,307.6L354.4,306.9L353.0,305.8L351.4,306.1L350.1,307.3L348.8,308.3L347.3,307.5L345.5,308.1L343.8,307.9L342.2,307.6L340.8,308.6L339.3,309.3L337.6,308.6L336.1,307.8L334.4,307.9L332.8,307.7L331.0,307.8L329.8,306.7L328.7,305.5L328.4,303.6L329.8,302.6L329.3,300.8L329.7,299.2L328.2,298.7L326.6,298.3L325.2,297.5L324.1,296.3L322.7,295.4L322.8,293.7Z"}, {"name": "Basilicata", "count": 1, "op": 0.138, "d": "M337.5,330.8L338.8,329.7L337.2,328.5L335.6,327.2L334.4,326.1L334.5,324.3L334.6,322.6L333.5,321.4L334.1,319.5L335.6,318.4L337.0,319.0L338.3,317.6L339.8,317.0L340.4,315.3L341.4,313.5L341.2,311.9L340.6,310.3L340.8,308.6L342.0,307.6L343.6,307.7L345.2,308.0L346.9,308.0L348.6,308.2L350.1,307.4L351.1,306.1L352.9,305.6L354.2,306.7L355.8,307.2L356.7,308.6L358.2,309.9L358.4,311.6L358.2,313.2L356.7,314.0L357.8,315.1L359.4,315.8L361.0,316.6L362.8,316.3L364.9,316.6L365.6,318.1L366.0,319.7L366.9,321.3L367.9,322.5L369.7,324.1L370.9,325.3L372.1,326.7L373.8,326.9L375.2,325.6L376.8,325.1L378.5,325.6L380.0,324.9L381.6,325.3L383.5,326.2L384.0,328.0L384.0,330.0L383.8,331.6L384.0,333.3L383.6,334.9L384.3,336.7L384.1,338.3L385.6,339.3L387.2,339.6L387.8,341.2L389.0,342.3L388.8,344.0L387.8,345.6L386.6,347.3L385.8,349.0L384.8,351.6L383.7,353.6L382.9,355.0L381.4,356.4L379.8,355.9L378.0,356.0L376.1,355.9L374.2,355.7L372.6,356.3L372.7,357.9L372.3,359.5L372.2,361.4L371.3,363.0L370.7,364.7L370.5,366.3L369.0,365.8L367.4,365.6L365.8,366.1L364.9,367.4L363.5,366.5L361.8,367.1L360.2,367.6L358.8,366.6L357.8,365.1L358.2,363.5L356.6,363.3L355.0,362.4L353.6,363.3L352.0,362.3L350.2,363.0L349.0,364.3L348.6,365.9L347.4,364.2L346.3,362.9L345.3,361.4L344.2,360.3L345.2,358.9L345.8,357.4L346.4,355.7L346.8,354.0L347.4,352.4L349.0,351.5L349.8,350.1L350.0,348.5L348.6,347.5L347.2,346.7L346.4,345.3L346.6,343.6L345.2,342.5L343.8,341.5L342.5,340.5L341.7,339.0L340.2,338.0L340.1,336.3L339.9,334.6L339.2,333.2L337.6,332.6L337.5,331.0Z"}, {"name": "Calabria", "count": 5, "op": 0.209, "d": "M356.4,389.0L355.4,387.5L354.6,386.0L353.1,385.3L352.5,383.8L352.0,382.1L351.4,379.9L350.6,378.5L350.3,376.9L350.1,375.2L349.7,373.6L349.5,372.0L348.8,370.5L349.6,369.1L349.0,367.5L348.6,365.9L348.9,364.3L350.2,363.0L351.8,362.1L353.3,362.7L354.9,362.4L356.5,363.0L358.2,362.6L357.8,364.3L358.0,366.0L359.2,367.6L360.7,367.2L362.4,367.2L364.3,367.0L365.8,366.1L367.3,365.6L369.0,365.8L370.0,367.2L370.3,364.9L371.1,363.5L372.2,361.6L372.0,359.9L372.7,358.4L372.7,356.7L374.1,355.7L375.7,356.1L377.3,356.3L378.9,355.9L380.7,355.9L380.5,357.5L379.8,359.1L379.7,360.7L380.1,362.2L380.5,363.8L380.1,365.3L379.1,366.8L378.0,368.0L377.1,369.3L376.1,370.9L375.6,372.4L375.5,374.0L376.1,375.5L377.0,377.0L376.8,378.7L378.3,380.2L379.9,381.1L382.0,381.4L383.9,381.4L385.5,381.1L386.8,382.1L387.9,383.6L389.0,384.9L390.3,385.9L391.8,386.7L393.5,387.7L395.1,388.0L395.9,389.4L396.9,390.7L398.7,391.9L400.2,392.2L399.5,393.7L399.0,395.7L398.6,397.7L398.4,399.4L399.2,401.0L399.9,402.7L399.1,404.4L398.7,406.0L398.9,407.9L399.6,409.5L401.0,410.6L400.8,412.3L400.5,414.0L399.7,415.5L398.3,417.0L396.8,416.4L395.3,417.0L394.1,415.5L391.6,415.7L389.9,416.0L388.2,416.6L386.5,417.4L385.1,418.2L383.7,419.1L382.4,420.1L381.0,421.0L379.7,422.1L378.6,423.6L378.1,425.3L377.3,426.6L378.1,428.1L378.1,429.9L378.3,431.6L378.5,433.3L378.6,434.9L378.7,436.6L379.0,438.8L378.8,440.4L377.7,442.1L376.6,443.4L375.5,444.6L374.2,445.5L372.5,446.2L371.1,446.8L369.4,447.6L368.5,448.9L367.5,450.3L366.5,451.6L365.5,453.0L364.5,454.3L363.4,455.6L363.2,457.2L362.9,459.0L362.7,460.6L362.1,462.2L361.3,463.8L360.4,465.1L358.6,466.0L356.9,466.3L354.8,465.8L353.0,465.9L351.4,466.3L349.7,466.3L348.1,466.1L346.6,465.4L344.9,463.7L344.0,462.3L344.5,460.8L344.4,459.1L343.6,457.6L344.4,456.1L344.5,454.4L343.7,452.6L343.8,450.8L345.3,450.0L346.9,449.5L348.5,449.1L349.8,448.1L350.8,446.5L351.2,444.8L352.1,443.3L352.6,441.6L353.6,439.8L354.3,437.4L354.7,435.8L353.9,434.2L352.5,432.7L351.1,431.4L351.4,429.8L352.6,428.7L354.3,428.1L355.8,427.4L356.8,426.1L358.5,425.9L360.0,426.3L361.8,426.4L363.2,425.6L364.5,424.2L365.0,422.6L365.4,421.0L365.6,419.0L365.6,417.3L364.9,415.7L363.4,414.9L362.6,413.4L361.7,411.8L360.9,410.2L360.5,408.2L360.0,406.1L359.7,404.4L359.7,402.6L359.5,400.6L359.4,398.3L359.0,396.4L358.6,394.6L358.1,393.0L357.5,391.1L356.8,389.6Z"}, {"name": "Sicilia", "count": 2, "op": 0.156, "d": "M242.4,461.0L244.1,460.6L245.7,459.9L247.1,458.9L248.4,458.1L248.4,456.2L248.7,454.6L249.3,453.0L251.0,453.1L252.6,453.8L254.2,453.3L255.5,452.2L256.9,451.4L258.2,452.3L259.5,453.5L259.6,455.1L260.0,456.7L262.0,457.5L263.7,457.2L265.6,456.7L265.9,458.3L266.9,460.2L268.5,461.2L270.0,462.2L271.7,462.7L273.1,463.5L275.4,463.5L277.0,463.0L279.1,462.1L280.6,461.2L282.2,460.7L284.2,460.2L285.4,461.3L287.0,461.5L288.5,460.7L290.1,461.4L291.7,461.7L293.6,461.9L295.6,461.3L297.4,461.2L298.8,460.2L300.5,460.6L302.4,460.2L303.7,459.2L305.4,459.0L307.0,458.3L308.2,457.3L309.2,456.0L310.6,454.2L312.2,454.6L313.9,454.2L315.5,453.8L317.0,452.7L318.3,453.7L319.5,454.7L321.2,454.7L322.7,455.9L324.4,455.9L325.9,455.1L327.1,454.0L328.2,452.7L328.9,450.9L329.0,449.3L329.3,450.9L331.1,451.9L332.9,451.4L334.4,450.9L336.0,450.2L337.4,449.3L338.7,448.1L340.3,447.2L341.8,448.1L343.3,448.6L342.1,449.8L341.2,451.5L341.1,453.2L339.9,455.2L339.1,457.2L338.4,458.8L337.3,460.1L336.2,461.8L335.2,463.1L334.3,464.4L333.3,465.9L332.0,467.8L331.2,469.2L330.3,470.6L329.5,472.1L328.5,473.8L327.8,475.2L328.3,476.8L327.6,478.4L327.1,480.2L326.6,481.8L326.8,483.4L325.7,484.6L324.5,485.7L323.9,487.2L323.4,488.9L323.5,490.9L323.6,493.7L323.7,495.4L325.1,496.7L326.5,497.5L328.1,498.0L329.2,499.3L328.5,501.0L327.0,501.6L327.7,503.2L329.0,504.2L328.6,505.9L330.2,506.3L331.4,507.5L331.3,509.2L332.1,510.8L330.7,511.8L329.8,513.2L328.4,514.0L326.8,515.3L325.8,516.5L325.3,518.1L324.4,519.6L324.3,521.2L323.7,522.8L324.2,524.6L324.8,526.3L325.4,527.8L324.0,529.0L322.4,529.0L321.4,527.3L319.5,527.3L317.7,526.6L316.3,525.6L314.6,525.7L313.2,526.4L311.4,526.6L309.7,526.1L308.2,525.3L307.0,524.3L305.4,523.6L303.7,523.0L302.1,522.7L300.4,521.4L299.8,519.7L299.3,518.2L298.6,516.6L297.8,515.2L296.7,513.5L295.7,512.1L294.2,510.4L292.6,509.2L290.9,508.4L289.4,507.6L287.8,507.2L286.1,506.7L284.5,506.8L282.8,506.7L281.1,507.1L279.1,507.3L277.8,506.4L276.7,505.1L274.8,504.8L273.2,504.2L271.7,503.1L270.4,502.0L269.5,500.6L268.0,499.3L266.9,498.2L265.1,497.7L263.2,497.5L261.7,496.8L260.8,495.5L259.2,494.5L257.7,493.8L256.7,492.7L255.6,491.4L254.5,490.1L253.3,489.0L252.3,487.7L250.4,487.4L248.8,486.9L246.7,487.4L245.6,485.4L244.5,484.1L242.8,483.3L241.0,483.1L238.9,483.1L237.1,483.2L235.4,483.8L233.7,484.2L232.4,482.5L231.6,480.9L230.5,479.5L228.9,479.1L227.3,478.5L226.2,477.0L226.3,475.4L225.7,473.9L224.8,472.5L225.9,471.2L226.4,469.4L226.0,467.6L226.3,465.9L227.2,464.1L227.5,462.5L228.2,460.9L229.3,459.7L230.7,458.9L232.4,458.5L233.1,456.9L234.7,456.9L236.0,455.4L235.4,453.9L237.2,453.2L238.1,455.5L238.3,457.1L239.3,458.7L240.7,459.7L241.9,461.0Z"}, {"name": "Sardegna", "count": 0, "op": 0.04, "d": "M73.7,337.6L72.2,335.9L71.8,334.4L71.1,332.9L69.4,333.2L67.7,333.9L68.2,332.4L66.3,333.2L65.4,331.7L66.9,330.6L67.3,328.9L66.5,327.5L65.4,326.1L66.1,324.3L66.1,322.7L67.2,321.4L67.8,319.7L68.3,318.2L67.4,316.9L66.9,315.0L68.6,314.8L68.8,316.4L69.3,318.0L70.4,319.2L71.7,320.2L73.5,319.8L75.0,320.5L76.5,321.2L78.1,321.5L79.8,321.2L81.5,320.6L83.1,319.4L84.3,317.9L85.7,317.1L87.3,316.6L89.1,316.5L90.4,315.4L91.9,313.6L92.6,312.0L93.7,310.7L95.5,309.1L96.6,307.8L97.6,306.3L99.1,305.6L101.2,305.8L102.8,304.8L103.0,302.8L103.4,301.0L104.9,300.0L106.7,300.4L107.7,301.7L108.7,302.9L110.1,302.1L111.5,303.2L112.9,303.8L113.4,305.7L113.6,307.3L114.7,306.2L116.2,305.5L117.3,306.7L118.2,308.0L116.9,308.9L116.5,311.1L118.1,310.6L117.7,312.2L119.3,311.6L120.8,312.4L119.2,313.0L118.8,314.7L118.1,316.3L116.5,315.9L118.1,316.5L119.7,317.0L120.7,318.2L121.6,319.6L123.8,320.3L122.5,321.3L122.1,322.9L123.4,324.7L123.7,326.3L124.4,327.7L125.0,329.3L124.8,331.0L125.2,332.6L126.5,333.8L126.9,335.4L127.8,337.1L127.3,338.8L126.7,340.3L126.0,342.0L125.1,343.4L123.5,344.5L122.5,345.7L121.5,347.4L120.5,349.2L120.5,351.0L120.6,352.8L121.5,354.7L122.6,356.6L124.3,357.9L124.0,359.9L123.2,361.5L122.8,363.1L122.7,364.8L123.7,366.3L122.5,367.4L122.6,369.1L122.4,371.3L122.1,373.0L122.2,374.6L122.2,376.3L121.8,378.1L121.3,379.8L121.5,381.8L121.6,383.8L121.0,385.3L120.7,387.2L121.1,388.7L120.9,390.4L120.0,392.3L119.5,393.9L119.5,395.8L120.6,397.0L119.4,398.1L118.6,399.6L118.3,401.5L118.7,403.1L118.3,404.7L116.9,405.9L116.7,407.6L116.1,406.0L114.1,405.8L112.4,405.1L111.0,403.7L109.2,402.3L107.7,401.6L106.0,401.1L104.3,401.3L103.2,402.4L101.5,401.7L99.8,402.4L98.6,403.7L97.8,405.1L97.8,406.9L98.5,409.0L98.4,410.6L97.9,412.5L96.4,414.0L95.2,415.2L94.0,416.3L92.8,417.5L91.5,418.5L90.0,417.3L88.5,416.5L87.1,415.6L85.5,416.7L84.2,417.6L82.6,417.2L83.2,415.7L82.5,414.2L81.3,412.8L81.5,411.2L80.3,410.0L78.8,409.2L77.3,410.2L76.8,411.8L76.4,413.3L75.3,414.5L74.7,412.9L73.8,411.4L73.3,409.3L73.1,407.7L75.2,407.2L76.8,407.9L77.7,409.4L77.8,407.6L76.8,406.5L76.3,404.5L75.0,403.4L73.9,401.8L74.6,400.0L75.8,398.9L76.2,397.2L75.5,395.5L74.4,394.1L74.7,392.4L75.4,390.7L74.3,389.5L75.0,388.0L76.1,386.4L76.9,384.8L77.2,383.2L77.3,381.6L76.9,379.6L76.7,378.0L76.6,376.4L76.5,374.7L78.3,376.1L79.1,374.7L80.1,373.3L80.5,371.3L80.6,369.5L80.0,367.8L78.6,367.0L77.0,367.7L76.3,369.3L75.7,367.6L74.9,366.0L74.9,364.4L75.2,362.6L75.1,360.9L76.4,359.9L78.0,358.7L78.1,356.5L77.1,354.9L77.1,353.3L77.4,351.0L77.8,349.0L77.4,347.5L76.1,345.8L74.3,345.2L74.6,343.4L74.9,341.8L74.5,339.9L74.0,338.2Z"}], "dots": [{"x": 289.4, "y": 245.1, "c": 1, "r": "Abruzzo", "city": "Chieti Scalo", "n": ["Acqua Ardente Concept"]}, {"x": 290.8, "y": 239.6, "c": 3, "r": "Abruzzo", "city": "Pescara", "n": ["Borbonese Boutique", "Femminella Boutique", "Profumeria Estasi"]}, {"x": 293.8, "y": 241.6, "c": 1, "r": "Abruzzo", "city": "Francavilla al Mare", "n": ["Boutique Diana"]}, {"x": 280.4, "y": 222.6, "c": 1, "r": "Abruzzo", "city": "Tortoreto Lido", "n": ["L'Arte della Fragranza"]}, {"x": 309.4, "y": 257.1, "c": 1, "r": "Abruzzo", "city": "Vasto", "n": ["Profumeria Alkimia"]}, {"x": 288.6, "y": 237.1, "c": 1, "r": "Abruzzo", "city": "Montesilvano", "n": ["Profumeria Estasi"]}, {"x": 349.9, "y": 330.4, "c": 1, "r": "Basilicata", "city": "Potenza", "n": ["Il Profumiere"]}, {"x": 353.6, "y": 440.8, "c": 1, "r": "Calabria", "city": "Gioia Tauro", "n": ["De Angelis Hairdressing"]}, {"x": 368.5, "y": 448.7, "c": 1, "r": "Calabria", "city": "Siderno", "n": ["I Profumi"]}, {"x": 361.1, "y": 428.3, "c": 1, "r": "Calabria", "city": "Vibo Valentia", "n": ["La Boutique de Marie"]}, {"x": 380.8, "y": 383.4, "c": 1, "r": "Calabria", "city": "Rossano", "n": ["Profumerie Campana"]}, {"x": 344.4, "y": 456.7, "c": 1, "r": "Calabria", "city": "Reggio Calabria", "n": ["Squillace Luxury"]}, {"x": 295.7, "y": 321.5, "c": 1, "r": "Campania", "city": "Portici", "n": ["Anike"]}, {"x": 341.4, "y": 345.9, "c": 1, "r": "Campania", "city": "Sassano", "n": ["Cosmetika Profumeria"]}, {"x": 295.3, "y": 309.0, "c": 1, "r": "Campania", "city": "Caserta", "n": ["Profumerì"]}, {"x": 302.7, "y": 316.0, "c": 1, "r": "Campania", "city": "Nola", "n": ["Profumeria Elisir"]}, {"x": 322.1, "y": 331.4, "c": 1, "r": "Campania", "city": "Eboli", "n": ["Profumeria Lina"]}, {"x": 303.5, "y": 322.5, "c": 1, "r": "Campania", "city": "Poggiomarino", "n": ["Rossolacca"]}, {"x": 184.2, "y": 137.8, "c": 2, "r": "Emilia Romagna", "city": "Bologna", "n": ["Folies", "Uomini"]}, {"x": 157.8, "y": 127.8, "c": 1, "r": "Emilia Romagna", "city": "Reggio Emilia", "n": ["Olphatto"]}, {"x": 178.6, "y": 130.8, "c": 1, "r": "Emilia Romagna", "city": "San Giovanni in Persiceto", "n": ["Profumeria Paola"]}, {"x": 197.9, "y": 144.8, "c": 1, "r": "Emilia Romagna", "city": "Imola", "n": ["Profumi d'Autore"]}, {"x": 171.9, "y": 138.8, "c": 1, "r": "Emilia Romagna", "city": "Vignola", "n": ["Rosa Cipria Profumeria"]}, {"x": 216.1, "y": 141.8, "c": 1, "r": "Emilia Romagna", "city": "Ravenna", "n": ["Sabbia Nera"]}, {"x": 217.6, "y": 155.7, "c": 1, "r": "Emilia Romagna", "city": "Cesena", "n": ["Sensi Boutique"]}, {"x": 225.4, "y": 159.2, "c": 1, "r": "Emilia Romagna", "city": "Santarcangelo di Romagna", "n": ["Sillage Essences"]}, {"x": 254.8, "y": 59.9, "c": 1, "r": "Friuli Venezia Giulia", "city": "Udine", "n": ["Profumeria Bulian"]}, {"x": 252.2, "y": 64.9, "c": 1, "r": "Friuli Venezia Giulia", "city": "Mortegliano", "n": ["Profumeria Tosolini"]}, {"x": 227.3, "y": 267.6, "c": 10, "r": "Lazio", "city": "Roma", "n": ["Amyris", "Bioprofumeria Amatè", "La Profumania", "Muzio", "Olfacto", "PI 1952", "Profumeria dei Serpenti", "Profumeria Ippoliti", "Profumi Li. Pe.", "Profumi Program"]}, {"x": 247.0, "y": 297.5, "c": 1, "r": "Lazio", "city": "Sabaudia", "n": ["Aromantica"]}, {"x": 217.2, "y": 274.0, "c": 1, "r": "Lazio", "city": "Fiumicino", "n": ["Profumo e Deliziami"]}, {"x": 111.7, "y": 149.3, "c": 1, "r": "Liguria", "city": "Sestri Levante", "n": ["Profumeria Etre"]}, {"x": 94.6, "y": 142.3, "c": 1, "r": "Liguria", "city": "Genova", "n": ["Profumeria Gardella"]}, {"x": 80.8, "y": 145.8, "c": 1, "r": "Liguria", "city": "Celle Ligure", "n": ["Profumeria Venere"]}, {"x": 142.2, "y": 85.9, "c": 1, "r": "Lombardia", "city": "Roncadelle", "n": ["AT28 Profumeria"]}, {"x": 139.6, "y": 36.0, "c": 2, "r": "Lombardia", "city": "Livigno", "n": ["Baita della Luna", "Silene"]}, {"x": 153.3, "y": 93.9, "c": 1, "r": "Lombardia", "city": "Castiglione delle Stiviere", "n": ["Beatrice Beautè"]}, {"x": 118.4, "y": 56.4, "c": 1, "r": "Lombardia", "city": "Morbegno", "n": ["Bertolini Beauty Boutique"]}, {"x": 153.3, "y": 49.9, "c": 1, "r": "Lombardia", "city": "Ponte di Legno", "n": ["Cadeaux"]}, {"x": 93.9, "y": 83.4, "c": 1, "r": "Lombardia", "city": "Legnano", "n": ["Così a Naso"]}, {"x": 104.3, "y": 89.4, "c": 6, "r": "Lombardia", "city": "Milano", "n": ["F&F", "Great Parfumery", "Orangorilla", "Profumeria Erika", "Profumeria Filangeri", "Profumeria Nuova Immagine"]}, {"x": 108.0, "y": 87.4, "c": 1, "r": "Lombardia", "city": "Vimodrone", "n": ["Idus Parfum"]}, {"x": 90.9, "y": 71.9, "c": 1, "r": "Lombardia", "city": "Varese", "n": ["Istanti di Armonia"]}, {"x": 89.4, "y": 79.9, "c": 1, "r": "Lombardia", "city": "Gallarate", "n": ["L'Essenza del Tempo"]}, {"x": 107.6, "y": 76.9, "c": 1, "r": "Lombardia", "city": "Bulciago", "n": ["Officina del Make Up"]}, {"x": 110.6, "y": 86.9, "c": 1, "r": "Lombardia", "city": "Cassina de' Pecchi", "n": ["Profumeria Adriana"]}, {"x": 102.0, "y": 86.4, "c": 1, "r": "Lombardia", "city": "Novate Milanese", "n": ["Profumeria Marinella"]}, {"x": 92.0, "y": 64.4, "c": 1, "r": "Lombardia", "city": "Lavena Ponte Tresa", "n": ["Profumeria Maura"]}, {"x": 87.5, "y": 63.4, "c": 1, "r": "Lombardia", "city": "Luino", "n": ["Profumeria Paola"]}, {"x": 100.5, "y": 72.4, "c": 1, "r": "Lombardia", "city": "Como", "n": ["Profumeria Prestige"]}, {"x": 139.6, "y": 94.9, "c": 1, "r": "Lombardia", "city": "Manerbio", "n": ["Profumeria Rosa"]}, {"x": 106.1, "y": 81.9, "c": 1, "r": "Lombardia", "city": "Lissone", "n": ["Profumeria San Vito"]}, {"x": 98.7, "y": 86.9, "c": 1, "r": "Lombardia", "city": "Rho", "n": ["Profumeria Tiffany"]}, {"x": 103.1, "y": 103.3, "c": 1, "r": "Lombardia", "city": "Pavia", "n": ["Renifler"]}, {"x": 142.5, "y": 85.9, "c": 1, "r": "Lombardia", "city": "Brescia", "n": ["Sbruzzi Profumeria"]}, {"x": 143.3, "y": 80.9, "c": 1, "r": "Lombardia", "city": "Sarezzo", "n": ["VG Charme"]}, {"x": 242.5, "y": 167.2, "c": 1, "r": "Marche", "city": "Pesaro", "n": ["Kaisa's Perfume Selection"]}, {"x": 262.6, "y": 197.7, "c": 1, "r": "Marche", "city": "Macerata", "n": ["Profumeria Beauty Shop"]}, {"x": 278.6, "y": 215.1, "c": 1, "r": "Marche", "city": "San Benedetto del Tronto", "n": ["Profumeria Paris"]}, {"x": 307.6, "y": 284.5, "c": 1, "r": "Molise", "city": "Campobasso", "n": ["Concept Store Altamarea"]}, {"x": 75.6, "y": 96.3, "c": 1, "r": "Piemonte", "city": "Vercelli", "n": ["Atelier 110"]}, {"x": 77.5, "y": 128.8, "c": 1, "r": "Piemonte", "city": "Acqui Terme", "n": ["Civico 42"]}, {"x": 83.8, "y": 82.9, "c": 1, "r": "Piemonte", "city": "Oleggio", "n": ["Coccinella Biocosmetic"]}, {"x": 47.4, "y": 130.3, "c": 1, "r": "Piemonte", "city": "Savigliano", "n": ["Dea Profumeria Artistica"]}, {"x": 75.6, "y": 87.4, "c": 1, "r": "Piemonte", "city": "Carpignano Sesia", "n": ["Edda Profumi"]}, {"x": 55.2, "y": 89.9, "c": 1, "r": "Piemonte", "city": "Ivrea", "n": ["Erniani 1967"]}, {"x": 83.1, "y": 90.4, "c": 1, "r": "Piemonte", "city": "Novara", "n": ["Farmacia Paduano"]}, {"x": 48.5, "y": 109.3, "c": 1, "r": "Piemonte", "city": "Torino", "n": ["Profumeria Elise"]}, {"x": 54.5, "y": 126.8, "c": 1, "r": "Piemonte", "city": "Sommariva del Bosco", "n": ["Profumeria Mary"]}, {"x": 52.6, "y": 101.3, "c": 1, "r": "Piemonte", "city": "San Benigno Canavese", "n": ["Profumeria Quinta Essentia"]}, {"x": 73.8, "y": 81.9, "c": 1, "r": "Piemonte", "city": "Gattinara", "n": ["Profumeria Sogno"]}, {"x": 377.8, "y": 321.0, "c": 1, "r": "Puglia", "city": "Altamura", "n": ["Beautè"]}, {"x": 407.9, "y": 321.0, "c": 1, "r": "Puglia", "city": "Fasano", "n": ["Boutique Cupertino"]}, {"x": 332.5, "y": 287.0, "c": 1, "r": "Puglia", "city": "Lucera", "n": ["Carelli Cosmetics Shop"]}, {"x": 368.5, "y": 301.0, "c": 1, "r": "Puglia", "city": "Andria", "n": ["Centro Estetico Schiraldi Monica"]}, {"x": 336.6, "y": 273.0, "c": 1, "r": "Puglia", "city": "Apricena", "n": ["Lady Giò Profumerie"]}, {"x": 407.2, "y": 327.5, "c": 1, "r": "Puglia", "city": "Martina Franca", "n": ["Profumeria Agata"]}, {"x": 429.5, "y": 330.9, "c": 1, "r": "Puglia", "city": "Brindisi", "n": ["Profumeria Anelli"]}, {"x": 418.7, "y": 327.0, "c": 1, "r": "Puglia", "city": "Carovigno", "n": ["Profumeria Bluemarine"]}, {"x": 409.0, "y": 339.4, "c": 1, "r": "Puglia", "city": "San Giorgio Ionico", "n": ["Profumeria Catanese"]}, {"x": 372.6, "y": 305.0, "c": 1, "r": "Puglia", "city": "Corato", "n": ["Profumeria Cipriani&Nancy"]}, {"x": 415.7, "y": 342.4, "c": 1, "r": "Puglia", "city": "Sava", "n": ["Profumeria Desideri"]}, {"x": 439.9, "y": 368.9, "c": 1, "r": "Puglia", "city": "Salve", "n": ["Profumeria Erika Gianluca"]}, {"x": 441.0, "y": 354.9, "c": 1, "r": "Puglia", "city": "Corigliano d'Otranto", "n": ["Profumeria Essenza"]}, {"x": 438.0, "y": 344.4, "c": 1, "r": "Puglia", "city": "Lecce", "n": ["Profumeria Liguori"]}, {"x": 383.0, "y": 307.0, "c": 1, "r": "Puglia", "city": "Bitonto", "n": ["Profumeria Mastrangelo"]}, {"x": 405.7, "y": 315.0, "c": 1, "r": "Puglia", "city": "Monopoli", "n": ["Profumeria New Look"]}, {"x": 340.6, "y": 289.5, "c": 1, "r": "Puglia", "city": "Foggia", "n": ["Profumeria Profumo di Donna"]}, {"x": 389.7, "y": 306.5, "c": 1, "r": "Puglia", "city": "Bari", "n": ["Profumeria Sciara Souani"]}, {"x": 359.6, "y": 301.5, "c": 1, "r": "Puglia", "city": "Canosa di Puglia", "n": ["Profumeria Venere"]}, {"x": 379.7, "y": 302.5, "c": 1, "r": "Puglia", "city": "Molfetta", "n": ["Studio Make-up"]}, {"x": 310.5, "y": 454.2, "c": 1, "r": "Sicilia", "city": "Capo d'Orlando", "n": ["Griffe"]}, {"x": 323.5, "y": 487.2, "c": 1, "r": "Sicilia", "city": "Catania", "n": ["I Ciaurusi"]}, {"x": 133.3, "y": 152.3, "c": 1, "r": "Toscana", "city": "Aulla", "n": ["Annabella Centro Estetico"]}, {"x": 138.1, "y": 158.7, "c": 1, "r": "Toscana", "city": "Carrara", "n": ["Doretti Franca"]}, {"x": 177.9, "y": 169.7, "c": 1, "r": "Toscana", "city": "Calenzano", "n": ["Giovannelli Spartaco"]}, {"x": 179.7, "y": 240.6, "c": 1, "r": "Toscana", "city": "Orbetello", "n": ["Profumeria Bergamo"]}, {"x": 175.2, "y": 168.7, "c": 1, "r": "Toscana", "city": "Prato", "n": ["Profumeria Cafissi"]}, {"x": 171.9, "y": 167.7, "c": 1, "r": "Toscana", "city": "Agliana", "n": ["Profumeria Micozzi"]}, {"x": 145.5, "y": 181.2, "c": 1, "r": "Toscana", "city": "Tirrenia", "n": ["Profumeria Sivieri"]}, {"x": 149.2, "y": 176.7, "c": 1, "r": "Toscana", "city": "Pisa", "n": ["Profumeria Sivieri Otello"]}, {"x": 177.5, "y": 29.5, "c": 1, "r": "Trentino Alto Adige", "city": "Merano", "n": ["Parfumerie Maya"]}, {"x": 184.5, "y": 37.9, "c": 1, "r": "Trentino Alto Adige", "city": "Bolzano", "n": ["Profumeria Ferrari"]}, {"x": 223.9, "y": 213.6, "c": 1, "r": "Umbria", "city": "Deruta", "n": ["Glamour Profumeria"]}, {"x": 221.0, "y": 197.7, "c": 1, "r": "Umbria", "city": "Umbertide", "n": ["Profumeria La Pantera Due"]}, {"x": 198.7, "y": 74.4, "c": 1, "r": "Veneto", "city": "Bassano del Grappa", "n": ["Farmacia Alle Grazie"]}, {"x": 171.2, "y": 90.9, "c": 1, "r": "Veneto", "city": "Verona", "n": ["Perfume Room"]}, {"x": 200.9, "y": 94.9, "c": 1, "r": "Veneto", "city": "Abano Terme", "n": ["Profumeria Beghin"]}, {"x": 207.6, "y": 104.3, "c": 1, "r": "Veneto", "city": "Agna", "n": ["Profumeria Elisir"]}, {"x": 166.0, "y": 86.4, "c": 1, "r": "Veneto", "city": "Cavaion Veronese", "n": ["Profumeria Elle Centro Estetico"]}], "clusters": [{"name": "Milano", "lon": 9.19, "lat": 45.47, "km": 28, "cx": 104.3, "cy": 89.4, "r": 12.6}, {"name": "Roma", "lon": 12.5, "lat": 41.9, "km": 28, "cx": 227.3, "cy": 267.6, "r": 12.6}, {"name": "Puglia", "lon": 16.9, "lat": 40.9, "km": 60, "cx": 390.8, "cy": 317.5, "r": 27.0}], "maxc": 28};
+
+/* REVEAL */
+const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}})},{threshold:0.12});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+
+/* COUNTERS */
+const cio=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){animateCount(e.target);cio.unobserve(e.target);}})},{threshold:0.5});
+document.querySelectorAll('.num[data-count]').forEach(c=>cio.observe(c));
+function animateCount(el){const t=+el.dataset.count,p=el.dataset.prefix||'',d=1300,t0=performance.now();function tick(n){const pr=Math.min((n-t0)/d,1),e=1-Math.pow(1-pr,3);el.innerHTML=p+Math.round(t*e);if(pr<1)requestAnimationFrame(tick);}requestAnimationFrame(tick);}
+
+/* SIDE NAV */
+const navLinks=document.querySelectorAll('.sidenav a');
+const sidenav=document.getElementById('sidenav');
+const darkSections=['cover','mappa','orchestrazione','caso','americanuncle','portfolioprofumo'];
+const nio=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){const id=e.target.id;navLinks.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+id));sidenav.classList.toggle('on-dark',darkSections.includes(id));}})},{threshold:0.5});
+navLinks.forEach(a=>{const s=document.querySelector(a.getAttribute('href'));if(s)nio.observe(s);});
+
+/* JOURNEY */
+const journeyData=[
+  {title:"Maria, 32 anni",desc:"Ama il design e la buona cucina, segue chef e ristoranti sui social. Compra profumi di nicchia per sentirsi diversa. Non ha mai sentito parlare di Aroma Studium: per lei, il brand non esiste ancora.",tag:"Punto di partenza"},
+  {title:"L'incontro nel feed",desc:"Mentre scorre Instagram tra una ricetta e un ristorante, compare un video: un profumo nato dall'incontro tra un naso e uno chef stellato. L'estetica la ferma.",tag:"Attivit&agrave;: <span>Campagna Awareness</span>"},
+  {title:"La scintilla",desc:"Incuriosita, tocca l'annuncio. Scopre il concept della quarta dimensione olfattiva e trova la profumeria pi&ugrave; vicina a casa sua. Ora sa dove andare.",tag:"Attivit&agrave;: <span>Traffic + Landing</span>"},
+  {title:"La soglia del negozio",desc:"Sabato entra nella profumeria del quartiere e chiede di Aroma Studium. Prova la fragranza sulla pelle. Il profumiere completa il racconto iniziato online.",tag:"Attivit&agrave;: <span>Footfall, il ponte O2O</span>"},
+  {title:"L'acquisto e il ritorno",desc:"Maria compra. Esce con una fragranza scelta, non subita. Ne parla alle amiche, la mostra nelle storie. &Egrave; diventata cliente e ambasciatrice.",tag:"Attivit&agrave;: <span>Sell-out + passaparola</span>"}
+];
+const jnodes=document.querySelectorAll('.jnode'),jprogress=document.getElementById('jprogress');
+const jdTitle=document.getElementById('jd-title'),jdDesc=document.getElementById('jd-desc'),jdTag=document.getElementById('jd-tag');
+function setJourney(s){jnodes.forEach((n,i)=>{n.classList.toggle('active',i===s);n.classList.toggle('done',i<s);});const d=journeyData[s];[jdTitle,jdDesc,jdTag].forEach(e=>e.style.opacity=0);setTimeout(()=>{jdTitle.textContent=d.title;jdDesc.textContent=d.desc;jdTag.innerHTML=d.tag;[jdTitle,jdDesc,jdTag].forEach(e=>{e.style.transition='opacity .4s ease';e.style.opacity=1;});},180);jprogress.style.width=(s/(jnodes.length-1)*90)+'%';}
+jnodes.forEach((n,i)=>n.addEventListener('click',()=>setJourney(i)));
+let jplayed=false;
+new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting&&!jplayed){jplayed=true;let s=0;const iv=setInterval(()=>{s++;if(s>4){clearInterval(iv);return;}setJourney(s);},1100);}})},{threshold:0.4}).observe(document.querySelector('.journey'));
+
+/* CONCENTRATE */
+const concViz=document.getElementById('concViz'),concDesc=document.getElementById('concDesc');
+concViz.innerHTML='<svg class="italy" viewBox="0 0 100 130" xmlns="http://www.w3.org/2000/svg"><path d="M38 8 L46 6 L50 14 L44 22 L52 30 L58 28 L62 36 L56 46 L66 54 L74 70 L70 80 L60 78 L54 70 L50 80 L58 92 L52 100 L46 96 L44 86 L40 78 L34 64 L30 50 L26 40 L32 28 L30 18 Z" fill="none" stroke="rgba(176,141,79,0.45)" stroke-width="1"/></svg>';
+const spreadDots=[[30,22],[42,16],[36,34],[48,30],[30,46],[44,44],[54,40],[40,58],[52,56],[46,70],[58,66],[50,84],[44,92],[34,54],[60,52]];
+const focusClusters=[{x:40,y:24,n:5},{x:48,y:54,n:4},{x:50,y:78,n:5}];
+let dotEls=[];
+function renderDots(mode){dotEls.forEach(d=>d.remove());dotEls=[];if(mode==='spread'){spreadDots.forEach(([x,y])=>{const d=document.createElement('span');d.className='conc-dot';d.style.left=x*2+'%';d.style.top=y*100/130+'%';d.style.width='9px';d.style.height='9px';d.style.opacity='0.32';concViz.appendChild(d);dotEls.push(d);});}else{focusClusters.forEach(c=>{for(let i=0;i<c.n;i++){const a=i/c.n*Math.PI*2,r=i===0?0:7;const d=document.createElement('span');d.className='conc-dot';d.style.left=(c.x+Math.cos(a)*r)*2+'%';d.style.top=(c.y+Math.sin(a)*r)*100/130+'%';const s=i===0?20:11;d.style.width=s+'px';d.style.height=s+'px';d.style.opacity='0.92';concViz.appendChild(d);dotEls.push(d);}});}}
+const concTexts={spread:{h:'<span class="x">Spalmato su tutta Italia</span>',p:"Lo stesso budget diviso su 128 negozi sparsi: ogni persona vede il brand una volta sola e lo dimentica. Tanta superficie, zero ricordo."},focus:{h:'<span class="v">Concentrato sui cluster, la nostra scelta</span>',p:"Lo stesso budget su poche aree dense porta una frequenza alta: le persone vedono il brand pi&ugrave; volte, lo ricordano, agiscono."}};
+function setConc(m){document.querySelectorAll('.conc-switch button').forEach(b=>b.classList.toggle('active',b.dataset.mode===m));renderDots(m);concDesc.innerHTML='<h4>'+concTexts[m].h+'</h4><p>'+concTexts[m].p+'</p>';}
+document.querySelectorAll('.conc-switch button').forEach(b=>b.addEventListener('click',()=>setConc(b.dataset.mode)));
+setConc('focus');
+
+/* PERSONAS */
+document.querySelectorAll('.persona').forEach(p=>{const bar=p.querySelector('.persona-bar'),body=p.querySelector('.persona-body');if(p.classList.contains('open'))body.style.maxHeight=body.scrollHeight+'px';bar.addEventListener('click',()=>{const o=p.classList.contains('open');document.querySelectorAll('.persona').forEach(x=>{x.classList.remove('open');x.querySelector('.persona-body').style.maxHeight='0px';});if(!o){p.classList.add('open');body.style.maxHeight=body.scrollHeight+'px';}});});
+
+/* CLAIM SELECT */
+document.querySelectorAll('.claim-card').forEach(c=>c.addEventListener('click',()=>{const w=c.classList.contains('selected');document.querySelectorAll('.claim-card').forEach(o=>o.classList.remove('selected'));if(!w)c.classList.add('selected');}));
+
+/* REGION BARS */
+new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.querySelectorAll('.reg-bar').forEach(b=>b.style.width=b.dataset.w+'%');}})},{threshold:0.2}).observe(document.querySelector('.region-table'));
+
+/* ===== CUSTOM SVG MAP ===== */
+(function(){
+  const D=MAP_DATA, PRIORITY=['Lombardia','Lazio','Puglia'];
+  const GOLD='#cbab74';
+  function dotR(c){if(c>=10)return 9;if(c>=4)return 6.5;if(c>=2)return 5;return 3.4;}
+  let svg='<svg id="italymap" viewBox="0 0 '+D.W+' '+D.H+'" xmlns="http://www.w3.org/2000/svg">';
+  // regions
+  D.regions.forEach(r=>{svg+='<path class="region" data-region="'+r.name+'" data-count="'+r.count+'" d="'+r.d+'" fill="rgba(176,141,79,'+r.op+')"></path>';});
+  // catchment circles
+  D.clusters.forEach(c=>{svg+='<circle class="catch" cx="'+c.cx+'" cy="'+c.cy+'" r="'+c.r+'" fill="rgba(203,171,116,0.10)" stroke="'+GOLD+'" stroke-width="1" stroke-dasharray="4 4"></circle>';svg+='<text class="catch-lbl" x="'+c.cx+'" y="'+(c.cy-c.r-4)+'" text-anchor="middle">'+c.name+'</text>';});
+  // city dots
+  D.dots.forEach((p,i)=>{svg+='<circle class="city" data-i="'+i+'" data-region="'+p.r+'" cx="'+p.x+'" cy="'+p.y+'" r="'+dotR(p.c)+'" fill="'+GOLD+'" stroke="#131313" stroke-width="0.6" fill-opacity="0.92"></circle>';});
+  svg+='</svg>';
+  document.getElementById('mapMount').innerHTML=svg;
+  const map=document.getElementById('italymap');
+  const tip=document.getElementById('mapTip'),holder=document.querySelector('.map-holder');
+  const dotR_=dotR;
+  function showTip(html,ev){tip.innerHTML=html;tip.classList.add('show');const hb=holder.getBoundingClientRect();let x=ev.clientX-hb.left+12,y=ev.clientY-hb.top+12;if(x+160>hb.width)x=ev.clientX-hb.left-160;tip.style.left=x+'px';tip.style.top=y+'px';}
+  function hideTip(){tip.classList.remove('show');}
+  // region hover
+  map.querySelectorAll('path.region').forEach(pa=>{
+    pa.addEventListener('mousemove',ev=>{const c=pa.dataset.count;showTip('<div class="t-city">'+pa.dataset.region+'</div><div class="t-c">'+(c>0?c+' profumeri'+(c>1?'e':'a'):'nessun punto vendita')+'</div>',ev);});
+    pa.addEventListener('mouseleave',hideTip);
+  });
+  // dot hover
+  map.querySelectorAll('circle.city').forEach(ci=>{
+    const p=D.dots[+ci.dataset.i];const baseR=dotR_(p.c);
+    ci.addEventListener('mousemove',ev=>{ci.setAttribute('r',baseR+2.5);ci.setAttribute('fill-opacity','1');const names=p.n.slice(0,5).join(', ')+(p.n.length>5?'...':'');showTip('<div class="t-city">'+p.city+'</div><div class="t-sub">'+p.r+'</div><div class="t-c">'+p.c+' profumeri'+(p.c>1?'e':'a')+'</div><div class="t-sub" style="margin-top:4px;max-width:180px;white-space:normal">'+names+'</div>',ev);});
+    ci.addEventListener('mouseleave',()=>{ci.setAttribute('r',baseR);ci.setAttribute('fill-opacity','0.92');hideTip();});
+  });
+  // filter
+  function applyFilter(region){
+    map.querySelectorAll('path.region').forEach(pa=>{
+      let on=region==='all'?true:(region==='priority'?PRIORITY.includes(pa.dataset.region):pa.dataset.region===region);
+      pa.classList.toggle('dim',!on);pa.classList.toggle('hl',on&&region!=='all');
+    });
+    map.querySelectorAll('circle.city').forEach(ci=>{
+      let on=region==='all'?true:(region==='priority'?PRIORITY.includes(ci.dataset.region):ci.dataset.region===region);
+      ci.classList.toggle('dim',!on);
+    });
+  }
+  document.querySelectorAll('.filter-pill').forEach(btn=>btn.addEventListener('click',()=>{document.querySelectorAll('.filter-pill').forEach(b=>b.classList.remove('active'));btn.classList.add('active');document.querySelectorAll('.reg-row').forEach(r=>r.classList.remove('active'));applyFilter(btn.dataset.region);}));
+  document.querySelectorAll('.reg-row').forEach(row=>row.addEventListener('click',()=>{const region=row.dataset.region;document.querySelectorAll('.reg-row').forEach(r=>r.classList.remove('active'));row.classList.add('active');document.querySelectorAll('.filter-pill').forEach(b=>b.classList.toggle('active',b.dataset.region===region));applyFilter(region);}));
+  // catchment toggle
+  const ct=document.getElementById('catchToggle'),cap=document.getElementById('catchCaption');
+  let on=false;
+  ct.addEventListener('click',()=>{on=!on;ct.classList.toggle('on',on);map.classList.toggle('show-catch',on);cap.classList.toggle('show',on);});
+})();
+
+/* PERFUME CURSOR */
+(function(){var pc=document.getElementById('pcur');if(pc&&matchMedia('(hover:hover)').matches){document.addEventListener('mousemove',function(e){pc.style.left=e.clientX+'px';pc.style.top=e.clientY+'px';},{passive:true});document.querySelectorAll('a,button,.reg-row,.jnode,.persona-bar,.claim-card,.filter-pill,.conc-switch button,.toggle-catchment,.pf-card,.bcard,.ppf-item').forEach(function(el){el.addEventListener('mouseenter',function(){pc.style.width='44px';pc.style.height='54px';pc.style.opacity='1';});el.addEventListener('mouseleave',function(){pc.style.width='28px';pc.style.height='34px';pc.style.opacity='0.9';});});}})();
+
+/* CASE STUDY COUNTERS (decimali + suffisso) */
+function animateCount2(el){var t=parseFloat(el.dataset.count),suf=el.dataset.suf||'',dec=+(el.dataset.dec||0),d=1500,t0=performance.now();function tick(n){var pr=Math.min((n-t0)/d,1),e=1-Math.pow(1-pr,3);el.textContent=(t*e).toFixed(dec)+suf;if(pr<1)requestAnimationFrame(tick);}requestAnimationFrame(tick);}
+var c2io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){animateCount2(e.target);c2io.unobserve(e.target);}})},{threshold:0.5});
+document.querySelectorAll('.num2[data-count]').forEach(function(el){c2io.observe(el);});
+
+/* REACH BARS */
+var rbEl=document.getElementById('reBars');
+if(rbEl){new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.querySelectorAll('.fill').forEach(function(f){f.style.width=f.dataset.w+'%';});}})},{threshold:0.3}).observe(rbEl);}
+</script>
+</body>
+</html>
