@@ -344,8 +344,8 @@ h1,h2,h3{font-weight:400;letter-spacing:0.01em}
 /* ===== WORK / PORTFOLIO ===== */
 .work-section{background:var(--paper)}
 .pf-sub{font-family:var(--serif);font-style:italic;font-size:30px;color:var(--gold);font-weight:500;margin-top:-14px;margin-bottom:22px}
-.pf-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(255px,1fr));gap:20px;margin-top:50px}
-.pf-card{aspect-ratio:4/3;border-radius:6px;overflow:hidden;position:relative;display:flex;flex-direction:column;justify-content:flex-end;padding:26px;color:#fff;transition:transform .45s cubic-bezier(.16,1,.3,1),box-shadow .45s}
+.pf-grid{column-count:3;column-gap:20px;margin-top:50px}@media(max-width:900px){.pf-grid{column-count:2}}@media(max-width:560px){.pf-grid{column-count:1}}
+.pf-card{break-inside:avoid;margin-bottom:20px;border-radius:6px;overflow:hidden;position:relative;display:block;color:#fff;transition:transform .45s cubic-bezier(.16,1,.3,1),box-shadow .45s}
 .pf-card:hover{transform:translateY(-6px);box-shadow:0 24px 56px rgba(28,28,28,0.18)}
 .pf-tag{position:absolute;top:16px;left:16px;font-size:9px;letter-spacing:0.14em;text-transform:uppercase;background:rgba(0,0,0,0.5);backdrop-filter:blur(6px);padding:6px 12px;border-radius:99px;color:#fff;z-index:3}
 .pf-type{position:absolute;top:20px;right:18px;font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.7);z-index:3}
@@ -455,16 +455,31 @@ h1,h2,h3{font-weight:400;letter-spacing:0.01em}
 .ppf-play{position:absolute;top:13px;right:13px;width:26px;height:26px;border-radius:50%;background:rgba(203,171,116,0.92);display:flex;align-items:center;justify-content:center;z-index:2}
 .ppf-play::after{content:"";border-left:8px solid #131313;border-top:5px solid transparent;border-bottom:5px solid transparent;margin-left:2px}
 /* video caso studio */
-.case-video{border-radius:12px;overflow:hidden;margin-top:50px;aspect-ratio:16/9;background:#222;border:1px solid rgba(203,171,116,0.2)}
+.case-video{border-radius:14px;overflow:hidden;margin:50px auto 0;max-width:300px;aspect-ratio:9/16;background:#222;border:1px solid rgba(203,171,116,0.2);box-shadow:0 24px 60px rgba(0,0,0,0.4)}
 .case-video video{width:100%;height:100%;object-fit:cover;display:block}
 
 /* AU media strip + pf-card immagini reali */
 .au-strip{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px}
 .au-strip .mi{border-radius:10px;overflow:hidden;aspect-ratio:16/9;background:#222}
 .au-strip img,.au-strip video{width:100%;height:100%;object-fit:cover;display:block}
-.pf-card .pf-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;transition:transform .55s cubic-bezier(.16,1,.3,1)}
+.pf-card .pf-img{width:100%;height:auto;display:block;position:relative;z-index:0;transition:transform .55s cubic-bezier(.16,1,.3,1)}
 .pf-card:hover .pf-img{transform:scale(1.05)}
-.pf-card.has-img::after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 50%,rgba(0,0,0,0.4));z-index:1}
+.pf-card.has-img::after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 62%,rgba(0,0,0,0.35));z-index:1;pointer-events:none}
+.au-masonry{column-count:3;column-gap:16px;margin-top:54px}
+@media(max-width:900px){.au-masonry{column-count:2}}
+@media(max-width:560px){.au-masonry{column-count:1}}
+.au-tile{break-inside:avoid;margin-bottom:16px;border-radius:10px;overflow:hidden;background:#222;border:1px solid rgba(203,171,116,0.18)}
+.au-tile img,.au-tile video{width:100%;height:auto;display:block}
+.claim-detail{margin-top:42px;background:var(--paper);border:1px solid var(--line);border-left:3px solid var(--gold);border-radius:6px;padding:48px 54px}
+.cd-head{display:flex;align-items:baseline;gap:18px;flex-wrap:wrap;margin-bottom:30px;padding-bottom:24px;border-bottom:1px solid var(--line)}
+.cd-claim{font-family:var(--serif);font-style:italic;font-size:36px;color:var(--gold);font-weight:500;line-height:1.05}
+.cd-opt{font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:#8a887f}
+.cd-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:30px 50px}
+.cd-block h5{font-size:11px;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:9px}
+.cd-block p{font-size:15px;color:#43423f;font-weight:300;line-height:1.62}
+.cd-why{margin-top:30px;padding-top:26px;border-top:1px solid var(--line);font-family:var(--serif);font-style:italic;font-size:21px;color:var(--ink);line-height:1.5}
+.cd-why span{color:var(--gold);font-style:normal;font-family:var(--sans);font-size:11px;letter-spacing:0.18em;text-transform:uppercase;display:block;margin-bottom:9px;font-weight:500}
+@media(max-width:860px){.cd-grid{grid-template-columns:1fr}.cd-claim{font-size:27px}.claim-detail{padding:32px}.cd-why{font-size:18px}}
 </style>
 </head>
 <body>
@@ -690,26 +705,27 @@ h1,h2,h3{font-weight:400;letter-spacing:0.01em}
     <h2 class="sec-title rv rv-d1">Tutto parte da <em>una sola idea.</em></h2>
     <p class="lead rv rv-d2">Un claim che dica in poche parole perché Aroma Studium non somiglia a nessun altro profumo. Da quella frase nasce ogni contenuto. Tre direzioni possibili.</p>
     <div class="claims">
-      <div class="claim-card rv">
+      <div class="claim-card rv" data-claim="0">
         <div class="cc-opt">01 &middot; La meraviglia</div>
         <div class="cc-claim">"Assaggia con il naso."</div>
         <div class="cc-sub">Olfatto e gusto diventano un solo senso. Un claim che ferma lo scroll perché sembra un paradosso.</div>
         <div class="cc-meta"><div class="cc-row"><span class="cc-k">Tono</span><span class="cc-v">Provocatorio, curioso</span></div><div class="cc-row"><span class="cc-k">Parla a</span><span class="cc-v">La Distintiva, L'Esteta</span></div></div>
       </div>
-      <div class="claim-card rv rv-d1">
+      <div class="claim-card rv rv-d1" data-claim="1">
         <div class="cc-opt">02 &middot; L'origine</div>
         <div class="cc-claim">"Nasce in cucina. Vive sulla pelle."</div>
         <div class="cc-sub">Fragranze create da nasi e chef stellati. Un piatto invisibile, da indossare. Racconta credibilità e desiderio.</div>
         <div class="cc-meta"><div class="cc-row"><span class="cc-k">Tono</span><span class="cc-v">Narrativo, elegante</span></div><div class="cc-row"><span class="cc-k">Parla a</span><span class="cc-v">La Conoscitrice, L'Esteta</span></div></div>
       </div>
-      <div class="claim-card rv rv-d2">
+      <div class="claim-card rv rv-d2" data-claim="2">
         <div class="cc-opt">03 &middot; La distinzione</div>
         <div class="cc-claim">"Non per tutti i nasi."</div>
         <div class="cc-sub">Per chi sceglie, non segue. Fa leva sull'esclusività e sul piacere di conoscere qualcosa prima degli altri.</div>
         <div class="cc-meta"><div class="cc-row"><span class="cc-k">Tono</span><span class="cc-v">Diretto, identitario</span></div><div class="cc-row"><span class="cc-k">Parla a</span><span class="cc-v">La Distintiva</span></div></div>
       </div>
     </div>
-    <p class="claim-note rv">Sceglieremo insieme la direzione &middot; clicca quella che ti convince di più</p>
+    <p class="claim-note rv">Clicca un claim per esplorarlo: come nasce, a chi parla, come suona, dove vive. Sceglieremo insieme la direzione giusta.</p>
+    <div class="claim-detail rv" id="claimDetail"></div>
   </div>
 </section>
 
@@ -888,15 +904,15 @@ h1,h2,h3{font-weight:400;letter-spacing:0.01em}
   <div class="wrap">
     <div class="kicker rv">Chi siamo</div>
     <h2 class="sec-title rv rv-d1">Ribrain Studio.</h2>
-    <p class="lead rv rv-d2">Due unità, un solo team. La strategia nasce a Napoli, la produzione foto e video a Roma. Lo stesso gruppo, stabile per tutta la durata del progetto: nessun handover, nessun freelance volante.</p>
+    <p class="lead rv rv-d2">Due unità, un solo team. Strategia e produzione foto/video lavorano come un unico gruppo, stabile per tutta la durata del progetto: nessun handover, nessun freelance volante.</p>
     <div class="team-stats rv">
       <div class="team-stat"><div class="n">13</div><div class="l">persone dedicate</div></div>
-      <div class="team-stat"><div class="n">2</div><div class="l">unità: Napoli + Roma</div></div>
+      <div class="team-stat"><div class="n">2</div><div class="l">unità integrate</div></div>
       <div class="team-stat"><div class="n">24</div><div class="l">mesi di stabilità del team</div></div>
     </div>
 
     <div class="team-unit rv">
-      <div class="unit-h"><span class="city">Napoli</span><span class="role">Strategia &amp; Always-on</span></div>
+      <div class="unit-h"><span class="city">Strategia &amp; Always-on</span><span class="role">Voce, contenuti, canali</span></div>
       <div class="team-grid">
         <div class="tm"><img class="ph" src="https://raw.githubusercontent.com/michele-riccio/bzarhotel/main/team/michele%20-%20ceo.png" alt="Michele" loading="lazy"><div class="nm">Michele</div><div class="rl">CEO</div></div>
         <div class="tm"><img class="ph" src="https://raw.githubusercontent.com/michele-riccio/bzarhotel/main/team/pasquale%20-%20ceo.png" alt="Pasquale" loading="lazy"><div class="nm">Pasquale</div><div class="rl">CEO</div></div>
@@ -911,7 +927,7 @@ h1,h2,h3{font-weight:400;letter-spacing:0.01em}
     </div>
 
     <div class="team-unit rv">
-      <div class="unit-h"><span class="city">Roma</span><span class="role">Snacky Agency &middot; Produzione</span></div>
+      <div class="unit-h"><span class="city">Produzione</span><span class="role">Snacky Agency &middot; Foto &amp; video</span></div>
       <div class="team-grid">
         <div class="tm"><img class="ph" src="https://raw.githubusercontent.com/michele-riccio/bzarhotel/main/team/fede%20-%20designer.png" alt="Fede" loading="lazy"><div class="nm">Fede</div><div class="rl">Designer</div></div>
         <div class="tm"><img class="ph" src="https://raw.githubusercontent.com/michele-riccio/bzarhotel/main/team/stefano%20-%20motion%20designer.png" alt="Stefano" loading="lazy"><div class="nm">Stefano</div><div class="rl">Motion Designer</div></div>
@@ -929,16 +945,12 @@ h1,h2,h3{font-weight:400;letter-spacing:0.01em}
     <h2 class="sec-title rv rv-d1">American Uncle.</h2>
     <p class="lead rv rv-d2">Un gruppo consumer-food che abbiamo costruito da zero: sede fisica, team proprietario, due brand su due mercati. Ogni cosa che vi suggeriamo di fare, l'abbiamo già decisa su noi stessi, con i nostri soldi, prima di sederci a questo tavolo.</p>
 
-    <div class="au-media rv rv-d2">
-      <div class="m-main"><video src="https://americanuncle.it/cdn/shop/videos/c/vp/b0e6842543c64b9c8257857ad1a02fca/b0e6842543c64b9c8257857ad1a02fca.HD-1080p-3.3Mbps-82080850.mp4?v=0" autoplay muted loop playsinline preload="metadata"></video></div>
-      <div class="m-side">
-        <div class="mi"><img src="https://americanuncle.it/cdn/shop/files/Gif_Team_Chi_Siamo.gif?v=1717423001&width=1080" alt="Il team American Uncle al lavoro" loading="lazy" onerror="this.style.opacity=0"></div>
-        <div class="mi"><img src="https://raw.githubusercontent.com/michele-riccio/bzarhotel/main/AU/au1.jpg" alt="American Uncle" loading="lazy" onerror="this.style.opacity=0"></div>
-      </div>
-    </div>
-    <div class="au-strip rv">
-      <div class="mi"><img src="https://americanuncle.it/cdn/shop/files/Foto_Franchising_2.jpg?v=1776417005" alt="Franchising American Uncle" loading="lazy" onerror="this.style.opacity=0"></div>
-      <div class="mi"><video src="https://americanuncle.it/cdn/shop/videos/c/vp/e0c5e441f4cd4f00b149f2d8e51852a4/e0c5e441f4cd4f00b149f2d8e51852a4.HD-1080p-3.3Mbps-82080851.mp4?v=0" autoplay muted loop playsinline preload="metadata"></video></div>
+    <div class="au-masonry rv rv-d2">
+      <div class="au-tile"><video src="https://americanuncle.it/cdn/shop/videos/c/vp/b0e6842543c64b9c8257857ad1a02fca/b0e6842543c64b9c8257857ad1a02fca.HD-1080p-3.3Mbps-82080850.mp4?v=0" autoplay muted loop playsinline preload="metadata"></video></div>
+      <div class="au-tile"><img src="https://americanuncle.it/cdn/shop/files/Gif_Team_Chi_Siamo.gif?v=1717423001&width=1080" alt="Il team American Uncle al lavoro" loading="lazy" onerror="this.style.opacity=0"></div>
+      <div class="au-tile"><video src="https://americanuncle.it/cdn/shop/videos/c/vp/e0c5e441f4cd4f00b149f2d8e51852a4/e0c5e441f4cd4f00b149f2d8e51852a4.HD-1080p-3.3Mbps-82080851.mp4?v=0" autoplay muted loop playsinline preload="metadata"></video></div>
+      <div class="au-tile"><img src="https://raw.githubusercontent.com/michele-riccio/bzarhotel/main/AU/au1.jpg" alt="American Uncle" loading="lazy" onerror="this.style.opacity=0"></div>
+      <div class="au-tile"><img src="https://americanuncle.it/cdn/shop/files/Foto_Franchising_2.jpg?v=1776417005" alt="Franchising American Uncle" loading="lazy" onerror="this.style.opacity=0"></div>
     </div>
 
     <div class="au-nums rv">
@@ -969,8 +981,8 @@ h1,h2,h3{font-weight:400;letter-spacing:0.01em}
       <div class="ms"><div class="n">12</div><div class="l">cicli all'anno</div></div>
     </div>
     <div class="method-cols">
-      <div class="mc rv"><h4>Napoli &middot; Strategia &amp; Always-on</h4><p>Pensa la voce, scrive il calendario, presidia i canali, costruisce i contenuti e legge i numeri. Lo stesso team per tutta la durata del contratto.</p></div>
-      <div class="mc rv rv-d1"><h4>Roma &middot; Produzione</h4><p>Foto e video sul campo, con vicinanza fisica alle attività. Nessun handover esterno, nessun freelance volante: continuità e qualità costante.</p></div>
+      <div class="mc rv"><h4>Strategia &amp; Always-on</h4><p>Pensa la voce, scrive il calendario, presidia i canali, costruisce i contenuti e legge i numeri. Lo stesso team per tutta la durata del contratto.</p></div>
+      <div class="mc rv rv-d1"><h4>Produzione</h4><p>Foto e video sul campo, con vicinanza fisica alle attività. Nessun handover esterno, nessun freelance volante: continuità e qualità costante.</p></div>
     </div>
   </div>
 </section>
@@ -1055,7 +1067,45 @@ setConc('focus');
 document.querySelectorAll('.persona').forEach(p=>{const bar=p.querySelector('.persona-bar'),body=p.querySelector('.persona-body');if(p.classList.contains('open'))body.style.maxHeight=body.scrollHeight+'px';bar.addEventListener('click',()=>{const o=p.classList.contains('open');document.querySelectorAll('.persona').forEach(x=>{x.classList.remove('open');x.querySelector('.persona-body').style.maxHeight='0px';});if(!o){p.classList.add('open');body.style.maxHeight=body.scrollHeight+'px';}});});
 
 /* CLAIM SELECT */
-document.querySelectorAll('.claim-card').forEach(c=>c.addEventListener('click',()=>{const w=c.classList.contains('selected');document.querySelectorAll('.claim-card').forEach(o=>o.classList.remove('selected'));if(!w)c.classList.add('selected');}));
+var claimData=[
+{opt:"01 &middot; La meraviglia",claim:"&ldquo;Assaggia con il naso.&rdquo;",
+ nasce:"Dall'unicit&agrave; assoluta di Aroma Studium: fragranze nate dall'incontro tra naso e chef, dove un piatto diventa profumo. Un'idea che il pubblico non ha mai sentito prima e che incuriosisce al primo sguardo.",
+ chi:"Alla Distintiva (20-35) e all'Esteta Gourmand: un pubblico curioso, social, che ama scoprire per primo e raccontarlo agli altri.",
+ suona:"Provocatorio, quasi un gioco. &ldquo;Hai mai sentito un sapore?&rdquo; Voce sicura e ironica, mai didascalica: lascia che sia la curiosit&agrave; a fare il lavoro.",
+ vive:"Reel scroll-stopping con close-up sinestetici (il caff&egrave; che diventa nuvola di profumo), adv con headline secca, vetrine con la frase a caratteri cubitali.",
+ why:"Trasforma un concetto complesso, la sinestesia, in tre parole che si ricordano. &Egrave; il claim pi&ugrave; condivisibile: nasce per diventare virale."},
+{opt:"02 &middot; L'origine",claim:"&ldquo;Nasce in cucina. Vive sulla pelle.&rdquo;",
+ nasce:"Dalla storia vera del brand: la collaborazione con chef stellati, le materie prime nobili, il piatto invisibile che diventa fragranza. &Egrave; il claim della credibilit&agrave;.",
+ chi:"Alla Conoscitrice (45-65) e all'Esteta Gourmand: chi cerca qualit&agrave;, racconto ed eleganza, e vuole capire prima di acquistare.",
+ suona:"Narrativo, caldo, cinematografico. &ldquo;Ogni fragranza inizia dove finisce un grande piatto.&rdquo; Voce da maison, non da spot.",
+ vive:"Video storytelling con lo chef e il naso, foto editoriali materiche, caption curate, materiali eleganti nel punto vendita.",
+ why:"Giustifica il prezzo e costruisce desiderio attraverso la storia. &Egrave; il claim pi&ugrave; premium, quello che fa percepire il valore."},
+{opt:"03 &middot; La distinzione",claim:"&ldquo;Non per tutti i nasi.&rdquo;",
+ nasce:"Dal posizionamento di nicchia: oggi pochi conoscono il brand, ed &egrave; esattamente questo il punto di forza. Profumeria per chi non vuole profumare come tutti.",
+ chi:"Alla Distintiva: il pubblico giovane che compra nicchia per affermare la propria identit&agrave; e distinguersi dalla massa.",
+ suona:"Diretto, un filo altezzoso, da club esclusivo. &ldquo;Se lo riconosci, sei dei nostri.&rdquo; Voce identitaria e complice.",
+ vive:"Reel ad alta estetica, contenuti da insider, collaborazioni con micro-influencer di nicchia, edizioni limitate e drop.",
+ why:"Fa leva su appartenenza e status. Trasforma la scarsa notoriet&agrave; in un vantaggio: l'esclusivit&agrave; diventa il messaggio."}
+];
+var claimDetail=document.getElementById('claimDetail');
+function setClaim(i){
+  document.querySelectorAll('.claim-card').forEach(function(c){c.classList.toggle('selected',+c.dataset.claim===i);});
+  var d=claimData[i];
+  claimDetail.style.opacity=0;
+  setTimeout(function(){
+    claimDetail.innerHTML='<div class="cd-head"><span class="cd-claim">'+d.claim+'</span><span class="cd-opt">'+d.opt+'</span></div>'+
+    '<div class="cd-grid">'+
+    '<div class="cd-block"><h5>Da dove nasce</h5><p>'+d.nasce+'</p></div>'+
+    '<div class="cd-block"><h5>A chi parla</h5><p>'+d.chi+'</p></div>'+
+    '<div class="cd-block"><h5>Come suona</h5><p>'+d.suona+'</p></div>'+
+    '<div class="cd-block"><h5>Dove vive</h5><p>'+d.vive+'</p></div>'+
+    '</div>'+
+    '<div class="cd-why"><span>Perch&eacute; funziona</span>'+d.why+'</div>';
+    claimDetail.style.transition='opacity .4s ease';claimDetail.style.opacity=1;
+  },160);
+}
+document.querySelectorAll('.claim-card').forEach(function(c){c.addEventListener('click',function(){setClaim(+c.dataset.claim);});});
+setClaim(0);
 
 /* REGION BARS */
 new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.querySelectorAll('.reg-bar').forEach(b=>b.style.width=b.dataset.w+'%');}})},{threshold:0.2}).observe(document.querySelector('.region-table'));
