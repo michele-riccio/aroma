@@ -480,6 +480,43 @@ h1,h2,h3{font-weight:400;letter-spacing:0.01em}
 .cd-why{margin-top:30px;padding-top:26px;border-top:1px solid var(--line);font-family:var(--serif);font-style:italic;font-size:21px;color:var(--ink);line-height:1.5}
 .cd-why span{color:var(--gold);font-style:normal;font-family:var(--sans);font-size:11px;letter-spacing:0.18em;text-transform:uppercase;display:block;margin-bottom:9px;font-weight:500}
 @media(max-width:860px){.cd-grid{grid-template-columns:1fr}.cd-claim{font-size:27px}.claim-detail{padding:32px}.cd-why{font-size:18px}}
+
+/* ===== PERCORSO / INGAGGIO ===== */
+.path-section{background:var(--cream)}
+.path-flow{display:grid;grid-template-columns:1fr 76px 1fr;gap:26px;align-items:stretch;margin-top:56px}
+.path-card{background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:40px 38px;display:flex;flex-direction:column;transition:all .4s cubic-bezier(.16,1,.3,1)}
+.path-card:hover{box-shadow:0 20px 50px rgba(28,28,28,0.07);transform:translateY(-4px)}
+.path-card.test{border-top:3px solid var(--gold)}
+.path-card.annual{border-top:3px solid var(--ink)}
+.path-label{font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:12px}
+.path-card h3{font-family:var(--serif);font-size:29px;font-weight:500;margin-bottom:6px}
+.path-card .ps-sub{font-size:14px;color:#6a6863;font-weight:300;margin-bottom:26px;line-height:1.4}
+.path-arrow{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px}
+.path-arrow svg{width:54px;height:24px}
+.path-arrow .ar-lbl{font-size:9px;letter-spacing:0.1em;text-transform:uppercase;color:#8a887f;text-align:center;line-height:1.3;max-width:60px}
+.month-step{display:flex;gap:16px;padding:15px 0;border-top:1px solid var(--line)}
+.month-step .mn{font-family:var(--serif);font-style:italic;color:var(--gold);font-size:15px;min-width:60px;flex-shrink:0}
+.month-step .mc{font-size:13.5px;color:#43423f;font-weight:300;line-height:1.5}
+.month-step .mc b{display:block;font-weight:500;color:var(--ink);font-family:var(--sans);font-size:13.5px;margin-bottom:2px;letter-spacing:0.01em}
+.path-output{margin-top:26px;background:rgba(176,141,79,0.08);border-radius:5px;padding:20px 22px}
+.path-output .po-h{font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;font-weight:500}
+.path-output p{font-size:13.5px;color:#43423f;font-weight:300;line-height:1.55}
+.path-points{list-style:none;margin-bottom:8px}
+.path-points li{font-size:14px;color:#43423f;font-weight:300;padding:11px 0 11px 18px;position:relative;border-top:1px solid var(--line);line-height:1.45}
+.path-points li::before{content:"";position:absolute;left:0;top:18px;width:5px;height:5px;border-radius:50%;background:var(--gold)}
+.growth{margin-top:auto;padding-top:26px}
+.growth .g-cap{font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;font-weight:500}
+.growth .g-bars{display:flex;align-items:flex-end;gap:16px;height:84px}
+.growth .gb{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%}
+.growth .gb .bar{width:100%;background:linear-gradient(var(--gold-light),var(--gold));border-radius:3px 3px 0 0;transform:scaleY(0);transform-origin:bottom;transition:transform .9s cubic-bezier(.16,1,.3,1)}
+.growth.in .gb .bar{transform:scaleY(1)}
+.growth.in .gb:nth-child(2) .bar{transition-delay:.12s}
+.growth.in .gb:nth-child(3) .bar{transition-delay:.24s}
+.growth .gb .gl{font-size:10px;color:#8a887f;margin-top:8px;letter-spacing:0.03em}
+@media(max-width:860px){
+  .path-flow{grid-template-columns:1fr}
+  .path-arrow{transform:rotate(90deg);height:60px}
+}
 </style>
 </head>
 <body>
@@ -496,6 +533,7 @@ h1,h2,h3{font-weight:400;letter-spacing:0.01em}
   <a href="#orchestrazione" data-label="L'orchestrazione"></a>
   <a href="#budget" data-label="Investimento"></a>
   <a href="#misura" data-label="Misurazione"></a>
+  <a href="#percorso" data-label="Il percorso"></a>
   <a href="#lavoro" data-label="Il lavoro"></a>
   <a href="#caso" data-label="Caso studio"></a>
   <a href="#chisiamo" data-label="Chi siamo"></a>
@@ -861,6 +899,57 @@ h1,h2,h3{font-weight:400;letter-spacing:0.01em}
       <div class="measure-col rv rv-d1"><h3>Il segnale di business</h3><ul><li>Sell-out cluster attivati vs cluster di controllo</li><li>Riscontro dai negozi: più richieste del brand</li><li>Variazione dei riordini nelle aree presidiate</li><li>Andamento nel tempo, non sul singolo spot</li></ul></div>
     </div>
     <div class="perche rv"><span class="pq">Perché</span><p>Un'agenzia onesta non promette "vendite garantite da Meta": promette di portare le persone giuste fino alla porta, e di misurare ogni passo di quel percorso.</p></div>
+  </div>
+</section>
+
+<!-- PERCORSO / INGAGGIO -->
+<section class="path-section" id="percorso">
+  <div class="wrap">
+    <div class="kicker rv">Come partire</div>
+    <h2 class="sec-title rv rv-d1">Prima il test, poi la <em>corsa.</em></h2>
+    <p class="lead rv rv-d2">Un brand giovane non si impegna al buio per un anno. Si parte da un test di 3 mesi per trovare i messaggi giusti e costruire i primi numeri veri. Poi, con i dati in mano, si passa alla continuità annuale per crescere sul serio.</p>
+
+    <div class="path-flow">
+      <div class="path-card test rv rv-d2">
+        <div class="path-label">Fase d'ingresso</div>
+        <h3>Test &middot; 3 mesi</h3>
+        <div class="ps-sub">Trovare il messaggio giusto e costruire i primi numeri reali.</div>
+        <div class="month-step"><span class="mn">Mese 1</span><span class="mc"><b>Lancio e ascolto</b>Setup delle campagne sui cluster e test in parallelo dei tre claim e delle creatività.</span></div>
+        <div class="month-step"><span class="mn">Mese 2</span><span class="mc"><b>Lettura e fuoco</b>Si spengono i messaggi deboli, il budget si concentra sui vincenti, i pubblici si affinano.</span></div>
+        <div class="month-step"><span class="mn">Mese 3</span><span class="mc"><b>Consolidamento</b>Messaggio vincente definito, primi segnali su store-locator e reach, report con i numeri veri del brand.</span></div>
+        <div class="path-output">
+          <div class="po-h">Cosa resta in mano</div>
+          <p>Il claim che funziona, i costi reali di Aroma Studium (CPM, click), i pubblici che rispondono. Una base dati che oggi non esiste.</p>
+        </div>
+      </div>
+
+      <div class="path-arrow rv rv-d2">
+        <svg viewBox="0 0 54 24" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#b08d4f" stroke-width="1.5"><line x1="2" y1="12" x2="46" y2="12"/><path d="M40 5 L52 12 L40 19"/></svg>
+        <span class="ar-lbl">con i dati in mano</span>
+      </div>
+
+      <div class="path-card annual rv rv-d2">
+        <div class="path-label" style="color:var(--ink)">Crescita strutturata</div>
+        <h3>Continuità &middot; 12 mesi</h3>
+        <div class="ps-sub">Scalare il modello che ha già funzionato.</div>
+        <ul class="path-points">
+          <li>Si scala ai cluster successivi con il messaggio validato.</li>
+          <li>Si apre al target giovane: TikTok, creator e UGC in continuità.</li>
+          <li>Si lega ai lanci di prodotto in roadmap, dalla nuova fragranza in poi.</li>
+          <li>Notorietà e sell-out si costruiscono passo dopo passo.</li>
+        </ul>
+        <div class="growth rv">
+          <div class="g-cap">La notorietà cresce con la costanza</div>
+          <div class="g-bars">
+            <div class="gb"><div class="bar" style="height:34%"></div><div class="gl">3 mesi</div></div>
+            <div class="gb"><div class="bar" style="height:64%"></div><div class="gl">6 mesi</div></div>
+            <div class="gb"><div class="bar" style="height:100%"></div><div class="gl">12 mesi</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="perche rv"><span class="pq">Perché</span><p>Il test abbassa il rischio per entrambi: dopo 3 mesi la scelta dell'annuale non è un salto nel buio, ma una decisione presa sui numeri. Si costruisce sulla prova, non sulla promessa.</p></div>
   </div>
 </section>
 
